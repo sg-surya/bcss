@@ -13,7 +13,7 @@ export default function FloatingWhatsApp() {
       
       {/* Tooltip */}
       <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-white text-[#0a0a0a] text-sm font-medium px-4 py-2 rounded-xl shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-black/5">
-        Chat with us! 🚀
+        Chat with us!
       </div>
     </a>
   );

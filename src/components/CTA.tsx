@@ -16,8 +16,8 @@ export default function CTA() {
           
           <div className="relative z-10 w-full max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-white text-xs font-semibold uppercase tracking-widest mb-8 backdrop-blur-sm">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-              Limited Seats Available
+              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+              New Batch Started
             </div>
 
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-white mb-6">
@@ -28,7 +28,7 @@ export default function CTA() {
               Book your free demo class now.
             </p>
             <p className="text-lg md:text-xl font-medium text-white mb-10">
-              "Aaj hi join karo aur apni career journey start karo 🚀"
+              "Aaj hi join karo aur apni career journey start karo."
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
