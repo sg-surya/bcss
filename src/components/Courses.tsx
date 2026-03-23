@@ -1,7 +1,10 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Clock, IndianRupee } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Courses() {
+  const navigate = useNavigate();
+  
   const courses = [
     {
       title: "AI Tools + Freelancing",
@@ -50,9 +53,18 @@ export default function Courses() {
           </h2>
           <p className="text-gray-500 max-w-xl text-lg">Job-oriented programs designed to make you industry-ready.</p>
         </div>
+        <button 
+          onClick={() => {
+            navigate('/courses');
+            window.scrollTo(0, 0);
+          }}
+          className="hidden md:flex items-center gap-2 text-[#0a0a0a] font-medium hover:text-blue-600 transition-colors group"
+        >
+          View All Courses <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+        </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
         {courses.map((course, idx) => (
           <motion.div
             key={idx}
@@ -86,13 +98,31 @@ export default function Courses() {
               </div>
               
               <div className="pt-4 border-t border-black/5">
-                <button className="w-full bg-gray-50 text-[#0a0a0a] py-3 rounded-xl text-sm font-medium group-hover:bg-[#0a0a0a] group-hover:text-white transition-colors flex items-center justify-center gap-2">
+                <button 
+                  onClick={() => {
+                    navigate('/courses');
+                    window.scrollTo(0, 0);
+                  }}
+                  className="w-full bg-gray-50 text-[#0a0a0a] py-3 rounded-xl text-sm font-medium group-hover:bg-[#0a0a0a] group-hover:text-white transition-colors flex items-center justify-center gap-2"
+                >
                   View Details <ArrowRight size={16} />
                 </button>
               </div>
             </div>
           </motion.div>
         ))}
+      </div>
+      
+      <div className="md:hidden flex justify-center">
+        <button 
+          onClick={() => {
+            navigate('/courses');
+            window.scrollTo(0, 0);
+          }}
+          className="flex items-center gap-2 bg-[#0a0a0a] text-white px-8 py-4 rounded-2xl font-medium hover:bg-blue-600 transition-colors"
+        >
+          View All Courses <ArrowRight size={20} />
+        </button>
       </div>
     </section>
   );
