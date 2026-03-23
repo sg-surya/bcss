@@ -72,7 +72,7 @@ export default function Footer() {
             © 2026 Bhavna Institute. All rights reserved.
           </p>
           <div className="flex items-center gap-2 text-sm text-gray-400">
-            Made with <span className="text-red-500">♥</span> in Meerut
+            Made with <span className="text-red-500">♥</span> in Meerut | Made by <a href="https://vasudev.online" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors font-medium">Vasudev AI</a>
           </div>
         </div>
       </div>
