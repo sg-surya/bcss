@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { MapPin } from 'lucide-react';
 
 export default function Stats() {
   return (
@@ -51,7 +52,9 @@ export default function Stats() {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <div className="text-5xl md:text-6xl font-light mb-4 font-serif italic text-blue-400">📍</div>
+            <div className="mb-6 text-blue-400">
+              <MapPin size={56} strokeWidth={1.5} />
+            </div>
             <div className="text-lg font-medium mb-2">Meerut Based</div>
             <p className="text-gray-400 text-sm leading-relaxed">Proudly serving the students of Meerut and beyond.</p>
           </motion.div>
