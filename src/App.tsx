@@ -1,11 +1,15 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Features from './components/Features';
 import Courses from './components/Courses';
+import Features from './components/Features';
 import Stats from './components/Stats';
 import Testimonials from './components/Testimonials';
+import About from './components/About';
 import CTA from './components/CTA';
+import ContactForm from './components/ContactForm';
+import Location from './components/Location';
 import Footer from './components/Footer';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 export default function App() {
   return (
@@ -13,13 +17,17 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <Features />
         <Courses />
+        <Features />
         <Stats />
         <Testimonials />
+        <About />
         <CTA />
+        <ContactForm />
+        <Location />
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 }
