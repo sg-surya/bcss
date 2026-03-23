@@ -188,36 +188,34 @@ export default function CourseDetailsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           
           {/* Left Column: Course Details with Tabs */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 flex flex-col md:flex-row gap-6 items-start">
             
             {/* Sticky Tabs Navigation */}
-            <div className="sticky top-24 z-30 pt-4 pb-6 -mx-4 px-4 sm:mx-0 sm:px-0">
-              <div className="bg-white/95 backdrop-blur-md border border-gray-200 shadow-sm rounded-2xl p-2 flex overflow-x-auto hide-scrollbar">
-                <div className="flex gap-2 w-max">
-                  {tabs.map((tab) => {
-                    const Icon = tab.icon;
-                    const isActive = activeTab === tab.id;
-                    return (
-                      <button
-                        key={tab.id}
-                        onClick={() => setActiveTab(tab.id)}
-                        className={`group flex items-center gap-2.5 px-6 py-2.5 rounded-xl font-semibold text-sm whitespace-nowrap transition-all duration-300 ${
-                          isActive 
-                            ? 'bg-blue-50 text-blue-700 shadow-sm border border-blue-100' 
-                            : 'bg-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                        }`}
-                      >
-                        <Icon size={18} className={`transition-colors duration-300 ${isActive ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-500'}`} />
-                        {tab.label}
-                      </button>
-                    );
-                  })}
-                </div>
+            <div className="sticky top-24 z-30 w-full md:w-56 shrink-0">
+              <div className="bg-white/95 backdrop-blur-md border border-gray-200 shadow-sm rounded-2xl p-3 flex flex-col gap-2">
+                {tabs.map((tab) => {
+                  const Icon = tab.icon;
+                  const isActive = activeTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id)}
+                      className={`group flex items-center gap-3 px-4 py-3 rounded-xl font-semibold text-sm transition-all duration-300 text-left ${
+                        isActive 
+                          ? 'bg-blue-50 text-blue-700 shadow-sm border border-blue-100' 
+                          : 'bg-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900 border border-transparent'
+                      }`}
+                    >
+                      <Icon size={18} className={`shrink-0 transition-colors duration-300 ${isActive ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-500'}`} />
+                      {tab.label}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
             {/* Tab Content Area */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-gray-100 shadow-sm min-h-[500px]">
+            <div className="flex-1 w-full bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-gray-100 shadow-sm min-h-[500px]">
               <AnimatePresence mode="wait">
                 
                 {/* 1. OVERVIEW TAB */}
