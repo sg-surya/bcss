@@ -158,26 +158,28 @@ export default function CourseDetailsPage() {
           <div className="lg:col-span-2 space-y-6">
             
             {/* Sticky Tabs Navigation */}
-            <div className="sticky top-24 z-30 bg-[#f5f5f4]/90 backdrop-blur-md pt-2 pb-4 -mx-4 px-4 sm:mx-0 sm:px-0">
-              <div className="flex overflow-x-auto hide-scrollbar gap-2 pb-2 border-b border-gray-200">
-                {tabs.map((tab) => {
-                  const Icon = tab.icon;
-                  const isActive = activeTab === tab.id;
-                  return (
-                    <button
-                      key={tab.id}
-                      onClick={() => setActiveTab(tab.id)}
-                      className={`flex items-center gap-2 px-4 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all ${
-                        isActive 
-                          ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20' 
-                          : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-[#0a0a0a] border border-gray-100'
-                      }`}
-                    >
-                      <Icon size={16} className={isActive ? 'text-white' : 'text-gray-400'} />
-                      {tab.label}
-                    </button>
-                  );
-                })}
+            <div className="sticky top-24 z-30 pt-4 pb-6 -mx-4 px-4 sm:mx-0 sm:px-0">
+              <div className="flex overflow-x-auto hide-scrollbar pb-2 -mb-2">
+                <div className="flex gap-2.5 w-max">
+                  {tabs.map((tab) => {
+                    const Icon = tab.icon;
+                    const isActive = activeTab === tab.id;
+                    return (
+                      <button
+                        key={tab.id}
+                        onClick={() => setActiveTab(tab.id)}
+                        className={`group flex items-center gap-2.5 px-6 py-3 rounded-full font-semibold text-sm whitespace-nowrap transition-all duration-300 ${
+                          isActive 
+                            ? 'bg-[#0a0a0a] text-white shadow-lg shadow-black/10' 
+                            : 'bg-transparent text-gray-500 hover:bg-black/5 hover:text-[#0a0a0a]'
+                        }`}
+                      >
+                        <Icon size={18} className={`transition-colors duration-300 ${isActive ? 'text-blue-400' : 'text-gray-400 group-hover:text-blue-500'}`} />
+                        {tab.label}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
