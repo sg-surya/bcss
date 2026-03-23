@@ -71,12 +71,14 @@ export default function Navbar() {
       </div>
 
       <div className="hidden md:block">
-        <button 
-          onClick={(e) => handleNavClick(e as any, 'Contact')}
-          className="bg-[#0a0a0a] text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors"
+        <a 
+          href="https://wa.me/919719205268?text=Hi,%20I%20am%20interested%20in%20enrolling%20in%20a%20course."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-[#0a0a0a] text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors inline-block"
         >
           Enroll Now
-        </button>
+        </a>
       </div>
 
       <button className="md:hidden text-[#0a0a0a]" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -99,12 +101,15 @@ export default function Navbar() {
               {item}
             </a>
           ))}
-          <button 
-            onClick={(e) => handleNavClick(e as any, 'Contact')}
-            className="w-full bg-[#0a0a0a] text-white px-6 py-3 rounded-xl text-sm font-medium mt-2"
+          <a 
+            href="https://wa.me/919719205268?text=Hi,%20I%20am%20interested%20in%20enrolling%20in%20a%20course."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full bg-[#0a0a0a] text-white px-6 py-3 rounded-xl text-sm font-medium mt-2 text-center block"
+            onClick={() => setMobileMenuOpen(false)}
           >
             Enroll Now
-          </button>
+          </a>
         </div>
       )}
     </motion.nav>

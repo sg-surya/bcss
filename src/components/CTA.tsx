@@ -32,12 +32,22 @@ export default function CTA() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-[#0a0a0a] px-8 py-4 rounded-full text-base font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center gap-2 group">
+              <a 
+                href="https://wa.me/919719205268?text=Hi,%20I%20am%20interested%20in%20enrolling%20in%20a%20course."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-[#0a0a0a] px-8 py-4 rounded-full text-base font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center gap-2 group"
+              >
                 Enroll Now <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="bg-[#25D366] text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-[#1ebe57] transition-colors flex items-center justify-center gap-2">
+              </a>
+              <a 
+                href="https://wa.me/919719205268?text=Hi,%20I%20have%20a%20query."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#25D366] text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-[#1ebe57] transition-colors flex items-center justify-center gap-2"
+              >
                 <MessageCircle size={18} /> WhatsApp Us
-              </button>
+              </a>
             </div>
           </div>
         </motion.div>
