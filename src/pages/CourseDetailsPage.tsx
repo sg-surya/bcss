@@ -13,14 +13,47 @@ import { useEffect, useState } from 'react';
 // Helper function to dynamically assign icons based on learning point text
 const getIconForLearningPoint = (text: string) => {
   const lower = text.toLowerCase();
-  if (lower.includes('html') || lower.includes('css') || lower.includes('code') || lower.includes('script')) return <Code className="text-blue-500" size={24} />;
-  if (lower.includes('photoshop') || lower.includes('design') || lower.includes('corel') || lower.includes('canva') || lower.includes('logo')) return <PenTool className="text-purple-500" size={24} />;
-  if (lower.includes('excel') || lower.includes('data') || lower.includes('chart') || lower.includes('power bi')) return <BarChart className="text-green-500" size={24} />;
-  if (lower.includes('tally') || lower.includes('gst') || lower.includes('accounting') || lower.includes('finance')) return <Database className="text-orange-500" size={24} />;
-  if (lower.includes('seo') || lower.includes('marketing') || lower.includes('ads') || lower.includes('social media')) return <Globe className="text-teal-500" size={24} />;
-  if (lower.includes('ai') || lower.includes('chatgpt') || lower.includes('midjourney') || lower.includes('automation')) return <Cpu className="text-indigo-500" size={24} />;
-  if (lower.includes('video') || lower.includes('editing') || lower.includes('premiere') || lower.includes('capcut')) return <Video className="text-red-500" size={24} />;
-  if (lower.includes('computer') || lower.includes('word') || lower.includes('powerpoint') || lower.includes('internet')) return <MonitorPlay className="text-sky-500" size={24} />;
+  
+  // Code / Web Development
+  if (lower.includes('html') || lower.includes('css') || lower.includes('code') || lower.includes('script') || lower.includes('website') || lower.includes('structure') || lower.includes('styling')) return <Code className="text-blue-500" size={24} />;
+  
+  // Design / Graphics
+  if (lower.includes('photoshop') || lower.includes('design') || lower.includes('corel') || lower.includes('canva') || lower.includes('logo') || lower.includes('poster') || lower.includes('banner') || lower.includes('print')) return <PenTool className="text-purple-500" size={24} />;
+  
+  // Data / Excel / Charts
+  if (lower.includes('excel') || lower.includes('data') || lower.includes('chart') || lower.includes('power bi') || lower.includes('formula') || lower.includes('dashboard') || lower.includes('analysis')) return <BarChart className="text-green-500" size={24} />;
+  
+  // Accounting / Database
+  if (lower.includes('tally') || lower.includes('gst') || lower.includes('accounting') || lower.includes('finance') || lower.includes('inventory') || lower.includes('billing') || lower.includes('financial')) return <Database className="text-orange-500" size={24} />;
+  
+  // Marketing / Web / SEO
+  if (lower.includes('seo') || lower.includes('marketing') || lower.includes('ads') || lower.includes('social media') || lower.includes('internet')) return <Globe className="text-teal-500" size={24} />;
+  
+  // AI / Automation / Core Tech
+  if (lower.includes('ai') || lower.includes('chatgpt') || lower.includes('midjourney') || lower.includes('automation') || lower.includes('fundamentals')) return <Cpu className="text-indigo-500" size={24} />;
+  
+  // Video / Editing
+  if (lower.includes('video') || lower.includes('editing') || lower.includes('premiere') || lower.includes('capcut') || lower.includes('reels') || lower.includes('shorts') || lower.includes('effects') || lower.includes('transitions')) return <Video className="text-red-500" size={24} />;
+  
+  // Computer / Office
+  if (lower.includes('computer') || lower.includes('word') || lower.includes('powerpoint')) return <MonitorPlay className="text-sky-500" size={24} />;
+  
+  // Speed / Typing
+  if (lower.includes('typing') || lower.includes('fast') || lower.includes('speed')) return <Zap className="text-yellow-500" size={24} />;
+  
+  // Interactive / Live
+  if (lower.includes('live') || lower.includes('play') || lower.includes('interactive')) return <PlayCircle className="text-rose-500" size={24} />;
+  
+  // Business / Career / Portfolio
+  if (lower.includes('freelanc') || lower.includes('job') || lower.includes('portfolio') || lower.includes('client') || lower.includes('business')) return <Briefcase className="text-amber-600" size={24} />;
+  
+  // Mobile / Responsive
+  if (lower.includes('mobile') || lower.includes('app') || lower.includes('responsive')) return <Smartphone className="text-pink-500" size={24} />;
+  
+  // Certificate / Award
+  if (lower.includes('certificate') || lower.includes('award') || lower.includes('outcome')) return <Award className="text-yellow-600" size={24} />;
+
+  // Default
   return <CheckCircle2 className="text-blue-500" size={24} />;
 };
 
