@@ -30,7 +30,7 @@ export default function ContactForm() {
               <label className="block text-sm font-medium text-[#0a0a0a] mb-2">Phone Number</label>
               <input 
                 type="tel" 
-                placeholder="+91 98765 43210"
+                placeholder="+91 97192 05268"
                 className="w-full px-5 py-4 rounded-2xl border border-black/10 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all"
               />
             </div>
@@ -67,7 +67,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <div className="text-sm text-gray-500 font-medium mb-1">Call Us</div>
-                <div className="text-lg font-semibold text-[#0a0a0a]">+91 98765 43210</div>
+                <div className="text-lg font-semibold text-[#0a0a0a]">+91 97192 05268</div>
               </div>
             </div>
 
@@ -77,7 +77,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <div className="text-sm text-gray-500 font-medium mb-1">WhatsApp</div>
-                <div className="text-lg font-semibold text-[#0a0a0a]">+91 98765 43210</div>
+                <div className="text-lg font-semibold text-[#0a0a0a]">+91 97192 05268</div>
               </div>
             </div>
 
