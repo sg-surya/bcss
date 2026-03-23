@@ -1,13 +1,14 @@
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { 
   ArrowLeft, Clock, IndianRupee, BookOpen, Target, 
   Star, Users, MonitorPlay, Code, PenTool, BarChart, 
   Database, Globe, Cpu, Video, CheckCircle2, Zap, 
-  PlayCircle, FileText, Award, Smartphone
+  PlayCircle, FileText, Award, Smartphone,
+  ChevronDown, ChevronUp, Check, Briefcase, MessageSquare, HelpCircle
 } from 'lucide-react';
 import { coursesData } from '../data/courses';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 // Helper function to dynamically assign icons based on learning point text
 const getIconForLearningPoint = (text: string) => {
@@ -26,10 +27,49 @@ const getIconForLearningPoint = (text: string) => {
 export default function CourseDetailsPage() {
   const { id } = useParams();
   const course = coursesData.find(c => c.id === id);
+  const [activeTab, setActiveTab] = useState('overview');
+  const [openAccordion, setOpenAccordion] = useState<number | null>(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
+
+  const tabs = [
+    { id: 'overview', label: 'Overview', icon: BookOpen },
+    { id: 'curriculum', label: 'Curriculum', icon: FileText },
+    { id: 'prerequisites', label: 'Prerequisites', icon: CheckCircle2 },
+    { id: 'projects', label: 'Projects', icon: Briefcase },
+    { id: 'reviews', label: 'Reviews', icon: Star },
+    { id: 'faq', label: 'FAQ', icon: HelpCircle },
+  ];
+
+  // Mock data for new tabs (since it's not in coursesData)
+  const curriculumData = [
+    { title: 'Month 1: Fundamentals & Basics', items: ['Introduction to core concepts', 'Setting up the environment', 'Basic tools and techniques', 'First practice assignment'] },
+    { title: 'Month 2: Advanced Skills & Practice', items: ['Deep dive into advanced topics', 'Real-world problem solving', 'Optimizing workflow', 'Mid-term project'] },
+    { title: 'Month 3: Live Projects & Freelancing', items: ['Building a professional portfolio', 'Freelancing platforms setup (Fiverr/Upwork)', 'Client communication strategies', 'Final live project delivery'] },
+  ];
+
+  const projectsData = [
+    'Fiverr/Upwork Gig Setup & Optimization',
+    'Complete Portfolio Website Creation',
+    'Live Client Project Simulation',
+    'End-to-End Ad Campaign / Design Project'
+  ];
+
+  const reviewsData = [
+    { name: 'Rahul S.', role: 'Student', text: 'This course changed my career path. The practical approach is amazing!', img: 'https://i.pravatar.cc/150?img=11' },
+    { name: 'Priya M.', role: 'Freelancer', text: 'I started earning within 3 months of joining. Highly recommended.', img: 'https://i.pravatar.cc/150?img=5' },
+    { name: 'Amit K.', role: 'Professional', text: 'The mentors are very supportive and the curriculum is up-to-date.', img: 'https://i.pravatar.cc/150?img=8' },
+  ];
+
+  const faqData = [
+    { q: 'Kya ye beginners ke liye hai?', a: 'Haan, bilkul! Ye course zero se start hota hai, koi prior experience nahi chahiye.' },
+    { q: 'Online available hai?', a: 'Haan, aap online aur offline dono modes mein classes attend kar sakte hain.' },
+    { q: 'Certificate milega?', a: 'Yes, course complete karne par aapko ek verified certificate milega.' },
+    { q: 'Job support milega?', a: '100% placement assistance aur freelancing guidance provide ki jaati hai.' },
+  ];
 
   if (!course) {
     return (
@@ -114,116 +154,291 @@ export default function CourseDetailsPage() {
       <div className="max-w-7xl mx-auto px-6 -mt-32 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           
-          {/* Left Column: Course Details */}
-          <div className="lg:col-span-2 space-y-8">
+          {/* Left Column: Course Details with Tabs */}
+          <div className="lg:col-span-2 space-y-6">
             
-            {/* What You Will Learn (Bento Grid Style) */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="bg-white rounded-3xl p-8 md:p-10 border border-gray-100 shadow-sm"
-            >
-              <h2 className="text-2xl font-bold text-[#0a0a0a] mb-8 flex items-center gap-3">
-                <BookOpen className="text-blue-600" /> What You'll Learn
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {course.learn.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-blue-100 hover:bg-blue-50/50 transition-colors">
-                    <div className="bg-white p-2 rounded-xl shadow-sm border border-gray-100 shrink-0">
-                      {getIconForLearningPoint(item)}
-                    </div>
-                    <span className="text-gray-700 font-medium leading-snug pt-1">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Course Journey / Progress */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="bg-white rounded-3xl p-8 md:p-10 border border-gray-100 shadow-sm"
-            >
-              <h2 className="text-2xl font-bold text-[#0a0a0a] mb-8 flex items-center gap-3">
-                <Zap className="text-yellow-500 fill-yellow-500/20" /> Course Journey
-              </h2>
-              
-              <div className="space-y-8">
-                {/* Progress Bar */}
-                <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                  <div className="flex justify-between text-sm font-bold mb-3">
-                    <span className="text-[#0a0a0a] uppercase tracking-wider">Estimated Completion</span>
-                    <span className="text-blue-600 bg-blue-50 px-3 py-1 rounded-full">{course.duration}</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden shadow-inner">
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      whileInView={{ width: '100%' }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-                      className="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 h-full rounded-full relative"
+            {/* Sticky Tabs Navigation */}
+            <div className="sticky top-24 z-30 bg-[#f5f5f4]/90 backdrop-blur-md pt-2 pb-4 -mx-4 px-4 sm:mx-0 sm:px-0">
+              <div className="flex overflow-x-auto hide-scrollbar gap-2 pb-2 border-b border-gray-200">
+                {tabs.map((tab) => {
+                  const Icon = tab.icon;
+                  const isActive = activeTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id)}
+                      className={`flex items-center gap-2 px-4 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all ${
+                        isActive 
+                          ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20' 
+                          : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-[#0a0a0a] border border-gray-100'
+                      }`}
                     >
-                      <div className="absolute inset-0 bg-white/20 w-full h-full animate-pulse" />
-                    </motion.div>
-                  </div>
-                </div>
-
-                {/* Milestones */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 relative">
-                  <div className="hidden sm:block absolute top-6 left-[15%] right-[15%] h-0.5 bg-gray-100 -z-10" />
-                  
-                  <div className="flex flex-col items-center text-center p-4">
-                    <div className="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-lg mb-4 shadow-sm border-4 border-white">1</div>
-                    <h4 className="font-bold text-[#0a0a0a] mb-2">Fundamentals</h4>
-                    <p className="text-sm text-gray-500 leading-relaxed">Build a strong core foundation in the basics.</p>
-                  </div>
-                  
-                  <div className="flex flex-col items-center text-center p-4">
-                    <div className="w-12 h-12 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-lg mb-4 shadow-sm border-4 border-white">2</div>
-                    <h4 className="font-bold text-[#0a0a0a] mb-2">Advanced Skills</h4>
-                    <p className="text-sm text-gray-500 leading-relaxed">Master complex concepts and techniques.</p>
-                  </div>
-                  
-                  <div className="flex flex-col items-center text-center p-4">
-                    <div className="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-lg mb-4 shadow-sm border-4 border-white">3</div>
-                    <h4 className="font-bold text-[#0a0a0a] mb-2">Live Projects</h4>
-                    <p className="text-sm text-gray-500 leading-relaxed">Apply your skills to real-world scenarios.</p>
-                  </div>
-                </div>
+                      <Icon size={16} className={isActive ? 'text-white' : 'text-gray-400'} />
+                      {tab.label}
+                    </button>
+                  );
+                })}
               </div>
-            </motion.div>
+            </div>
 
-            {/* Career Outcome */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="bg-gradient-to-br from-[#0a0a0a] to-gray-900 rounded-3xl p-8 md:p-10 text-white shadow-xl relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
-              <div className="relative z-10">
-                <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-                  <Target className="text-blue-400" /> Career Outcome
-                </h2>
-                <p className="text-xl text-gray-300 font-medium leading-relaxed">
-                  {course.outcome}
-                </p>
-                <div className="mt-8 flex items-center gap-4">
-                  <div className="flex -space-x-3">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div key={i} className="w-10 h-10 rounded-full border-2 border-[#0a0a0a] bg-gray-800 flex items-center justify-center overflow-hidden">
-                        <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Student" className="w-full h-full object-cover opacity-80" />
+            {/* Tab Content Area */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-gray-100 shadow-sm min-h-[500px]">
+              <AnimatePresence mode="wait">
+                
+                {/* 1. OVERVIEW TAB */}
+                {activeTab === 'overview' && (
+                  <motion.div
+                    key="overview"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="space-y-10"
+                  >
+                    <div>
+                      <h2 className="text-2xl font-bold text-[#0a0a0a] mb-4 flex items-center gap-3">
+                        <BookOpen className="text-blue-600" /> Course Overview
+                      </h2>
+                      <p className="text-lg text-gray-700 leading-relaxed font-medium bg-blue-50/50 p-6 rounded-2xl border border-blue-100 shadow-sm">
+                        Is course me aap <span className="text-blue-600 font-bold">{course.title}</span> aur freelancing seekh kar 3 months me earning start kar sakte ho. Practical training aur live projects ke sath apne career ko boost karein.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-bold text-[#0a0a0a] mb-6 flex items-center gap-2">
+                        <Target className="text-orange-500" /> What You Will Learn
+                      </h3>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {course.learn.map((item, idx) => (
+                          <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100 hover:border-blue-100 transition-colors">
+                            <div className="mt-0.5">
+                              {getIconForLearningPoint(item)}
+                            </div>
+                            <span className="text-gray-700 font-medium text-sm leading-snug">{item}</span>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                  <div className="text-sm text-gray-400 font-medium">
-                    Join <span className="text-white">{course.students}</span> successful graduates
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-[#0a0a0a] to-gray-900 rounded-2xl p-8 text-white shadow-lg relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl" />
+                      <div className="relative z-10">
+                        <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+                          <Briefcase className="text-blue-400" /> Career Outcomes
+                        </h3>
+                        <p className="text-gray-300 font-medium leading-relaxed mb-6">
+                          {course.outcome}
+                        </p>
+                        <div className="flex items-center gap-3 text-sm font-bold text-green-400 bg-green-400/10 inline-flex px-4 py-2 rounded-lg border border-green-400/20">
+                          <IndianRupee size={16} /> High Earning Potential
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* 2. CURRICULUM TAB */}
+                {activeTab === 'curriculum' && (
+                  <motion.div
+                    key="curriculum"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <h2 className="text-2xl font-bold text-[#0a0a0a] mb-6 flex items-center gap-3">
+                      <FileText className="text-blue-600" /> Course Curriculum
+                    </h2>
+                    <div className="space-y-4">
+                      {curriculumData.map((module, idx) => (
+                        <div key={idx} className={`border rounded-2xl overflow-hidden bg-white transition-colors ${openAccordion === idx ? 'border-blue-200 shadow-sm' : 'border-gray-200 hover:border-blue-100'}`}>
+                          <button
+                            onClick={() => setOpenAccordion(openAccordion === idx ? null : idx)}
+                            className="w-full flex items-center justify-between p-5 hover:bg-gray-50 transition-colors text-left"
+                          >
+                            <div className="flex items-center gap-4">
+                              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-colors ${openAccordion === idx ? 'bg-blue-600 text-white' : 'bg-blue-50 text-blue-600'}`}>
+                                {idx + 1}
+                              </div>
+                              <span className="font-bold text-[#0a0a0a] text-lg">{module.title}</span>
+                            </div>
+                            {openAccordion === idx ? (
+                              <ChevronUp className="text-blue-600 shrink-0" />
+                            ) : (
+                              <ChevronDown className="text-gray-400 shrink-0" />
+                            )}
+                          </button>
+                          <AnimatePresence>
+                            {openAccordion === idx && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="p-5 pt-0 pl-[76px] border-t border-gray-50">
+                                  <ul className="space-y-4 mt-4">
+                                    {module.items.map((item, i) => (
+                                      <li key={i} className="flex items-start gap-3 text-gray-600 font-medium">
+                                        <div className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
+                                        {item}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* 3. PREREQUISITES TAB */}
+                {activeTab === 'prerequisites' && (
+                  <motion.div
+                    key="prerequisites"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <h2 className="text-2xl font-bold text-[#0a0a0a] mb-6 flex items-center gap-3">
+                      <CheckCircle2 className="text-blue-600" /> Prerequisites
+                    </h2>
+                    <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 mb-8">
+                      <p className="text-blue-800 font-bold text-lg flex items-center gap-2">
+                        <Zap className="fill-blue-600 text-blue-600" size={20} /> 
+                        No prior experience required! (Beginner Friendly)
+                      </p>
+                    </div>
+                    <ul className="space-y-4">
+                      <li className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 bg-gray-50">
+                        <div className="bg-white p-2 rounded-lg shadow-sm text-gray-600"><MonitorPlay size={20} /></div>
+                        <span className="font-medium text-gray-700">Basic computer knowledge</span>
+                      </li>
+                      <li className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 bg-gray-50">
+                        <div className="bg-white p-2 rounded-lg shadow-sm text-gray-600"><Code size={20} /></div>
+                        <span className="font-medium text-gray-700">Laptop or PC recommended for practice</span>
+                      </li>
+                      <li className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 bg-gray-50">
+                        <div className="bg-white p-2 rounded-lg shadow-sm text-gray-600"><Globe size={20} /></div>
+                        <span className="font-medium text-gray-700">Basic internet browsing skills</span>
+                      </li>
+                    </ul>
+                  </motion.div>
+                )}
+
+                {/* 4. PROJECTS TAB */}
+                {activeTab === 'projects' && (
+                  <motion.div
+                    key="projects"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <h2 className="text-2xl font-bold text-[#0a0a0a] mb-2 flex items-center gap-3">
+                      <Briefcase className="text-blue-600" /> Real-World Projects
+                    </h2>
+                    <p className="text-gray-500 font-medium mb-8">Build your portfolio with live assignments and practical work.</p>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      {projectsData.map((project, idx) => (
+                        <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all group relative overflow-hidden">
+                          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-50 to-transparent rounded-bl-full -z-10 opacity-50 group-hover:scale-110 transition-transform" />
+                          <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-5 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                            <Target size={24} />
+                          </div>
+                          <h4 className="font-bold text-[#0a0a0a] text-lg leading-tight mb-2">{project}</h4>
+                          <p className="text-sm text-gray-500 font-medium">Hands-on practical implementation</p>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* 5. REVIEWS TAB */}
+                {activeTab === 'reviews' && (
+                  <motion.div
+                    key="reviews"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <h2 className="text-2xl font-bold text-[#0a0a0a] mb-8 flex items-center gap-3">
+                      <Star className="text-yellow-500 fill-yellow-500" /> Student Reviews
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {reviewsData.map((review, idx) => (
+                        <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                          <div className="flex text-yellow-400 mb-4">
+                            {[...Array(5)].map((_, i) => <Star key={i} size={16} className="fill-current" />)}
+                          </div>
+                          <p className="text-gray-700 font-medium italic mb-6">"{review.text}"</p>
+                          <div className="flex items-center gap-3 mt-auto">
+                            <img src={review.img} alt={review.name} className="w-10 h-10 rounded-full object-cover bg-gray-100" />
+                            <div>
+                              <h4 className="font-bold text-[#0a0a0a] text-sm">{review.name}</h4>
+                              <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">{review.role}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* 6. FAQ TAB */}
+                {activeTab === 'faq' && (
+                  <motion.div
+                    key="faq"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <h2 className="text-2xl font-bold text-[#0a0a0a] mb-6 flex items-center gap-3">
+                      <HelpCircle className="text-blue-600" /> Frequently Asked Questions
+                    </h2>
+                    <div className="space-y-3">
+                      {faqData.map((faq, idx) => (
+                        <div key={idx} className={`border rounded-2xl overflow-hidden bg-white transition-colors ${openFaq === idx ? 'border-blue-200 shadow-sm' : 'border-gray-200 hover:border-blue-100'}`}>
+                          <button
+                            onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                            className="w-full flex items-center justify-between p-5 hover:bg-gray-50 transition-colors text-left"
+                          >
+                            <span className="font-bold text-[#0a0a0a] text-lg pr-4">{faq.q}</span>
+                            {openFaq === idx ? (
+                              <ChevronUp className="text-blue-600 shrink-0" />
+                            ) : (
+                              <ChevronDown className="text-gray-400 shrink-0" />
+                            )}
+                          </button>
+                          <AnimatePresence>
+                            {openFaq === idx && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="p-5 pt-0 text-gray-600 font-medium leading-relaxed">
+                                  {faq.a}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* Right Column: Sticky Sidebar */}
