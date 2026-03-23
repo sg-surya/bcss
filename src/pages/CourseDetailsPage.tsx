@@ -201,7 +201,7 @@ export default function CourseDetailsPage() {
                       <h2 className="text-2xl font-bold text-[#0a0a0a] mb-4 flex items-center gap-3">
                         <BookOpen className="text-blue-600" /> Course Overview
                       </h2>
-                      <p className="text-lg text-gray-700 leading-relaxed font-medium bg-blue-50/50 p-6 rounded-2xl border border-blue-100 shadow-sm">
+                      <p className="text-lg text-gray-700 leading-relaxed font-medium bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
                         Is course me aap <span className="text-blue-600 font-bold">{course.title}</span> aur freelancing seekh kar 3 months me earning start kar sakte ho. Practical training aur live projects ke sath apne career ko boost karein.
                       </p>
                     </div>
@@ -212,7 +212,7 @@ export default function CourseDetailsPage() {
                       </h3>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {course.learn.map((item, idx) => (
-                          <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100 hover:border-blue-100 transition-colors">
+                          <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-white border border-gray-100 shadow-sm hover:border-blue-200 transition-colors">
                             <div className="mt-0.5">
                               {getIconForLearningPoint(item)}
                             </div>
@@ -222,16 +222,16 @@ export default function CourseDetailsPage() {
                       </div>
                     </div>
 
-                    <div className="bg-gradient-to-br from-[#0a0a0a] to-gray-900 rounded-2xl p-8 text-white shadow-lg relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl" />
+                    <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl" />
                       <div className="relative z-10">
-                        <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
-                          <Briefcase className="text-blue-400" /> Career Outcomes
+                        <h3 className="text-xl font-bold mb-3 flex items-center gap-2 text-[#0a0a0a]">
+                          <Briefcase className="text-blue-600" /> Career Outcomes
                         </h3>
-                        <p className="text-gray-300 font-medium leading-relaxed mb-6">
+                        <p className="text-gray-700 font-medium leading-relaxed mb-6">
                           {course.outcome}
                         </p>
-                        <div className="flex items-center gap-3 text-sm font-bold text-green-400 bg-green-400/10 inline-flex px-4 py-2 rounded-lg border border-green-400/20">
+                        <div className="flex items-center gap-3 text-sm font-bold text-green-700 bg-green-50 inline-flex px-4 py-2 rounded-lg border border-green-200">
                           <IndianRupee size={16} /> High Earning Potential
                         </div>
                       </div>
@@ -309,23 +309,23 @@ export default function CourseDetailsPage() {
                     <h2 className="text-2xl font-bold text-[#0a0a0a] mb-6 flex items-center gap-3">
                       <CheckCircle2 className="text-blue-600" /> Prerequisites
                     </h2>
-                    <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 mb-8">
+                    <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 mb-8">
                       <p className="text-blue-800 font-bold text-lg flex items-center gap-2">
                         <Zap className="fill-blue-600 text-blue-600" size={20} /> 
                         No prior experience required! (Beginner Friendly)
                       </p>
                     </div>
                     <ul className="space-y-4">
-                      <li className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 bg-gray-50">
-                        <div className="bg-white p-2 rounded-lg shadow-sm text-gray-600"><MonitorPlay size={20} /></div>
+                      <li className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 bg-white shadow-sm">
+                        <div className="bg-gray-50 p-2 rounded-lg text-gray-600"><MonitorPlay size={20} /></div>
                         <span className="font-medium text-gray-700">Basic computer knowledge</span>
                       </li>
-                      <li className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 bg-gray-50">
-                        <div className="bg-white p-2 rounded-lg shadow-sm text-gray-600"><Code size={20} /></div>
+                      <li className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 bg-white shadow-sm">
+                        <div className="bg-gray-50 p-2 rounded-lg text-gray-600"><Code size={20} /></div>
                         <span className="font-medium text-gray-700">Laptop or PC recommended for practice</span>
                       </li>
-                      <li className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 bg-gray-50">
-                        <div className="bg-white p-2 rounded-lg shadow-sm text-gray-600"><Globe size={20} /></div>
+                      <li className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 bg-white shadow-sm">
+                        <div className="bg-gray-50 p-2 rounded-lg text-gray-600"><Globe size={20} /></div>
                         <span className="font-medium text-gray-700">Basic internet browsing skills</span>
                       </li>
                     </ul>
