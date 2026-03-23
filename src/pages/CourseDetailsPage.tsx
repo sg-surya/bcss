@@ -206,6 +206,21 @@ export default function CourseDetailsPage() {
                       </p>
                     </div>
 
+                    {/* Mentor Section */}
+                    <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex items-center gap-5">
+                      <div className="w-16 h-16 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 font-bold text-xl shrink-0">
+                        SP
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-[#0a0a0a] mb-1 flex items-center gap-2">
+                          Surya Pratap Singh <span className="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Mentor</span>
+                        </h3>
+                        <p className="text-sm text-gray-600 font-medium">
+                          Pursuing Bachelor's (AI & DE) from IIT Jodhpur
+                        </p>
+                      </div>
+                    </div>
+
                     <div>
                       <h3 className="text-xl font-bold text-[#0a0a0a] mb-6 flex items-center gap-2">
                         <Target className="text-orange-500" /> What You Will Learn
