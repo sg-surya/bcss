@@ -159,8 +159,8 @@ export default function CourseDetailsPage() {
             
             {/* Sticky Tabs Navigation */}
             <div className="sticky top-24 z-30 pt-4 pb-6 -mx-4 px-4 sm:mx-0 sm:px-0">
-              <div className="flex overflow-x-auto hide-scrollbar pb-2 -mb-2">
-                <div className="flex gap-2.5 w-max">
+              <div className="bg-white/95 backdrop-blur-md border border-gray-200 shadow-sm rounded-2xl p-2 flex overflow-x-auto hide-scrollbar">
+                <div className="flex gap-2 w-max">
                   {tabs.map((tab) => {
                     const Icon = tab.icon;
                     const isActive = activeTab === tab.id;
@@ -168,13 +168,13 @@ export default function CourseDetailsPage() {
                       <button
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
-                        className={`group flex items-center gap-2.5 px-6 py-3 rounded-full font-semibold text-sm whitespace-nowrap transition-all duration-300 ${
+                        className={`group flex items-center gap-2.5 px-6 py-2.5 rounded-xl font-semibold text-sm whitespace-nowrap transition-all duration-300 ${
                           isActive 
-                            ? 'bg-[#0a0a0a] text-white shadow-lg shadow-black/10' 
-                            : 'bg-transparent text-gray-500 hover:bg-black/5 hover:text-[#0a0a0a]'
+                            ? 'bg-blue-50 text-blue-700 shadow-sm border border-blue-100' 
+                            : 'bg-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                         }`}
                       >
-                        <Icon size={18} className={`transition-colors duration-300 ${isActive ? 'text-blue-400' : 'text-gray-400 group-hover:text-blue-500'}`} />
+                        <Icon size={18} className={`transition-colors duration-300 ${isActive ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-500'}`} />
                         {tab.label}
                       </button>
                     );
