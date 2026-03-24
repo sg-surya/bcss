@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { BookOpen, Target, Users, Award, CheckCircle2 } from 'lucide-react';
+import Faculty from '../components/Faculty';
 
 export default function AboutPage() {
   useEffect(() => {
@@ -135,7 +136,7 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-[#0a0a0a] rounded-[3rem] p-10 md:p-16 text-white"
+          className="bg-[#0a0a0a] rounded-[3rem] p-10 md:p-16 text-white mb-24"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -170,6 +171,9 @@ export default function AboutPage() {
           </div>
         </motion.div>
       </section>
+
+      {/* Faculty Section */}
+      <Faculty />
     </div>
   );
 }
