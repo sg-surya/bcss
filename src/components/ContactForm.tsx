@@ -3,7 +3,7 @@ import { Phone, MapPin, MessageCircle } from 'lucide-react';
 
 export default function ContactForm() {
   return (
-    <section id="contact" className="py-24 px-6 max-w-7xl mx-auto">
+    <section id="contact" className="py-24 px-6 max-w-[1536px] mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}

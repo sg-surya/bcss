@@ -24,7 +24,7 @@ export default function AlumniPage() {
 
   return (
     <div className="min-h-screen pt-32 pb-24 px-6 bg-[#f5f5f4]">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1536px] mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-medium tracking-tight text-[#0a0a0a] mb-6">
             Our Proud <span className="font-serif italic text-blue-600">Alumni</span>

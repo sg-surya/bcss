@@ -45,7 +45,7 @@ export default function Courses() {
   ];
 
   return (
-    <section id="courses" className="py-24 px-6 max-w-7xl mx-auto">
+    <section id="courses" className="py-24 px-6 max-w-[1536px] mx-auto">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>
           <h2 className="text-3xl md:text-5xl font-medium tracking-tighter text-[#0a0a0a] mb-4">

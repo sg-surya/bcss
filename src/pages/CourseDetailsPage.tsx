@@ -125,7 +125,7 @@ export default function CourseDetailsPage() {
           <div className="absolute top-[40%] -left-[10%] w-[40%] h-[40%] rounded-full bg-purple-600 blur-[120px]" />
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-[1536px] mx-auto relative z-10">
           <Link to="/courses" className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8 font-medium text-sm">
             <ArrowLeft size={16} /> Back to all courses
           </Link>
@@ -184,15 +184,15 @@ export default function CourseDetailsPage() {
       </div>
 
       {/* Main Content & Overlapping Sidebar */}
-      <div className="max-w-7xl mx-auto px-6 -mt-32 relative z-20">
+      <div className="max-w-[1536px] mx-auto px-6 -mt-32 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           
-          {/* Left Column: Course Details with Tabs */}
-          <div className="lg:col-span-2 flex flex-col md:flex-row gap-6 items-start">
+          {/* Left Column: Course Details */}
+          <div className="lg:col-span-2 flex flex-col gap-6">
             
-            {/* Sticky Tabs Navigation */}
-            <div className="sticky top-24 z-30 w-full md:w-56 shrink-0">
-              <div className="bg-white/95 backdrop-blur-md border border-gray-200 shadow-sm rounded-2xl p-3 flex flex-col gap-2">
+            {/* Horizontal Tabs Navigation */}
+            <div className="sticky top-20 z-30 py-4 -mx-6 px-6 md:mx-0 md:px-0">
+              <div className="flex overflow-x-auto hide-scrollbar gap-3 pb-2 snap-x">
                 {tabs.map((tab) => {
                   const Icon = tab.icon;
                   const isActive = activeTab === tab.id;
@@ -200,13 +200,13 @@ export default function CourseDetailsPage() {
                     <button
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id)}
-                      className={`group flex items-center gap-3 px-4 py-3 rounded-xl font-semibold text-sm transition-all duration-300 text-left ${
+                      className={`snap-start shrink-0 group flex items-center gap-2.5 px-5 py-3 rounded-2xl font-semibold text-sm transition-all duration-300 ${
                         isActive 
-                          ? 'bg-blue-50 text-blue-700 shadow-sm border border-blue-100' 
-                          : 'bg-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900 border border-transparent'
+                          ? 'bg-[#0a0a0a] text-white shadow-lg shadow-black/10' 
+                          : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-[#0a0a0a] border border-black/5'
                       }`}
                     >
-                      <Icon size={18} className={`shrink-0 transition-colors duration-300 ${isActive ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-500'}`} />
+                      <Icon size={18} className={`transition-colors duration-300 ${isActive ? 'text-blue-400' : 'text-gray-400 group-hover:text-blue-500'}`} />
                       {tab.label}
                     </button>
                   );
@@ -215,7 +215,7 @@ export default function CourseDetailsPage() {
             </div>
 
             {/* Tab Content Area */}
-            <div className="flex-1 w-full bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-gray-100 shadow-sm min-h-[500px]">
+            <div className="bg-white rounded-[2.5rem] p-6 sm:p-8 md:p-10 border border-black/5 shadow-sm min-h-[500px]">
               <AnimatePresence mode="wait">
                 
                 {/* 1. OVERVIEW TAB */}
@@ -226,59 +226,69 @@ export default function CourseDetailsPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
-                    className="space-y-10"
+                    className="space-y-12"
                   >
+                    {/* About Course */}
                     <div>
-                      <h2 className="text-2xl font-bold text-[#0a0a0a] mb-4 flex items-center gap-3">
-                        <BookOpen className="text-blue-600" /> Course Overview
+                      <h2 className="text-2xl font-bold text-[#0a0a0a] mb-5 flex items-center gap-3">
+                        <BookOpen className="text-blue-600" /> About This Course
                       </h2>
-                      <p className="text-lg text-gray-700 leading-relaxed font-medium bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-                        Is course me aap <span className="text-blue-600 font-bold">{course.title}</span> aur freelancing seekh kar 3 months me earning start kar sakte ho. Practical training aur live projects ke sath apne career ko boost karein.
+                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        Is course me aap <span className="text-[#0a0a0a] font-bold">{course.title}</span> aur freelancing seekh kar 3 months me earning start kar sakte ho. Practical training aur live projects ke sath apne career ko boost karein.
                       </p>
                     </div>
 
                     {/* Mentor Section */}
-                    <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex items-center gap-5">
-                      <div className="w-16 h-16 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 font-bold text-xl shrink-0">
-                        SP
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-[#0a0a0a] mb-1 flex items-center gap-2">
-                          Surya Pratap Singh <span className="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Mentor</span>
-                        </h3>
-                        <p className="text-sm text-gray-600 font-medium">
-                          Pursuing Bachelor's (AI & DE) from IIT Jodhpur
-                        </p>
+                    <div>
+                      <h3 className="text-xl font-bold text-[#0a0a0a] mb-5 flex items-center gap-2">
+                        <Users className="text-purple-500" /> Your Mentor
+                      </h3>
+                      <div className="bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100/50 rounded-3xl p-6 flex items-center gap-5">
+                        <div className="w-16 h-16 rounded-2xl bg-white shadow-sm border border-black/5 flex items-center justify-center text-blue-600 font-bold text-2xl shrink-0">
+                          SP
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-bold text-[#0a0a0a] mb-1 flex items-center gap-2">
+                            Surya Pratap Singh 
+                            <span className="text-[10px] font-bold bg-blue-600 text-white px-2 py-0.5 rounded-full uppercase tracking-wider">Instructor</span>
+                          </h3>
+                          <p className="text-sm text-gray-600 font-medium">
+                            Pursuing Bachelor's (AI & DE) from IIT Jodhpur
+                          </p>
+                        </div>
                       </div>
                     </div>
 
+                    {/* What You Will Learn */}
                     <div>
-                      <h3 className="text-xl font-bold text-[#0a0a0a] mb-6 flex items-center gap-2">
-                        <Target className="text-orange-500" /> What You Will Learn
+                      <h3 className="text-xl font-bold text-[#0a0a0a] mb-5 flex items-center gap-2">
+                        <Target className="text-orange-500" /> What You'll Learn
                       </h3>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {course.learn.map((item, idx) => (
-                          <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-white border border-gray-100 shadow-sm hover:border-blue-200 transition-colors">
-                            <div className="mt-0.5">
+                          <div key={idx} className="flex items-start gap-4 p-4 rounded-2xl bg-gray-50 border border-black/5 hover:bg-white hover:shadow-md hover:border-blue-100 transition-all duration-300">
+                            <div className="mt-0.5 bg-white p-2 rounded-xl shadow-sm border border-black/5">
                               {getIconForLearningPoint(item)}
                             </div>
-                            <span className="text-gray-700 font-medium text-sm leading-snug">{item}</span>
+                            <span className="text-gray-700 font-medium text-sm leading-relaxed">{item}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl" />
+                    {/* Career Outcomes */}
+                    <div className="bg-[#0a0a0a] rounded-3xl p-8 relative overflow-hidden text-white">
+                      <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl" />
+                      <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-600/20 rounded-full blur-3xl" />
                       <div className="relative z-10">
-                        <h3 className="text-xl font-bold mb-3 flex items-center gap-2 text-[#0a0a0a]">
-                          <Briefcase className="text-blue-600" /> Career Outcomes
+                        <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-white">
+                          <Briefcase className="text-blue-400" /> Career Outcomes
                         </h3>
-                        <p className="text-gray-700 font-medium leading-relaxed mb-6">
+                        <p className="text-gray-300 font-medium leading-relaxed mb-8 max-w-2xl">
                           {course.outcome}
                         </p>
-                        <div className="flex items-center gap-3 text-sm font-bold text-green-700 bg-green-50 inline-flex px-4 py-2 rounded-lg border border-green-200">
-                          <IndianRupee size={16} /> High Earning Potential
+                        <div className="inline-flex items-center gap-2 text-sm font-bold text-white bg-white/10 backdrop-blur-md px-5 py-3 rounded-xl border border-white/10">
+                          <IndianRupee size={18} className="text-green-400" /> High Earning Potential
                         </div>
                       </div>
                     </div>
@@ -294,18 +304,18 @@ export default function CourseDetailsPage() {
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <h2 className="text-2xl font-bold text-[#0a0a0a] mb-6 flex items-center gap-3">
+                    <h2 className="text-2xl font-bold text-[#0a0a0a] mb-8 flex items-center gap-3">
                       <FileText className="text-blue-600" /> Course Curriculum
                     </h2>
                     <div className="space-y-4">
                       {curriculumData.map((module, idx) => (
-                        <div key={idx} className={`border rounded-2xl overflow-hidden bg-white transition-colors ${openAccordion === idx ? 'border-blue-200 shadow-sm' : 'border-gray-200 hover:border-blue-100'}`}>
+                        <div key={idx} className={`border rounded-2xl overflow-hidden bg-white transition-colors ${openAccordion === idx ? 'border-blue-200 shadow-md shadow-blue-900/5' : 'border-gray-200 hover:border-blue-100'}`}>
                           <button
                             onClick={() => setOpenAccordion(openAccordion === idx ? null : idx)}
                             className="w-full flex items-center justify-between p-5 hover:bg-gray-50 transition-colors text-left"
                           >
                             <div className="flex items-center gap-4">
-                              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-colors ${openAccordion === idx ? 'bg-blue-600 text-white' : 'bg-blue-50 text-blue-600'}`}>
+                              <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm transition-colors ${openAccordion === idx ? 'bg-blue-600 text-white' : 'bg-blue-50 text-blue-600'}`}>
                                 {idx + 1}
                               </div>
                               <span className="font-bold text-[#0a0a0a] text-lg">{module.title}</span>
@@ -352,27 +362,27 @@ export default function CourseDetailsPage() {
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <h2 className="text-2xl font-bold text-[#0a0a0a] mb-6 flex items-center gap-3">
+                    <h2 className="text-2xl font-bold text-[#0a0a0a] mb-8 flex items-center gap-3">
                       <CheckCircle2 className="text-blue-600" /> Prerequisites
                     </h2>
-                    <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 mb-8">
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-6 mb-8">
                       <p className="text-blue-800 font-bold text-lg flex items-center gap-2">
                         <Zap className="fill-blue-600 text-blue-600" size={20} /> 
                         No prior experience required! (Beginner Friendly)
                       </p>
                     </div>
                     <ul className="space-y-4">
-                      <li className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 bg-white shadow-sm">
-                        <div className="bg-gray-50 p-2 rounded-lg text-gray-600"><MonitorPlay size={20} /></div>
-                        <span className="font-medium text-gray-700">Basic computer knowledge</span>
+                      <li className="flex items-center gap-4 p-5 rounded-2xl border border-gray-100 bg-white shadow-sm hover:border-blue-100 transition-colors">
+                        <div className="bg-gray-50 p-3 rounded-xl text-gray-600"><MonitorPlay size={24} /></div>
+                        <span className="font-medium text-gray-700 text-lg">Basic computer knowledge</span>
                       </li>
-                      <li className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 bg-white shadow-sm">
-                        <div className="bg-gray-50 p-2 rounded-lg text-gray-600"><Code size={20} /></div>
-                        <span className="font-medium text-gray-700">Laptop or PC recommended for practice</span>
+                      <li className="flex items-center gap-4 p-5 rounded-2xl border border-gray-100 bg-white shadow-sm hover:border-blue-100 transition-colors">
+                        <div className="bg-gray-50 p-3 rounded-xl text-gray-600"><Code size={24} /></div>
+                        <span className="font-medium text-gray-700 text-lg">Laptop or PC recommended for practice</span>
                       </li>
-                      <li className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 bg-white shadow-sm">
-                        <div className="bg-gray-50 p-2 rounded-lg text-gray-600"><Globe size={20} /></div>
-                        <span className="font-medium text-gray-700">Basic internet browsing skills</span>
+                      <li className="flex items-center gap-4 p-5 rounded-2xl border border-gray-100 bg-white shadow-sm hover:border-blue-100 transition-colors">
+                        <div className="bg-gray-50 p-3 rounded-xl text-gray-600"><Globe size={24} /></div>
+                        <span className="font-medium text-gray-700 text-lg">Basic internet browsing skills</span>
                       </li>
                     </ul>
                   </motion.div>
@@ -394,12 +404,12 @@ export default function CourseDetailsPage() {
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       {projectsData.map((project, idx) => (
-                        <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all group relative overflow-hidden">
-                          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-50 to-transparent rounded-bl-full -z-10 opacity-50 group-hover:scale-110 transition-transform" />
-                          <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-5 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                            <Target size={24} />
+                        <div key={idx} className="bg-white rounded-3xl p-8 border border-gray-200 hover:border-blue-400 hover:shadow-xl hover:shadow-blue-900/5 transition-all group relative overflow-hidden">
+                          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent rounded-bl-full -z-10 opacity-50 group-hover:scale-110 transition-transform" />
+                          <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                            <Target size={28} />
                           </div>
-                          <h4 className="font-bold text-[#0a0a0a] text-lg leading-tight mb-2">{project}</h4>
+                          <h4 className="font-bold text-[#0a0a0a] text-xl leading-tight mb-3">{project}</h4>
                           <p className="text-sm text-gray-500 font-medium">Hands-on practical implementation</p>
                         </div>
                       ))}
@@ -421,16 +431,16 @@ export default function CourseDetailsPage() {
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {reviewsData.map((review, idx) => (
-                        <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow flex flex-col">
-                          <div className="flex text-yellow-400 mb-4">
-                            {[...Array(5)].map((_, i) => <Star key={i} size={16} className="fill-current" />)}
+                        <div key={idx} className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:shadow-black/5 transition-shadow flex flex-col">
+                          <div className="flex text-yellow-400 mb-6">
+                            {[...Array(5)].map((_, i) => <Star key={i} size={18} className="fill-current" />)}
                           </div>
-                          <p className="text-gray-700 font-medium italic mb-6">"{review.text}"</p>
-                          <div className="flex items-center gap-3 mt-auto">
-                            <img src={review.img} alt={review.name} className="w-10 h-10 rounded-full object-cover bg-gray-100" />
+                          <p className="text-gray-700 font-medium italic mb-8 text-lg leading-relaxed">"{review.text}"</p>
+                          <div className="flex items-center gap-4 mt-auto">
+                            <img src={review.img} alt={review.name} className="w-12 h-12 rounded-full object-cover bg-gray-100 border-2 border-white shadow-sm" />
                             <div>
-                              <h4 className="font-bold text-[#0a0a0a] text-sm">{review.name}</h4>
-                              <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">{review.role}</p>
+                              <h4 className="font-bold text-[#0a0a0a]">{review.name}</h4>
+                              <p className="text-xs text-gray-500 font-bold uppercase tracking-wider">{review.role}</p>
                             </div>
                           </div>
                         </div>
@@ -448,15 +458,15 @@ export default function CourseDetailsPage() {
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <h2 className="text-2xl font-bold text-[#0a0a0a] mb-6 flex items-center gap-3">
+                    <h2 className="text-2xl font-bold text-[#0a0a0a] mb-8 flex items-center gap-3">
                       <HelpCircle className="text-blue-600" /> Frequently Asked Questions
                     </h2>
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       {faqData.map((faq, idx) => (
-                        <div key={idx} className={`border rounded-2xl overflow-hidden bg-white transition-colors ${openFaq === idx ? 'border-blue-200 shadow-sm' : 'border-gray-200 hover:border-blue-100'}`}>
+                        <div key={idx} className={`border rounded-2xl overflow-hidden bg-white transition-colors ${openFaq === idx ? 'border-blue-200 shadow-md shadow-blue-900/5' : 'border-gray-200 hover:border-blue-100'}`}>
                           <button
                             onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                            className="w-full flex items-center justify-between p-5 hover:bg-gray-50 transition-colors text-left"
+                            className="w-full flex items-center justify-between p-6 hover:bg-gray-50 transition-colors text-left"
                           >
                             <span className="font-bold text-[#0a0a0a] text-lg pr-4">{faq.q}</span>
                             {openFaq === idx ? (
@@ -473,7 +483,7 @@ export default function CourseDetailsPage() {
                                 exit={{ height: 0, opacity: 0 }}
                                 className="overflow-hidden"
                               >
-                                <div className="p-5 pt-0 text-gray-600 font-medium leading-relaxed">
+                                <div className="p-6 pt-0 text-gray-600 font-medium leading-relaxed text-lg">
                                   {faq.a}
                                 </div>
                               </motion.div>
@@ -495,9 +505,9 @@ export default function CourseDetailsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="sticky top-24 bg-white rounded-3xl p-2 border border-gray-100 shadow-2xl shadow-black/5"
+              className="sticky top-24 bg-white rounded-[2.5rem] p-3 border border-black/5 shadow-2xl shadow-black/5"
             >
-              <div className="relative h-56 w-full rounded-2xl overflow-hidden mb-2">
+              <div className="relative h-64 w-full rounded-[2rem] overflow-hidden mb-4">
                 <img 
                   src={course.image} 
                   alt={course.title} 
@@ -508,7 +518,7 @@ export default function CourseDetailsPage() {
                 </div>
               </div>
 
-              <div className="p-6">
+              <div className="px-5 pb-5">
                 <div className="mb-6">
                   <div className="flex items-end gap-2 mb-1">
                     <span className="text-4xl font-bold text-[#0a0a0a] tracking-tight">{course.fees}</span>
@@ -520,32 +530,32 @@ export default function CourseDetailsPage() {
                   href={`https://wa.me/919719205268?text=${encodeURIComponent(`Hi, I am interested in enrolling in the ${course.title} course.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40 hover:-translate-y-0.5 mb-6"
+                  className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5 mb-6"
                 >
                   Enroll Now
                 </a>
 
-                <div className="space-y-4">
-                  <h4 className="font-bold text-[#0a0a0a] text-sm uppercase tracking-wider">This course includes:</h4>
-                  <ul className="space-y-3">
-                    <li className="flex items-center gap-3 text-sm text-gray-600 font-medium">
-                      <PlayCircle size={18} className="text-gray-400" /> Practical hands-on training
+                <div className="space-y-4 bg-gray-50 rounded-2xl p-5 border border-black/5">
+                  <h4 className="font-bold text-[#0a0a0a] text-xs uppercase tracking-wider mb-4">This course includes</h4>
+                  <ul className="space-y-3.5">
+                    <li className="flex items-center gap-3 text-sm text-gray-700 font-medium">
+                      <PlayCircle size={18} className="text-blue-600" /> Practical hands-on training
                     </li>
-                    <li className="flex items-center gap-3 text-sm text-gray-600 font-medium">
-                      <FileText size={18} className="text-gray-400" /> Assignments & Projects
+                    <li className="flex items-center gap-3 text-sm text-gray-700 font-medium">
+                      <FileText size={18} className="text-blue-600" /> Assignments & Projects
                     </li>
-                    <li className="flex items-center gap-3 text-sm text-gray-600 font-medium">
-                      <Smartphone size={18} className="text-gray-400" /> Access on mobile and desktop
+                    <li className="flex items-center gap-3 text-sm text-gray-700 font-medium">
+                      <Smartphone size={18} className="text-blue-600" /> Access on mobile and desktop
                     </li>
-                    <li className="flex items-center gap-3 text-sm text-gray-600 font-medium">
-                      <Award size={18} className="text-gray-400" /> Certificate of completion
+                    <li className="flex items-center gap-3 text-sm text-gray-700 font-medium">
+                      <Award size={18} className="text-blue-600" /> Certificate of completion
                     </li>
                   </ul>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-gray-100 text-center">
-                  <p className="text-sm text-gray-500 mb-2">Need help deciding?</p>
-                  <a href="tel:+919719205268" className="inline-flex items-center gap-2 font-bold text-[#0a0a0a] hover:text-blue-600 transition-colors">
+                <div className="mt-6 text-center">
+                  <p className="text-xs text-gray-500 font-medium mb-1">Need help deciding?</p>
+                  <a href="tel:+919719205268" className="inline-flex items-center gap-1.5 font-bold text-[#0a0a0a] hover:text-blue-600 transition-colors text-sm">
                     Call +91 97192 05268
                   </a>
                 </div>

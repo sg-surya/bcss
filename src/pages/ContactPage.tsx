@@ -10,7 +10,7 @@ export default function ContactPage() {
   return (
     <div className="pt-24 min-h-screen bg-[#f5f5f4]">
       {/* Hero Section */}
-      <section className="pt-16 pb-12 px-6 max-w-7xl mx-auto text-center">
+      <section className="pt-16 pb-12 px-6 max-w-[1536px] mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -38,7 +38,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-12 px-6 max-w-7xl mx-auto">
+      <section className="py-12 px-6 max-w-[1536px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           
           {/* Contact Info Cards */}
@@ -177,7 +177,7 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-12 px-6 max-w-7xl mx-auto mb-12">
+      <section className="py-12 px-6 max-w-[1536px] mx-auto mb-12">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

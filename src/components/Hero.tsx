@@ -15,7 +15,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="pt-32 pb-20 px-6 max-w-7xl mx-auto min-h-[90vh] flex flex-col justify-center relative overflow-hidden">
+    <section id="home" className="pt-32 pb-20 px-6 max-w-[1536px] mx-auto min-h-[90vh] flex flex-col justify-center relative overflow-hidden">
       {/* Background Gradients */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl opacity-30 pointer-events-none -z-10">
         <div className="absolute top-20 left-0 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>

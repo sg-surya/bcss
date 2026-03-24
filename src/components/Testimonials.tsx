@@ -42,7 +42,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
+    <section className="py-24 px-6 max-w-[1536px] mx-auto">
       <div className="mb-16 text-center">
         <h2 className="text-3xl md:text-5xl font-medium tracking-tighter text-[#0a0a0a] mb-4">
           What Our <span className="font-serif italic text-blue-600">Students Say</span>

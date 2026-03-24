@@ -13,7 +13,7 @@ const alumniList = [
 export default function AlumniSection() {
   return (
     <section id="alumni" className="py-24 bg-[#e5e5e5] overflow-hidden">
-      <div className="max-w-7xl mx-auto text-center mb-16 px-6">
+      <div className="max-w-[1536px] mx-auto text-center mb-16 px-6">
         <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-[#0a0a0a] mb-4">
           Meet Our <span className="font-serif italic text-blue-600">Alumni</span>
         </h2>

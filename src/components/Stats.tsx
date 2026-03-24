@@ -4,7 +4,7 @@ import { MapPin } from 'lucide-react';
 export default function Stats() {
   return (
     <section className="py-20 px-6">
-      <div className="max-w-7xl mx-auto bg-[#0a0a0a] rounded-[2.5rem] p-12 md:p-20 text-white overflow-hidden relative">
+      <div className="max-w-[1536px] mx-auto bg-[#0a0a0a] rounded-[2.5rem] p-12 md:p-20 text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full opacity-20 blur-[100px] pointer-events-none" />
         
         <div className="mb-16 md:text-center relative z-10">

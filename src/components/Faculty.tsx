@@ -13,7 +13,7 @@ const mentor = {
 export default function Faculty() {
   return (
     <section id="faculty" className="py-24 px-6 bg-[#f5f5f4]">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-[1536px] mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/10 text-xs font-medium uppercase tracking-widest mb-6 bg-white shadow-sm">
             <Award size={14} className="text-blue-600" />

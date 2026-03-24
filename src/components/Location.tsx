@@ -3,7 +3,7 @@ import { MapPin, ExternalLink } from 'lucide-react';
 
 export default function Location() {
   return (
-    <section className="py-12 px-6 max-w-7xl mx-auto">
+    <section className="py-12 px-6 max-w-[1536px] mx-auto">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

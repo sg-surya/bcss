@@ -3,7 +3,7 @@ import { Phone, MapPin, Mail, Instagram, Facebook, Linkedin } from 'lucide-react
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-black/5 pt-20 pb-10 px-6 mt-12">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1536px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-1">
             <a href="#" className="text-xl font-semibold tracking-tight text-[#0a0a0a] block mb-4">
