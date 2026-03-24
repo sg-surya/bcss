@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Star, Users, Search, Filter } from 'lucide-react';
+import { Star, Users, Search, Filter, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { coursesData } from '../data/courses';
 import { useState } from 'react';
@@ -79,43 +79,58 @@ export default function CoursesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: idx * 0.05, duration: 0.5 }}
-            className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full group"
+            className="bg-white rounded-[2rem] border border-black/5 shadow-sm hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-500 flex flex-col h-full group overflow-hidden"
           >
-            <div className="relative h-48 mb-4 overflow-hidden rounded-xl">
-              <img 
-                src={course.image} 
-                alt={course.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                referrerPolicy="no-referrer"
-              />
+            {/* Image Section */}
+            <div className="relative h-60 overflow-hidden p-2">
+              <div className="w-full h-full relative overflow-hidden rounded-[1.5rem]">
+                <div className="absolute inset-0 bg-gray-900/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                <img 
+                  src={course.image} 
+                  alt={course.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute top-3 left-3 z-20">
+                  <span className="bg-white/95 backdrop-blur-md text-[#0a0a0a] text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm">
+                    {course.category}
+                  </span>
+                </div>
+                <div className="absolute top-3 right-3 z-20">
+                  <span className="flex items-center bg-white/95 backdrop-blur-md text-orange-500 text-xs font-bold px-2.5 py-1.5 rounded-full shadow-sm">
+                    <Star size={14} className="mr-1 fill-current" /> {course.rating}
+                  </span>
+                </div>
+              </div>
             </div>
             
-            <div className="flex justify-between items-center mb-3">
-              <span className="bg-blue-50 text-blue-600 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
-                {course.category}
-              </span>
-              <span className="flex items-center text-orange-400 text-sm font-bold">
-                <Star size={14} className="mr-1 fill-current" /> {course.rating}
-              </span>
+            {/* Content Section */}
+            <div className="px-6 pt-4 pb-6 flex flex-col flex-1">
+              <h3 className="font-bold text-[#0a0a0a] text-xl mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300">
+                {course.title}
+              </h3>
+              
+              <div className="flex items-center gap-4 text-sm text-gray-500 mb-6 font-medium">
+                <span className="flex items-center">
+                  <Users size={16} className="mr-1.5 text-gray-400" /> {course.students} students
+                </span>
+              </div>
+              
+              <div className="mt-auto pt-6 border-t border-black/5 flex items-center justify-between">
+                <div className="flex flex-col">
+                  <span className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-0.5">Course Fee</span>
+                  <span className="font-bold text-[#0a0a0a] text-2xl">{course.fees}</span>
+                </div>
+                
+                <Link 
+                  to={`/courses/${course.id}`} 
+                  className="inline-flex items-center justify-center gap-2 bg-blue-50 text-blue-600 px-6 py-3 rounded-2xl font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 group/btn"
+                >
+                  Learn More
+                  <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
-            
-            <h3 className="font-bold text-[#0a0a0a] text-lg mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
-              {course.title}
-            </h3>
-            
-            <div className="mt-auto pt-6 flex items-center justify-between text-sm text-gray-500 mb-4">
-              <span className="flex items-center font-medium">
-                <Users size={14} className="mr-1.5" /> {course.students} students
-              </span>
-              <span className="font-bold text-blue-600 text-lg">{course.fees}</span>
-            </div>
-            
-            <Link 
-              to={`/courses/${course.id}`} 
-              className="w-full block text-center bg-gray-50 text-[#0a0a0a] py-3 rounded-xl font-medium hover:bg-blue-600 hover:text-white transition-colors border border-gray-100 hover:border-blue-600"
-            >
-              Learn More
-            </Link>
           </motion.div>
         ))}
       </div>

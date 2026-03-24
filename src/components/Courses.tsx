@@ -72,40 +72,43 @@ export default function Courses() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: idx * 0.1, duration: 0.6 }}
-            className="group cursor-pointer premium-card p-3 rounded-3xl"
+            className="group cursor-pointer bg-white rounded-[2rem] border border-black/5 shadow-sm hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-500 flex flex-col h-full overflow-hidden"
           >
-            <div className="relative h-56 mb-6 overflow-hidden rounded-2xl">
-              <img 
-                src={course.image} 
-                alt={course.title}
-                className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
+            <div className="relative h-60 overflow-hidden p-2">
+              <div className="w-full h-full relative overflow-hidden rounded-[1.5rem]">
+                <div className="absolute inset-0 bg-gray-900/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                <img 
+                  src={course.image} 
+                  alt={course.title}
+                  className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
             </div>
             
-            <div className="px-3 pb-3">
-              <h3 className="text-xl font-semibold text-[#0a0a0a] mb-4 group-hover:text-blue-600 transition-colors">{course.title}</h3>
+            <div className="px-6 pt-4 pb-6 flex flex-col flex-1">
+              <h3 className="text-xl font-bold text-[#0a0a0a] mb-4 group-hover:text-blue-600 transition-colors">{course.title}</h3>
               
-              <div className="flex items-center gap-4 text-sm text-gray-500 mb-6">
+              <div className="flex items-center gap-4 text-sm text-gray-500 mb-6 font-medium">
                 <div className="flex items-center gap-1.5">
-                  <Clock size={16} />
+                  <Clock size={16} className="text-gray-400" />
                   <span>{course.duration}</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <IndianRupee size={16} />
+                  <IndianRupee size={16} className="text-gray-400" />
                   <span>{course.price}</span>
                 </div>
               </div>
               
-              <div className="pt-4 border-t border-black/5">
+              <div className="mt-auto pt-6 border-t border-black/5">
                 <button 
                   onClick={() => {
                     navigate('/courses');
                     window.scrollTo(0, 0);
                   }}
-                  className="w-full bg-gray-50 text-[#0a0a0a] py-3 rounded-xl text-sm font-medium group-hover:bg-[#0a0a0a] group-hover:text-white transition-colors flex items-center justify-center gap-2"
+                  className="w-full bg-blue-50 text-blue-600 py-3.5 rounded-2xl text-sm font-semibold group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
                 >
-                  View Details <ArrowRight size={16} />
+                  View Details <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
             </div>
