@@ -8,9 +8,14 @@ export const coursesData = [
     description: "Ye course beginners ke liye hai jisme students computer ki basic knowledge se start karte hain.",
     learn: ["Computer fundamentals", "MS Word, Excel, PowerPoint", "Internet & Email usage", "Typing practice"],
     outcome: "Basic computer operator jobs ke liye ready",
+    instructor: "Michael Anderson",
     image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=800",
     rating: "4.8",
-    students: "1,245"
+    students: "1,245",
+    tags: ["MS Office", "Internet", "Typing"],
+    color: "bg-[#eef2ff]",
+    textColor: "text-[#312e81]",
+    tagBg: "bg-[#e0e7ff]"
   },
   {
     id: "dtp",
@@ -21,9 +26,14 @@ export const coursesData = [
     description: "Designing aur printing related kaam ke liye best course.",
     learn: ["Photoshop basics", "CorelDRAW", "Poster, banner, visiting card design", "Print setup"],
     outcome: "Graphic / Printing shop jobs",
+    instructor: "Sarah Jenkins",
     image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800",
     rating: "4.7",
-    students: "856"
+    students: "856",
+    tags: ["CorelDRAW", "Printing", "Design"],
+    color: "bg-[#fdf2f8]",
+    textColor: "text-[#831843]",
+    tagBg: "bg-[#fce7f3]"
   },
   {
     id: "advanced-excel",
@@ -34,9 +44,14 @@ export const coursesData = [
     description: "Data handling aur office job ke liye best course.",
     learn: ["Advanced formulas & functions", "Pivot tables & charts", "Data analysis & dashboards", "Automation basics"],
     outcome: "Office jobs / Data operator / MIS roles",
+    instructor: "David Miller",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
     rating: "4.9",
-    students: "2,104"
+    students: "2,104",
+    tags: ["Formulas", "Dashboards", "MIS"],
+    color: "bg-[#f0f9ff]",
+    textColor: "text-[#0c4a6e]",
+    tagBg: "bg-[#e0f2fe]"
   },
   {
     id: "tally-prime",
@@ -47,9 +62,14 @@ export const coursesData = [
     description: "Accounting aur GST ka practical course jo business aur job dono ke liye useful hai.",
     learn: ["Tally Prime software", "GST billing & returns", "Financial reports", "Inventory management"],
     outcome: "Accountant / Billing executive jobs",
+    instructor: "Robert Wilson",
     image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800",
     rating: "4.9",
-    students: "3,420"
+    students: "3,420",
+    tags: ["GST", "Tally Prime", "Accounting"],
+    color: "bg-[#fff7ed]",
+    textColor: "text-[#7c2d12]",
+    tagBg: "bg-[#ffedd5]"
   },
   {
     id: "digital-marketing",
@@ -60,9 +80,14 @@ export const coursesData = [
     description: "Online marketing aur business growth ke liye powerful skill.",
     learn: ["SEO basics", "Social media marketing", "Ads (Facebook/Google)", "Freelancing"],
     outcome: "Digital marketer / Freelancer",
+    instructor: "Emily Davis",
     image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=800",
     rating: "4.8",
-    students: "1,890"
+    students: "1,890",
+    tags: ["SEO", "Ads", "Social Media"],
+    color: "bg-[#f0fdf4]",
+    textColor: "text-[#14532d]",
+    tagBg: "bg-[#dcfce7]"
   },
   {
     id: "video-editing",
@@ -73,9 +98,14 @@ export const coursesData = [
     description: "YouTube aur social media content editing seekho.",
     learn: ["CapCut / Premiere Pro", "Reels & Shorts editing", "Effects & transitions"],
     outcome: "Content creator / Editor",
+    instructor: "James Taylor",
     image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=800",
     rating: "4.7",
-    students: "1,120"
+    students: "1,120",
+    tags: ["Premiere Pro", "Reels", "YouTube"],
+    color: "bg-[#f5f3ff]",
+    textColor: "text-[#4c1d95]",
+    tagBg: "bg-[#ede9fe]"
   },
   {
     id: "graphic-design",
@@ -86,9 +116,14 @@ export const coursesData = [
     description: "Creative designing aur branding skills develop karo.",
     learn: ["Photoshop", "Canva", "Logo & poster design"],
     outcome: "Designer / Freelancer",
+    instructor: "Linda Martinez",
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800",
     rating: "4.8",
-    students: "1,450"
+    students: "1,450",
+    tags: ["Photoshop", "Canva", "Branding"],
+    color: "bg-[#fefce8]",
+    textColor: "text-[#713f12]",
+    tagBg: "bg-[#fef9c3]"
   },
   {
     id: "html-css",
@@ -99,9 +134,14 @@ export const coursesData = [
     description: "Website designing ka foundation course.",
     learn: ["HTML structure", "CSS styling", "Responsive design", "Live website creation"],
     outcome: "Web designer / Freelancing start",
+    instructor: "Christopher Lee",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
     rating: "4.6",
-    students: "980"
+    students: "980",
+    tags: ["HTML5", "CSS3", "Responsive"],
+    color: "bg-[#ecfeff]",
+    textColor: "text-[#083344]",
+    tagBg: "bg-[#cffafe]"
   },
   {
     id: "wordpress",
@@ -112,9 +152,14 @@ export const coursesData = [
     description: "Without coding website banana seekho.",
     learn: ["WordPress setup", "Themes & plugins", "Business website creation", "SEO basics"],
     outcome: "Freelancing / Website business",
+    instructor: "Patricia Moore",
     image: "https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&q=80&w=800",
     rating: "4.7",
-    students: "1,340"
+    students: "1,340",
+    tags: ["WordPress", "No-Code", "Themes"],
+    color: "bg-[#f0fdfa]",
+    textColor: "text-[#042f2e]",
+    tagBg: "bg-[#ccfbf1]"
   },
   {
     id: "ai-tools",
@@ -125,9 +170,14 @@ export const coursesData = [
     description: "Latest AI tools use karke online earning start karo.",
     learn: ["ChatGPT mastery", "Canva AI / Midjourney", "Content creation", "Freelancing setup"],
     outcome: "Online earning / AI expert",
+    instructor: "Daniel Thomas",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
     rating: "4.9",
-    students: "2,890"
+    students: "2,890",
+    tags: ["ChatGPT", "Midjourney", "Freelancing"],
+    color: "bg-[#eef2ff]",
+    textColor: "text-[#312e81]",
+    tagBg: "bg-[#e0e7ff]"
   },
   {
     id: "python",
@@ -138,9 +188,14 @@ export const coursesData = [
     description: "Programming aur automation ka powerful course.",
     learn: ["Python basics", "Automation scripts", "Mini projects"],
     outcome: "Developer / Automation expert",
+    instructor: "Jennifer Jackson",
     image: "https://images.unsplash.com/photo-1526379095098-d400fd0bfce8?auto=format&fit=crop&q=80&w=800",
     rating: "4.8",
-    students: "1,670"
+    students: "1,670",
+    tags: ["Python", "Automation", "Coding"],
+    color: "bg-[#fdf2f8]",
+    textColor: "text-[#831843]",
+    tagBg: "bg-[#fce7f3]"
   },
   {
     id: "data-analytics",
@@ -151,8 +206,13 @@ export const coursesData = [
     description: "Data analysis aur dashboard creation ka course.",
     learn: ["Excel advanced", "Power BI", "Data visualization"],
     outcome: "Data analyst / MIS job",
+    instructor: "Michael Anderson",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
     rating: "4.9",
-    students: "2,310"
+    students: "2,310",
+    tags: ["Power BI", "Excel", "Insights"],
+    color: "bg-[#f5f3ff]",
+    textColor: "text-[#4c1d95]",
+    tagBg: "bg-[#ede9fe]"
   }
 ];

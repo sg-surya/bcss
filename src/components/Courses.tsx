@@ -1,48 +1,13 @@
 import { motion } from 'motion/react';
-import { ArrowRight, Clock, IndianRupee } from 'lucide-react';
+import { ArrowRight, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { coursesData } from '../data/courses';
 
 export default function Courses() {
   const navigate = useNavigate();
   
-  const courses = [
-    {
-      title: "AI Tools + Freelancing",
-      duration: "3 Months",
-      price: "Affordable",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
-    },
-    {
-      title: "Web Development",
-      duration: "3 Months",
-      price: "Affordable",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800"
-    },
-    {
-      title: "Data Analytics",
-      duration: "3 Months",
-      price: "Affordable",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
-    },
-    {
-      title: "Digital Marketing",
-      duration: "3 Months",
-      price: "Affordable",
-      image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=800"
-    },
-    {
-      title: "Tally + GST",
-      duration: "3 Months",
-      price: "Affordable",
-      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800"
-    },
-    {
-      title: "Graphic Design",
-      duration: "3 Months",
-      price: "Affordable",
-      image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800"
-    }
-  ];
+  // Show only first 6 courses on home page
+  const courses = coursesData.slice(0, 6);
 
   return (
     <section id="courses" className="py-24 px-6 max-w-[1536px] mx-auto">
@@ -73,52 +38,82 @@ export default function Courses() {
         {courses.map((course, idx) => (
           <motion.div
             key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={{
+              initial: { opacity: 0, y: 20 },
+              animate: { opacity: 1, y: 0 },
+            }}
+            initial="initial"
+            whileInView="animate"
+            whileHover="hover"
             viewport={{ once: true }}
             transition={{ delay: idx * 0.1, duration: 0.6 }}
-            className="group cursor-pointer bg-white rounded-[2rem] border border-black/5 shadow-sm hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-500 flex flex-col h-full overflow-hidden"
+            className="group cursor-pointer bg-white rounded-[2.5rem] border border-black/5 shadow-sm hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 flex flex-col h-[440px] overflow-hidden relative"
+            onClick={() => {
+              navigate('/courses');
+              window.scrollTo(0, 0);
+            }}
           >
-            <div className="relative h-60 overflow-hidden p-2">
-              <div className="w-full h-full relative overflow-hidden rounded-[1.5rem]">
-                <div className="absolute inset-0 bg-gray-900/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+            {/* Image Section with Padding and Radius */}
+            <div className="p-4 pb-0">
+              <div className="relative h-44 w-full overflow-hidden rounded-[2rem]">
                 <img 
                   src={course.image} 
                   alt={course.title}
-                  className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
+                <div className="absolute top-4 right-4">
+                  <div className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded-lg flex flex-col items-center justify-center gap-0.5 shadow-sm">
+                    <div className="w-1 h-1 bg-black rounded-full" />
+                    <div className="w-1 h-1 bg-black rounded-full" />
+                    <div className="w-1 h-1 bg-black rounded-full" />
+                  </div>
+                </div>
               </div>
             </div>
-            
-            <div className="px-6 pt-4 pb-6 flex flex-col flex-1">
-              <h3 className="text-xl font-bold text-[#0a0a0a] mb-4 group-hover:text-blue-600 transition-colors">{course.title}</h3>
-              
-              <div className="flex items-center gap-4 text-sm text-gray-500 mb-6 font-medium">
-                <div className="flex items-center gap-1.5">
-                  <Clock size={16} className="text-gray-400" />
-                  <span>{course.duration}</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <IndianRupee size={16} className="text-gray-400" />
-                  <span>{course.price}</span>
+
+            {/* Content Section */}
+            <div className="p-6 flex-1 flex flex-col">
+              <div className="flex items-center justify-between mb-2">
+                <span className="bg-orange-50 text-orange-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                  {course.category}
+                </span>
+                <div className="flex items-center text-gray-400 text-xs font-medium">
+                  <Clock size={14} className="mr-1" /> {course.duration}
                 </div>
               </div>
               
-              <div className="mt-auto pt-6 border-t border-black/5">
-                <motion.button 
+              <h3 className="text-2xl font-bold text-[#0a0a0a] mb-0.5 tracking-tight line-clamp-1">
+                {course.title}
+              </h3>
+              
+              <p className="text-gray-400 text-sm mb-4">
+                by <span className="text-gray-600 font-medium">{course.instructor || 'Michael Anderson'}</span>
+              </p>
+              
+              <div className="mt-auto">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center">
+                    <div className="flex -space-x-2">
+                      {[1, 2, 3, 4].map((i) => (
+                        <div key={i} className="w-7 h-7 rounded-full border-2 border-white overflow-hidden bg-gray-100">
+                          <img src={`https://i.pravatar.cc/100?u=${course.id}${i}`} alt="user" referrerPolicy="no-referrer" />
+                        </div>
+                      ))}
+                    </div>
+                    <span className="ml-3 text-sm font-bold text-gray-400">+{course.students}</span>
+                  </div>
+                  <div className="text-2xl font-bold text-[#0a0a0a]">
+                    {course.fees}
+                  </div>
+                </div>
+
+                <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    navigate('/courses');
-                    window.scrollTo(0, 0);
-                  }}
-                  className="relative overflow-hidden w-full bg-blue-50 text-blue-600 py-3.5 rounded-2xl text-sm font-semibold group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+                  className="w-full py-3 bg-gray-50 group-hover:bg-[#0a0a0a] group-hover:text-white text-[#0a0a0a] font-bold rounded-2xl transition-all duration-300 flex items-center justify-center gap-2"
                 >
-                  <span className="absolute inset-0 w-[150%] h-full -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover/btn:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />
-                  <span className="relative z-10 flex items-center gap-2">
-                    View Details <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
-                  </span>
+                  Explore Course <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </motion.button>
               </div>
             </div>

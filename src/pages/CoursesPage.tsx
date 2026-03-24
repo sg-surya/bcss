@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Star, Users, Search, Filter, ArrowRight } from 'lucide-react';
+import { Star, Users, Search, Filter, ArrowRight, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { coursesData } from '../data/courses';
 import { useState } from 'react';
@@ -75,60 +75,79 @@ export default function CoursesPage() {
         {filteredCourses.map((course, idx) => (
           <motion.div
             key={course.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={{
+              initial: { opacity: 0, y: 20 },
+              animate: { opacity: 1, y: 0 },
+            }}
+            initial="initial"
+            whileInView="animate"
+            whileHover="hover"
             viewport={{ once: true }}
             transition={{ delay: idx * 0.05, duration: 0.5 }}
-            className="bg-white rounded-[2rem] border border-black/5 shadow-sm hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-500 flex flex-col h-full group overflow-hidden"
+            className="group cursor-pointer bg-white rounded-[2.5rem] border border-black/5 shadow-sm hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 flex flex-col h-[440px] overflow-hidden relative"
           >
-            {/* Image Section */}
-            <div className="relative h-60 overflow-hidden p-2">
-              <div className="w-full h-full relative overflow-hidden rounded-[1.5rem]">
-                <div className="absolute inset-0 bg-gray-900/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+            {/* Image Section with Padding and Radius */}
+            <div className="p-4 pb-0">
+              <div className="relative h-44 w-full overflow-hidden rounded-[2rem]">
                 <img 
                   src={course.image} 
                   alt={course.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute top-3 left-3 z-20">
-                  <span className="bg-white/95 backdrop-blur-md text-[#0a0a0a] text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm">
-                    {course.category}
-                  </span>
-                </div>
-                <div className="absolute top-3 right-3 z-20">
-                  <span className="flex items-center bg-white/95 backdrop-blur-md text-orange-500 text-xs font-bold px-2.5 py-1.5 rounded-full shadow-sm">
-                    <Star size={14} className="mr-1 fill-current" /> {course.rating}
-                  </span>
+                <div className="absolute top-4 right-4">
+                  <div className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded-lg flex flex-col items-center justify-center gap-0.5 shadow-sm">
+                    <div className="w-1 h-1 bg-black rounded-full" />
+                    <div className="w-1 h-1 bg-black rounded-full" />
+                    <div className="w-1 h-1 bg-black rounded-full" />
+                  </div>
                 </div>
               </div>
             </div>
-            
+
             {/* Content Section */}
-            <div className="px-6 pt-4 pb-6 flex flex-col flex-1">
-              <h3 className="font-bold text-[#0a0a0a] text-xl mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300">
+            <div className="p-6 flex-1 flex flex-col">
+              <div className="flex items-center justify-between mb-2">
+                <span className="bg-orange-50 text-orange-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                  {course.category}
+                </span>
+                <div className="flex items-center text-gray-400 text-xs font-medium">
+                  <Clock size={14} className="mr-1" /> {course.duration}
+                </div>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-[#0a0a0a] mb-0.5 tracking-tight line-clamp-1">
                 {course.title}
               </h3>
               
-              <div className="flex items-center gap-4 text-sm text-gray-500 mb-6 font-medium">
-                <span className="flex items-center">
-                  <Users size={16} className="mr-1.5 text-gray-400" /> {course.students} students
-                </span>
-              </div>
+              <p className="text-gray-400 text-sm mb-4">
+                by <span className="text-gray-600 font-medium">{course.instructor || 'Michael Anderson'}</span>
+              </p>
               
-              <div className="mt-auto pt-6 border-t border-black/5 flex items-center justify-between">
-                <div className="flex flex-col">
-                  <span className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-0.5">Course Fee</span>
-                  <span className="font-bold text-[#0a0a0a] text-2xl">{course.fees}</span>
+              <div className="mt-auto">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center">
+                    <div className="flex -space-x-2">
+                      {[1, 2, 3, 4].map((i) => (
+                        <div key={i} className="w-7 h-7 rounded-full border-2 border-white overflow-hidden bg-gray-100">
+                          <img src={`https://i.pravatar.cc/100?u=${course.id}${i}`} alt="user" referrerPolicy="no-referrer" />
+                        </div>
+                      ))}
+                    </div>
+                    <span className="ml-3 text-sm font-bold text-gray-400">+{course.students}</span>
+                  </div>
+                  <div className="text-2xl font-bold text-[#0a0a0a]">
+                    {course.fees}
+                  </div>
                 </div>
-                
-                <Link 
-                  to={`/courses/${course.id}`} 
-                  className="inline-flex items-center justify-center gap-2 bg-blue-50 text-blue-600 px-6 py-3 rounded-2xl font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 group/btn"
+
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full py-3 bg-gray-50 group-hover:bg-[#0a0a0a] group-hover:text-white text-[#0a0a0a] font-bold rounded-2xl transition-all duration-300 flex items-center justify-center gap-2"
                 >
-                  Learn More
-                  <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
-                </Link>
+                  Explore Course <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </motion.button>
               </div>
             </div>
           </motion.div>
