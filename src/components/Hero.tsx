@@ -89,19 +89,31 @@ export default function Hero() {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4 mb-12"
               >
-                <button className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-all hover:shadow-xl hover:shadow-blue-600/30 flex items-center justify-center gap-2 group text-lg">
-                  Join Free Demo
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-                <a 
+                <motion.button 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="relative overflow-hidden bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-all hover:shadow-xl hover:shadow-blue-600/30 flex items-center justify-center gap-2 group text-lg"
+                >
+                  <span className="absolute inset-0 w-[150%] h-full -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />
+                  <span className="relative z-10 flex items-center gap-2">
+                    Join Free Demo
+                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </motion.button>
+                <motion.a 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   href="https://wa.me/919719205268?text=Hi,%20I%20want%20to%20know%20more%20about%20the%20courses."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white border-2 border-gray-200 text-[#0a0a0a] px-8 py-4 rounded-full font-bold hover:border-green-500 hover:text-green-600 transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md text-lg group"
+                  className="relative overflow-hidden bg-white border-2 border-gray-200 text-[#0a0a0a] px-8 py-4 rounded-full font-bold hover:border-green-500 hover:text-green-600 transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md text-lg group"
                 >
-                  <MessageCircle size={20} className="text-[#25D366] group-hover:scale-110 transition-transform" />
-                  Chat on WhatsApp
-                </a>
+                  <span className="absolute inset-0 w-[150%] h-full -translate-x-full bg-gradient-to-r from-transparent via-green-500/10 to-transparent group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />
+                  <span className="relative z-10 flex items-center gap-2">
+                    <MessageCircle size={20} className="text-[#25D366] group-hover:scale-110 transition-transform" />
+                    Chat on WhatsApp
+                  </span>
+                </motion.a>
               </motion.div>
 
               {/* Trust Indicators */}

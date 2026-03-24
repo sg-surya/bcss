@@ -32,22 +32,32 @@ export default function CTA() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
+              <motion.a 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 href="https://wa.me/919719205268?text=Hi,%20I%20am%20interested%20in%20enrolling%20in%20a%20course."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white text-[#0a0a0a] px-8 py-4 rounded-full text-base font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center gap-2 group"
+                className="relative overflow-hidden bg-white text-[#0a0a0a] px-8 py-4 rounded-full text-base font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center gap-2 group"
               >
-                Enroll Now <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a 
+                <span className="absolute inset-0 w-[150%] h-full -translate-x-full bg-gradient-to-r from-transparent via-black/5 to-transparent group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />
+                <span className="relative z-10 flex items-center gap-2">
+                  Enroll Now <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </span>
+              </motion.a>
+              <motion.a 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 href="https://wa.me/919719205268?text=Hi,%20I%20have%20a%20query."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#25D366] text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-[#1ebe57] transition-colors flex items-center justify-center gap-2"
+                className="relative overflow-hidden bg-[#25D366] text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-[#1ebe57] transition-colors flex items-center justify-center gap-2 group"
               >
-                <MessageCircle size={18} /> WhatsApp Us
-              </a>
+                <span className="absolute inset-0 w-[150%] h-full -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />
+                <span className="relative z-10 flex items-center gap-2">
+                  <MessageCircle size={18} className="group-hover:scale-110 transition-transform" /> WhatsApp Us
+                </span>
+              </motion.a>
             </div>
           </div>
         </motion.div>

@@ -53,15 +53,20 @@ export default function Courses() {
           </h2>
           <p className="text-gray-500 max-w-xl text-lg">Job-oriented programs designed to make you industry-ready.</p>
         </div>
-        <button 
+        <motion.button 
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           onClick={() => {
             navigate('/courses');
             window.scrollTo(0, 0);
           }}
-          className="hidden md:flex items-center gap-2 text-[#0a0a0a] font-medium hover:text-blue-600 transition-colors group"
+          className="hidden md:flex relative overflow-hidden items-center gap-2 text-[#0a0a0a] font-medium hover:text-blue-600 transition-colors group px-6 py-3 rounded-full border border-black/10 hover:border-blue-600/30 hover:bg-blue-50/50"
         >
-          View All Courses <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-        </button>
+          <span className="absolute inset-0 w-[150%] h-full -translate-x-full bg-gradient-to-r from-transparent via-blue-600/5 to-transparent group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />
+          <span className="relative z-10 flex items-center gap-2">
+            View All Courses <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          </span>
+        </motion.button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
@@ -101,15 +106,20 @@ export default function Courses() {
               </div>
               
               <div className="mt-auto pt-6 border-t border-black/5">
-                <button 
+                <motion.button 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   onClick={() => {
                     navigate('/courses');
                     window.scrollTo(0, 0);
                   }}
-                  className="w-full bg-blue-50 text-blue-600 py-3.5 rounded-2xl text-sm font-semibold group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
+                  className="relative overflow-hidden w-full bg-blue-50 text-blue-600 py-3.5 rounded-2xl text-sm font-semibold group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group/btn"
                 >
-                  View Details <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                  <span className="absolute inset-0 w-[150%] h-full -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover/btn:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />
+                  <span className="relative z-10 flex items-center gap-2">
+                    View Details <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                  </span>
+                </motion.button>
               </div>
             </div>
           </motion.div>
@@ -117,15 +127,20 @@ export default function Courses() {
       </div>
       
       <div className="md:hidden flex justify-center">
-        <button 
+        <motion.button 
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           onClick={() => {
             navigate('/courses');
             window.scrollTo(0, 0);
           }}
-          className="flex items-center gap-2 bg-[#0a0a0a] text-white px-8 py-4 rounded-2xl font-medium hover:bg-blue-600 transition-colors"
+          className="relative overflow-hidden flex items-center gap-2 bg-[#0a0a0a] text-white px-8 py-4 rounded-2xl font-medium hover:bg-blue-600 transition-colors group"
         >
-          View All Courses <ArrowRight size={20} />
-        </button>
+          <span className="absolute inset-0 w-[150%] h-full -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />
+          <span className="relative z-10 flex items-center gap-2">
+            View All Courses <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          </span>
+        </motion.button>
       </div>
     </section>
   );
