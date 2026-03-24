@@ -5,6 +5,7 @@ import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Home from './pages/Home';
 import CoursesPage from './pages/CoursesPage';
 import CourseDetailsPage from './pages/CourseDetailsPage';
+import AlumniPage from './pages/AlumniPage';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/courses" element={<CoursesPage />} />
         <Route path="/courses/:id" element={<CourseDetailsPage />} />
+        <Route path="/alumni" element={<AlumniPage />} />
       </Routes>
       <Footer />
       <FloatingWhatsApp />

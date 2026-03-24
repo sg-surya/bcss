@@ -54,7 +54,7 @@ export default function Navbar() {
       </Link>
 
       <div className="hidden md:flex items-center gap-8">
-        {['Home', 'Courses', 'About', 'Contact'].map((item) => (
+        {['Home', 'Courses', 'Faculty', 'Alumni', 'About', 'Contact'].map((item) => (
           <a 
             key={item} 
             href={`#${item.toLowerCase()}`} 
@@ -87,7 +87,7 @@ export default function Navbar() {
 
       {mobileMenuOpen && (
         <div className="absolute top-full left-0 right-0 mt-2 p-4 bg-white border border-black/5 rounded-2xl shadow-xl flex flex-col gap-2 md:hidden">
-          {['Home', 'Courses', 'About', 'Contact'].map((item) => (
+          {['Home', 'Courses', 'Faculty', 'Alumni', 'About', 'Contact'].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`} 
