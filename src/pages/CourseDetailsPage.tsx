@@ -244,8 +244,13 @@ export default function CourseDetailsPage() {
                         <Users className="text-purple-500" /> Your Mentor
                       </h3>
                       <div className="bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100/50 rounded-3xl p-6 flex items-center gap-5">
-                        <div className="w-16 h-16 rounded-2xl bg-white shadow-sm border border-black/5 flex items-center justify-center text-blue-600 font-bold text-2xl shrink-0">
-                          SP
+                        <div className="w-16 h-16 rounded-2xl bg-white shadow-sm border border-black/5 overflow-hidden shrink-0">
+                          <img 
+                            src="https://media.licdn.com/dms/image/v2/D5603AQGx-6ApteXvQA/profile-displayphoto-scale_200_200/B56Zzgiis5HMAc-/0/1773293679145?e=1775692800&v=beta&t=R6UwVYWEfKXTRWKEYZTbrAnp7E9kqCQ55weoZwn0hl4" 
+                            alt="Surya Pratap Singh" 
+                            className="w-full h-full object-cover"
+                            referrerPolicy="no-referrer"
+                          />
                         </div>
                         <div>
                           <h3 className="text-lg font-bold text-[#0a0a0a] mb-1 flex items-center gap-2">
