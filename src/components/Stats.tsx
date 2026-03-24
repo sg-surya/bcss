@@ -1,7 +1,14 @@
 import { motion } from 'motion/react';
 import { MapPin } from 'lucide-react';
+import CountUp from 'react-countup';
+import { useInView } from 'react-intersection-observer';
 
 export default function Stats() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <section className="py-20 px-6">
       <div className="max-w-[1536px] mx-auto bg-[#0a0a0a] rounded-[2.5rem] p-12 md:p-20 text-white overflow-hidden relative">
@@ -13,13 +20,15 @@ export default function Stats() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="text-5xl md:text-6xl font-light mb-4 font-serif italic text-blue-400">500+</div>
+            <div className="text-5xl md:text-6xl font-light mb-4 font-serif italic text-blue-400">
+              {inView ? <CountUp end={500} duration={2.5} /> : '0'}+
+            </div>
             <div className="text-lg font-medium mb-2">Students Trained</div>
             <p className="text-gray-400 text-sm leading-relaxed">Successfully upskilled and ready for the industry.</p>
           </motion.div>
@@ -30,7 +39,9 @@ export default function Stats() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <div className="text-5xl md:text-6xl font-light mb-4 font-serif italic text-[#25D366]">100+</div>
+            <div className="text-5xl md:text-6xl font-light mb-4 font-serif italic text-[#25D366]">
+              {inView ? <CountUp end={100} duration={2.5} /> : '0'}+
+            </div>
             <div className="text-lg font-medium mb-2">Placed / Freelancing</div>
             <p className="text-gray-400 text-sm leading-relaxed">Earning and growing in their respective fields.</p>
           </motion.div>
@@ -41,7 +52,9 @@ export default function Stats() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <div className="text-5xl md:text-6xl font-light mb-4 font-serif italic text-blue-400">4.8</div>
+            <div className="text-5xl md:text-6xl font-light mb-4 font-serif italic text-blue-400">
+              {inView ? <CountUp end={4.8} decimals={1} duration={2.5} /> : '0.0'}
+            </div>
             <div className="text-lg font-medium mb-2">Star Rating</div>
             <p className="text-gray-400 text-sm leading-relaxed">Highly rated by our students for quality education.</p>
           </motion.div>
