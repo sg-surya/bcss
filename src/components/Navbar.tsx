@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -15,31 +14,13 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: string) => {
-    e.preventDefault();
-    setMobileMenuOpen(false);
-    
-    if (item === 'Courses') {
-      navigate('/courses');
-      window.scrollTo(0, 0);
-      return;
-    }
-
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        const element = document.getElementById(item.toLowerCase());
-        if (element) element.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      if (item === 'Home') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        const element = document.getElementById(item.toLowerCase());
-        if (element) element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'Courses', path: '/courses' },
+    { name: 'Alumni', path: '/alumni' },
+    { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' }
+  ];
 
   return (
     <motion.nav
@@ -54,19 +35,19 @@ export default function Navbar() {
       </Link>
 
       <div className="hidden md:flex items-center gap-8">
-        {['Home', 'Courses', 'Faculty', 'Alumni', 'About', 'Contact'].map((item) => (
-          <a 
-            key={item} 
-            href={`#${item.toLowerCase()}`} 
-            onClick={(e) => handleNavClick(e, item)}
+        {navItems.map((item) => (
+          <Link 
+            key={item.name} 
+            to={item.path} 
+            onClick={() => window.scrollTo(0, 0)}
             className={`text-sm font-medium transition-colors ${
-              (location.pathname === '/courses' && item === 'Courses') 
+              location.pathname === item.path 
                 ? 'text-blue-600' 
                 : 'text-gray-500 hover:text-[#0a0a0a]'
             }`}
           >
-            {item}
-          </a>
+            {item.name}
+          </Link>
         ))}
       </div>
 
@@ -87,19 +68,22 @@ export default function Navbar() {
 
       {mobileMenuOpen && (
         <div className="absolute top-full left-0 right-0 mt-2 p-4 bg-white border border-black/5 rounded-2xl shadow-xl flex flex-col gap-2 md:hidden">
-          {['Home', 'Courses', 'Faculty', 'Alumni', 'About', 'Contact'].map((item) => (
-            <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
-              onClick={(e) => handleNavClick(e, item)}
+          {navItems.map((item) => (
+            <Link 
+              key={item.name} 
+              to={item.path} 
+              onClick={() => {
+                setMobileMenuOpen(false);
+                window.scrollTo(0, 0);
+              }}
               className={`p-3 text-sm font-medium rounded-xl ${
-                (location.pathname === '/courses' && item === 'Courses')
+                location.pathname === item.path
                   ? 'bg-blue-50 text-blue-600'
                   : 'text-gray-600 hover:bg-gray-50'
               }`}
             >
-              {item}
-            </a>
+              {item.name}
+            </Link>
           ))}
           <a 
             href="https://wa.me/919719205268?text=Hi,%20I%20am%20interested%20in%20enrolling%20in%20a%20course."
