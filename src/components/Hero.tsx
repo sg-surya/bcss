@@ -1,19 +1,9 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, MessageCircle, Star, CheckCircle2, Award, Play, X } from 'lucide-react';
+import { ArrowRight, MessageCircle, Star, Play, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
-const words = ["Job-Ready", "In-Demand", "High-Paying"];
-
 export default function Hero() {
-  const [currentWord, setCurrentWord] = useState(0);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWord((prev) => (prev + 1) % words.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
 
   // Prevent scrolling when modal is open
   useEffect(() => {
@@ -29,192 +19,116 @@ export default function Hero() {
 
   return (
     <>
-      <section id="home" className="pt-32 pb-20 px-6 max-w-[1536px] mx-auto min-h-[90vh] flex flex-col justify-center relative overflow-hidden">
-        {/* Background Gradients */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl opacity-30 pointer-events-none -z-10">
-          <div className="absolute top-20 left-0 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-          <div className="absolute top-20 right-0 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <div className="lg:col-span-7 z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-200/50 bg-blue-50/80 backdrop-blur-md text-xs font-bold uppercase tracking-widest mb-8 text-blue-700 shadow-sm"
-              >
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-600"></span>
-                </span>
-                Admissions Open for 2026 Batch
-              </motion.div>
-              
-              <h1 className="text-[3.5rem] md:text-[5.5rem] lg:text-[6.5rem] font-bold leading-[0.9] tracking-tighter mb-8 text-[#0a0a0a]">
-                Learn <br className="hidden md:block" />
-                <div className="inline-grid overflow-hidden h-[1.1em] align-bottom text-blue-600 pr-4">
-                  {words.map((word, index) => (
-                    <motion.span
-                      key={index}
-                      className="font-serif italic font-light col-start-1 row-start-1"
-                      initial={{ y: "100%", opacity: 0 }}
-                      animate={{ 
-                        y: currentWord === index ? "0%" : currentWord > index ? "-100%" : "100%",
-                        opacity: currentWord === index ? 1 : 0
-                      }}
-                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                      {word}
-                    </motion.span>
-                  ))}
-                </div>
-                <br className="hidden md:block" /> Skills.
-              </h1>
-              
-              <p className="text-lg md:text-xl text-gray-600 max-w-lg leading-relaxed mb-10 font-medium">
-                Join Bhavna Institute – Get practical training, certification & career guidance. 
-                Affordable fees and 100% job-oriented courses in Meerut.
-              </p>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 mb-12"
-              >
-                <motion.button 
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="relative overflow-hidden bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-all hover:shadow-xl hover:shadow-blue-600/30 flex items-center justify-center gap-2 group text-lg"
-                >
-                  <span className="absolute inset-0 w-[150%] h-full -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />
-                  <span className="relative z-10 flex items-center gap-2">
-                    Join Free Demo
-                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </motion.button>
-                <motion.a 
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  href="https://wa.me/919719205268?text=Hi,%20I%20want%20to%20know%20more%20about%20the%20courses."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative overflow-hidden bg-white border-2 border-gray-200 text-[#0a0a0a] px-8 py-4 rounded-full font-bold hover:border-green-500 hover:text-green-600 transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md text-lg group"
-                >
-                  <span className="absolute inset-0 w-[150%] h-full -translate-x-full bg-gradient-to-r from-transparent via-green-500/10 to-transparent group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />
-                  <span className="relative z-10 flex items-center gap-2">
-                    <MessageCircle size={20} className="text-[#25D366] group-hover:scale-110 transition-transform" />
-                    Chat on WhatsApp
-                  </span>
-                </motion.a>
-              </motion.div>
-
-              {/* Trust Indicators */}
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-                className="flex flex-wrap items-center gap-x-8 gap-y-4 text-sm font-bold text-gray-500 uppercase tracking-wider"
-              >
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={20} className="text-blue-500" />
-                  <span>ISO Certified</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={20} className="text-blue-500" />
-                  <span>100% Placement</span>
-                </div>
-              </motion.div>
-            </motion.div>
+      <section id="home" className="pt-32 pb-20 px-6 max-w-[1536px] mx-auto min-h-screen flex flex-col items-center text-center justify-center relative overflow-hidden">
+        {/* The Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-3 px-1.5 py-1.5 pr-4 rounded-full border border-gray-200 bg-white mb-8 shadow-sm"
+        >
+          <div className="bg-blue-600 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            NEW
           </div>
-          
-          <div className="lg:col-span-5 relative mt-16 lg:mt-0">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative z-10"
-            >
-              {/* Main Image Container with brutalist/editorial touch */}
-              <div 
-                className="relative rounded-[2rem] overflow-hidden aspect-[4/5] shadow-2xl border-4 border-white bg-gray-100 cursor-pointer group"
-                onClick={() => setIsVideoOpen(true)}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" 
-                  alt="Students learning at Bhavna Institute" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-80"></div>
-                
-                {/* Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40 shadow-2xl transition-transform duration-300 group-hover:scale-110">
-                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-blue-600 pl-1">
-                      <Play size={24} className="fill-current" />
-                    </div>
-                  </div>
-                </div>
+          <span className="text-sm font-medium text-gray-700">Admissions open for 2026 Batch</span>
+          <ArrowRight size={14} className="text-gray-400" />
+        </motion.div>
 
-                {/* Bottom Info Bar */}
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 flex items-center justify-between text-white">
-                    <div>
-                      <div className="text-3xl font-bold mb-1">4.9/5</div>
-                      <div className="flex text-yellow-400 gap-1">
-                        {[...Array(5)].map((_, i) => <Star key={i} size={16} className="fill-current" />)}
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-2xl font-bold">200+</div>
-                      <div className="text-sm text-white/80 font-medium">Happy Students</div>
-                    </div>
-                  </div>
+        {/* Main Heading */}
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-[3.5rem] md:text-[5.5rem] lg:text-[6.5rem] font-bold leading-[1.05] tracking-tight mb-6 text-[#0a0a0a]"
+        >
+          Master the skills that <br className="hidden md:block" />
+          <span className="font-serif italic text-gray-500 font-normal">shape</span> the future.
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed mb-10 font-medium"
+        >
+          Bhavna Institute provides 100% job-oriented practical training, expert
+          mentorship, and placement support to launch your career.
+        </motion.p>
+
+        {/* Buttons */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 mb-20"
+        >
+          <motion.button 
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="bg-[#0a0a0a] text-white px-8 py-3.5 rounded-xl font-medium transition-all hover:bg-black flex items-center justify-center gap-2 group text-base"
+          >
+            Explore Courses
+            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </motion.button>
+          <motion.a 
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            href="https://wa.me/919719205268?text=Hi,%20I%20want%20to%20know%20more%20about%20the%20courses."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white border border-gray-200 text-[#0a0a0a] px-8 py-3.5 rounded-xl font-medium hover:border-gray-300 transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow text-base group"
+          >
+            <MessageCircle size={18} className="text-gray-400 group-hover:text-green-500 transition-colors" />
+            Chat on WhatsApp
+          </motion.a>
+        </motion.div>
+
+        {/* Hero Image */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full max-w-4xl relative"
+        >
+          <div 
+            className="relative rounded-[2rem] overflow-hidden aspect-[16/10] md:aspect-video shadow-2xl cursor-pointer group bg-gray-100"
+            onClick={() => setIsVideoOpen(true)}
+          >
+            <img 
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200" 
+              alt="Students learning at Bhavna Institute" 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300"></div>
+            
+            {/* Play Button Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-20 h-20 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-black pl-1">
+                  <Play size={24} className="fill-current" />
                 </div>
               </div>
+            </div>
 
-              {/* Floating Elements */}
-              <motion.div 
-                initial={{ opacity: 0, x: 50, y: -20 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
-                className="absolute -top-8 -right-8 bg-white p-4 rounded-2xl shadow-xl border border-black/5 flex items-center gap-4 z-20 pointer-events-none"
-              >
-                <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center shrink-0">
-                  <Award className="text-green-600" size={24} />
+            {/* Testimonial Overlay - Bottom Left */}
+            <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
+              <div className="bg-white rounded-2xl p-4 pr-6 flex items-center gap-4 shadow-xl">
+                <div className="flex -space-x-3 shrink-0">
+                  <img src="https://i.pravatar.cc/100?img=1" alt="Student" className="w-10 h-10 rounded-full border-2 border-white object-cover" referrerPolicy="no-referrer" />
+                  <img src="https://i.pravatar.cc/100?img=2" alt="Student" className="w-10 h-10 rounded-full border-2 border-white object-cover" referrerPolicy="no-referrer" />
                 </div>
-                <div>
-                  <div className="text-sm font-bold text-[#0a0a0a]">Govt. Recognized</div>
-                  <div className="text-xs text-gray-500 font-medium">Valid Certification</div>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                initial={{ opacity: 0, x: -50, y: 20 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
-                className="absolute top-1/2 -left-12 bg-white p-3 rounded-2xl shadow-xl border border-black/5 flex items-center gap-3 z-20 pointer-events-none"
-              >
-                <div className="flex -space-x-3">
-                  <img src="https://i.pravatar.cc/100?img=1" alt="Student" className="w-10 h-10 rounded-full border-2 border-white" referrerPolicy="no-referrer" />
-                  <img src="https://i.pravatar.cc/100?img=2" alt="Student" className="w-10 h-10 rounded-full border-2 border-white" referrerPolicy="no-referrer" />
-                  <div className="w-10 h-10 rounded-full border-2 border-white bg-blue-100 flex items-center justify-center text-xs font-bold text-blue-600">
-                    +5k
+                <div className="text-left">
+                  <div className="flex text-orange-500 gap-0.5 mb-1.5">
+                    {[...Array(5)].map((_, i) => <Star key={i} size={14} className="fill-current" />)}
                   </div>
+                  <p className="text-xs font-bold text-[#0a0a0a] leading-snug">"The best institute for<br/>practical learning."</p>
                 </div>
-                <div className="text-sm font-bold text-[#0a0a0a] pr-2">Students Placed</div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Video Modal */}

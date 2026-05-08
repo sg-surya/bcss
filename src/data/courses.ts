@@ -72,42 +72,6 @@ export const coursesData = [
     tagBg: "bg-[#ffedd5]"
   },
   {
-    id: "digital-marketing",
-    title: "Digital Marketing Course",
-    category: "Job-Oriented",
-    duration: "3 Months",
-    fees: "₹6000 – ₹10000",
-    description: "Online marketing aur business growth ke liye powerful skill.",
-    learn: ["SEO basics", "Social media marketing", "Ads (Facebook/Google)", "Freelancing"],
-    outcome: "Digital marketer / Freelancer",
-    instructor: "Emily Davis",
-    image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=800",
-    rating: "4.8",
-    students: "1,890",
-    tags: ["SEO", "Ads", "Social Media"],
-    color: "bg-[#f0fdf4]",
-    textColor: "text-[#14532d]",
-    tagBg: "bg-[#dcfce7]"
-  },
-  {
-    id: "video-editing",
-    title: "Video Editing Course",
-    category: "Job-Oriented",
-    duration: "3 Months",
-    fees: "₹5000 – ₹8000",
-    description: "YouTube aur social media content editing seekho.",
-    learn: ["CapCut / Premiere Pro", "Reels & Shorts editing", "Effects & transitions"],
-    outcome: "Content creator / Editor",
-    instructor: "James Taylor",
-    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=800",
-    rating: "4.7",
-    students: "1,120",
-    tags: ["Premiere Pro", "Reels", "YouTube"],
-    color: "bg-[#f5f3ff]",
-    textColor: "text-[#4c1d95]",
-    tagBg: "bg-[#ede9fe]"
-  },
-  {
     id: "graphic-design",
     title: "Graphic Design Course",
     category: "Job-Oriented",
@@ -162,24 +126,6 @@ export const coursesData = [
     tagBg: "bg-[#ccfbf1]"
   },
   {
-    id: "ai-tools",
-    title: "AI Tools + Freelancing Course",
-    category: "Professional",
-    duration: "3 Months",
-    fees: "₹7999",
-    description: "Latest AI tools use karke online earning start karo.",
-    learn: ["ChatGPT mastery", "Canva AI / Midjourney", "Content creation", "Freelancing setup"],
-    outcome: "Online earning / AI expert",
-    instructor: "Daniel Thomas",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-    rating: "4.9",
-    students: "2,890",
-    tags: ["ChatGPT", "Midjourney", "Freelancing"],
-    color: "bg-[#eef2ff]",
-    textColor: "text-[#312e81]",
-    tagBg: "bg-[#e0e7ff]"
-  },
-  {
     id: "python",
     title: "Python Programming Course",
     category: "Professional",
@@ -197,22 +143,5 @@ export const coursesData = [
     textColor: "text-[#831843]",
     tagBg: "bg-[#fce7f3]"
   },
-  {
-    id: "data-analytics",
-    title: "Data Analytics Course",
-    category: "Professional",
-    duration: "3 Months",
-    fees: "₹8000 – ₹15000",
-    description: "Data analysis aur dashboard creation ka course.",
-    learn: ["Excel advanced", "Power BI", "Data visualization"],
-    outcome: "Data analyst / MIS job",
-    instructor: "Michael Anderson",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
-    rating: "4.9",
-    students: "2,310",
-    tags: ["Power BI", "Excel", "Insights"],
-    color: "bg-[#f5f3ff]",
-    textColor: "text-[#4c1d95]",
-    tagBg: "bg-[#ede9fe]"
-  }
+
 ];
