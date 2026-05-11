@@ -7,7 +7,7 @@ import {
   PlayCircle, FileText, Award, Smartphone,
   ChevronDown, ChevronUp, Check, Briefcase, MessageSquare, HelpCircle
 } from 'lucide-react';
-import { coursesData } from '../data/courses';
+import { courses } from '../data/courses';
 import { useEffect, useState } from 'react';
 
 // Helper function to dynamically assign icons based on learning point text
@@ -59,7 +59,7 @@ const getIconForLearningPoint = (text: string) => {
 
 export default function CourseDetailsPage() {
   const { id } = useParams();
-  const course = coursesData.find(c => c.id === id);
+  const course = courses.find(c => c.id === id);
   const [activeTab, setActiveTab] = useState('overview');
   const [openAccordion, setOpenAccordion] = useState<number | null>(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -77,7 +77,7 @@ export default function CourseDetailsPage() {
     { id: 'faq', label: 'FAQ', icon: HelpCircle },
   ];
 
-  // Mock data for new tabs (since it's not in coursesData)
+  // Mock data for new tabs (since it's not in courses)
   const curriculumData = [
     { title: 'Month 1: Fundamentals & Basics', items: ['Introduction to core concepts', 'Setting up the environment', 'Basic tools and techniques', 'First practice assignment'] },
     { title: 'Month 2: Advanced Skills & Practice', items: ['Deep dive into advanced topics', 'Real-world problem solving', 'Optimizing workflow', 'Mid-term project'] },
@@ -138,10 +138,10 @@ export default function CourseDetailsPage() {
                 className="flex flex-wrap items-center gap-3 mb-2"
               >
                 <span className="bg-white/10 text-white border border-white/20 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider backdrop-blur-sm">
-                  {course.category}
+                  {(course as any).category || 'Job-Oriented'}
                 </span>
                 <div className="flex items-center text-orange-400 text-sm font-bold bg-orange-400/10 px-3 py-1.5 rounded-full border border-orange-400/20">
-                  <Star size={14} className="mr-1.5 fill-current" /> {course.rating} Rating
+                  <Star size={14} className="mr-1.5 fill-current" /> {(course as any).rating || '4.9'} Rating
                 </div>
               </motion.div>
               
@@ -171,7 +171,7 @@ export default function CourseDetailsPage() {
               >
                 <div className="flex items-center gap-2">
                   <Users size={18} className="text-blue-400" />
-                  <span>{course.students} students enrolled</span>
+                  <span>{course.studentCount} students enrolled</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock size={18} className="text-blue-400" />
@@ -270,7 +270,7 @@ export default function CourseDetailsPage() {
                         <Target className="text-orange-500" /> What You'll Learn
                       </h3>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {course.learn.map((item, idx) => (
+                        {((course as any).learn || ['Core fundamentals and advanced techniques', 'Real-world project building', 'Industry best practices', 'Interview preparation']).map((item: string, idx: number) => (
                           <div key={idx} className="flex items-start gap-4 p-4 rounded-2xl bg-gray-50 border border-black/5 hover:bg-white hover:shadow-md hover:border-blue-100 transition-all duration-300">
                             <div className="mt-0.5 bg-white p-2 rounded-xl shadow-sm border border-black/5">
                               {getIconForLearningPoint(item)}
@@ -290,7 +290,7 @@ export default function CourseDetailsPage() {
                           <Briefcase className="text-blue-400" /> Career Outcomes
                         </h3>
                         <p className="text-gray-300 font-medium leading-relaxed mb-8 max-w-2xl">
-                          {course.outcome}
+                          {(course as any).outcome || `Complete this course to build a strong foundation in ${course.title} and start your professional career with practical skills.`}
                         </p>
                         <div className="inline-flex items-center gap-2 text-sm font-bold text-white bg-white/10 backdrop-blur-md px-5 py-3 rounded-xl border border-white/10">
                           <IndianRupee size={18} className="text-green-400" /> High Earning Potential
@@ -514,7 +514,7 @@ export default function CourseDetailsPage() {
             >
               <div className="relative h-64 w-full rounded-[2rem] overflow-hidden mb-4">
                 <img 
-                  src={course.image} 
+                  src={course.thumbnail} 
                   alt={course.title} 
                   className="w-full h-full object-cover"
                 />
@@ -526,7 +526,7 @@ export default function CourseDetailsPage() {
               <div className="px-5 pb-5">
                 <div className="mb-6">
                   <div className="flex items-end gap-2 mb-1">
-                    <span className="text-4xl font-bold text-[#0a0a0a] tracking-tight">{course.fees}</span>
+                    <span className="text-4xl font-bold text-[#0a0a0a] tracking-tight">{course.pricing}</span>
                   </div>
                   <div className="text-sm text-gray-500 font-medium">One-time payment, full access</div>
                 </div>

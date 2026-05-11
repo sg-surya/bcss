@@ -1,13 +1,10 @@
 import Hero from '../components/Hero';
 import Courses from '../components/Courses';
-import Features from '../components/Features';
-import Stats from '../components/Stats';
-import Faculty from '../components/Faculty';
-import AlumniSection from '../components/AlumniSection';
+import CareerOutcomes from '../components/CareerOutcomes';
+import Timeline from '../components/Timeline';
+import Placements from '../components/Placements';
+import Gallery from '../components/Gallery';
 import Testimonials from '../components/Testimonials';
-import About from '../components/About';
-import FAQ from '../components/FAQ';
-import CTA from '../components/CTA';
 import ContactForm from '../components/ContactForm';
 import Location from '../components/Location';
 
@@ -15,15 +12,12 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <CareerOutcomes />
       <Courses />
-      <Features />
-      <Stats />
-      <Faculty />
-      <AlumniSection />
+      <Timeline />
+      <Placements />
       <Testimonials />
-      <About />
-      <FAQ />
-      <CTA />
+      <Gallery />
       <ContactForm />
       <Location />
     </main>

@@ -1,155 +1,144 @@
-import React, { useState, useEffect } from 'react';
+import { Clock, IndianRupee, Users, ArrowRight, BarChart, Flame } from 'lucide-react';
+import { courses } from '../data/courses';
 import { motion } from 'motion/react';
-import { ArrowRight, Clock } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import { coursesData } from '../data/courses';
-import CourseCardSkeleton from './ui/CourseCardSkeleton';
-import ImageWithSkeleton from './ui/ImageWithSkeleton';
 
 export default function Courses() {
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
-  
-  // Show only first 6 courses on home page
-  const courses = coursesData.slice(0, 6);
-
-  useEffect(() => {
-    // Simulate initial loading
-    const timer = setTimeout(() => setIsLoading(false), 1500);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <section id="courses" className="py-24 px-6 max-w-[1536px] mx-auto">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-        <div>
-          <h2 className="text-3xl md:text-5xl font-medium tracking-tighter text-[#0a0a0a] mb-4">
-            Our Popular <span className="font-serif italic text-gray-400">Courses</span>
-          </h2>
-          <p className="text-gray-500 max-w-xl text-lg">Job-oriented programs designed to make you industry-ready.</p>
+    <section id="courses" className="py-24 px-6 bg-gray-50/50">
+      <div className="max-w-[1536px] mx-auto">
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-200 bg-brand-50 text-brand-700 text-xs font-bold uppercase tracking-widest mb-6 shadow-sm"
+          >
+            Explore Our Programs
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4 font-heading"
+          >
+            Industry-Relevant <span className="text-brand-600">Courses</span>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-gray-600 max-w-2xl mx-auto text-lg"
+          >
+            Practical, job-oriented computer training designed to make you industry-ready.
+          </motion.p>
         </div>
-        <motion.button 
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={() => {
-            navigate('/courses');
-            window.scrollTo(0, 0);
-          }}
-          className="hidden md:flex relative overflow-hidden items-center gap-2 text-[#0a0a0a] font-medium hover:text-blue-600 transition-colors group px-6 py-3 rounded-full border border-black/10 hover:border-blue-600/30 hover:bg-blue-50/50"
-        >
-          <span className="absolute inset-0 w-[150%] h-full -translate-x-full bg-gradient-to-r from-transparent via-blue-600/5 to-transparent group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />
-          <span className="relative z-10 flex items-center gap-2">
-            View All Courses <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-          </span>
-        </motion.button>
-      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
-        {isLoading ? (
-          Array.from({ length: 6 }).map((_, i) => <CourseCardSkeleton key={i} />)
-        ) : (
-          courses.map((course, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {courses.map((course, idx) => (
             <motion.div
-              key={idx}
-              variants={{
-                initial: { opacity: 0, y: 20 },
-                animate: { opacity: 1, y: 0 },
-              }}
-              initial="initial"
-              whileInView="animate"
-              whileHover="hover"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.6 }}
-              className="group cursor-pointer bg-white rounded-[2.5rem] border border-black/5 shadow-sm hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 flex flex-col h-[440px] overflow-hidden relative"
-              onClick={() => {
-                navigate('/courses');
-                window.scrollTo(0, 0);
-              }}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
+              key={course.id}
+              className="premium-card group overflow-hidden flex flex-col bg-white h-full"
             >
-              {/* Image Section with Padding and Radius */}
-              <div className="p-4 pb-0">
-                <div className="relative h-44 w-full overflow-hidden rounded-[2rem]">
-                  <ImageWithSkeleton 
-                    src={course.image} 
-                    alt={course.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute top-4 right-4">
-                    <div className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded-lg flex flex-col items-center justify-center gap-0.5 shadow-sm">
-                      <div className="w-1 h-1 bg-black rounded-full" />
-                      <div className="w-1 h-1 bg-black rounded-full" />
-                      <div className="w-1 h-1 bg-black rounded-full" />
-                    </div>
+              {/* Thumbnail Container */}
+              <div className="relative h-56 overflow-hidden bg-gray-100">
+                <img 
+                  src={course.thumbnail} 
+                  alt={course.title} 
+                  className="w-full h-full object-cover img-hover-zoom"
+                  referrerPolicy="no-referrer"
+                />
+                
+                {/* Popular Badge */}
+                {course.popular && (
+                  <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 z-10">
+                    <Flame size={14} className="fill-current" />
+                    Bestseller
                   </div>
-                </div>
+                )}
+                
+                {/* Overlay Gradient for readability if needed, though clean design usually skips it */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
-              {/* Content Section */}
-              <div className="p-6 flex-1 flex flex-col">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="bg-orange-50 text-orange-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
-                    {course.category}
-                  </span>
-                  <div className="flex items-center text-gray-400 text-xs font-medium">
-                    <Clock size={14} className="mr-1" /> {course.duration}
+              {/* Card Body */}
+              <div className="p-6 flex flex-col flex-1">
+                
+                {/* Top Meta Data (Difficulty & Students) */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className={`text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1.5 ${
+                    course.difficulty === 'Beginner' ? 'bg-green-50 text-green-700 border border-green-100' :
+                    course.difficulty === 'Intermediate' ? 'bg-orange-50 text-orange-700 border border-orange-100' :
+                    'bg-red-50 text-red-700 border border-red-100'
+                  }`}>
+                    <BarChart size={14} />
+                    {course.difficulty}
+                  </div>
+                  
+                  <div className="flex items-center gap-1.5 text-gray-500 text-sm font-medium">
+                    <Users size={16} />
+                    <span>{course.studentCount}</span>
                   </div>
                 </div>
-                
-                <h3 className="text-2xl font-bold text-[#0a0a0a] mb-0.5 tracking-tight line-clamp-1">
+
+                {/* Title & Description */}
+                <h3 className="text-xl font-bold text-gray-900 mb-2 font-heading group-hover:text-brand-600 transition-colors">
                   {course.title}
                 </h3>
-                
-                <p className="text-gray-400 text-sm mb-4">
-                  by <span className="text-gray-600 font-medium">{course.instructor || 'Michael Anderson'}</span>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-2 flex-1">
+                  {course.description}
                 </p>
-                
-                <div className="mt-auto">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center">
-                      <div className="flex -space-x-2">
-                        {[1, 2, 3, 4].map((i) => (
-                          <div key={i} className="w-7 h-7 rounded-full border-2 border-white overflow-hidden bg-gray-100">
-                            <img src={`https://i.pravatar.cc/100?u=${course.id}${i}`} alt="user" referrerPolicy="no-referrer" />
-                          </div>
-                        ))}
-                      </div>
-                      <span className="ml-3 text-sm font-bold text-gray-400">+{course.students}</span>
-                    </div>
-                    <div className="text-2xl font-bold text-[#0a0a0a]">
-                      {course.fees}
-                    </div>
-                  </div>
 
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full py-3 bg-gray-50 group-hover:bg-[#0a0a0a] group-hover:text-white text-[#0a0a0a] font-bold rounded-2xl transition-all duration-300 flex items-center justify-center gap-2"
-                  >
-                    Explore Course <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </motion.button>
+                {/* Divider */}
+                <div className="h-px w-full bg-gray-100 mb-6"></div>
+
+                {/* Bottom Meta Data (Duration & Pricing) */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-2 text-gray-700">
+                    <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-500">
+                      <Clock size={16} />
+                    </div>
+                    <span className="font-semibold text-sm">{course.duration}</span>
+                  </div>
+                  
+                  <div className="flex items-center gap-1 text-gray-900">
+                    <div className="w-8 h-8 rounded-full bg-brand-50 flex items-center justify-center text-brand-600">
+                      <IndianRupee size={16} />
+                    </div>
+                    <span className="font-bold text-lg">{course.pricing}</span>
+                  </div>
                 </div>
+
+                {/* CTA Button */}
+                <a 
+                  href={`https://wa.me/919719205268?text=Hi,%20I%20am%20interested%20in%20the%20${course.title}%20course.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-white border-2 border-brand-100 text-brand-700 font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 group-hover:bg-brand-600 group-hover:text-white group-hover:border-brand-600 transition-all duration-300 shadow-sm"
+                >
+                  Enroll Now
+                  <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+                </a>
               </div>
             </motion.div>
-          ))
-        )}
-      </div>
-      
-      <div className="md:hidden flex justify-center">
-        <motion.button 
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={() => {
-            navigate('/courses');
-            window.scrollTo(0, 0);
-          }}
-          className="relative overflow-hidden flex items-center gap-2 bg-[#0a0a0a] text-white px-8 py-4 rounded-2xl font-medium hover:bg-blue-600 transition-colors group"
-        >
-          <span className="absolute inset-0 w-[150%] h-full -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />
-          <span className="relative z-10 flex items-center gap-2">
-            View All Courses <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-          </span>
-        </motion.button>
+          ))}
+        </div>
+        
+        <div className="mt-16 text-center">
+          <a 
+            href="https://wa.me/919719205268?text=Hi,%20I%20want%20to%20know%20more%20about%20all%20courses."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 duration-300"
+          >
+            Download Full Syllabus Brochure
+          </a>
+        </div>
       </div>
     </section>
   );
