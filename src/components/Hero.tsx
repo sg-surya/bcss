@@ -71,15 +71,6 @@ export default function Hero() {
             </button>
           </Link>
           
-          <a 
-            href="https://wa.me/919719205268?text=Hi,%20I%20have%20an%20inquiry."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-secondary !border-green-200 hover:!bg-green-50"
-          >
-            <MessageCircle size={20} className="text-green-600" />
-            <span className="text-gray-800">Chat on WhatsApp</span>
-          </a>
         </motion.div>
         
         {/* Trust Indicators */}

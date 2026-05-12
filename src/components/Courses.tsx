@@ -1,6 +1,7 @@
 import { Clock, IndianRupee, Users, ArrowRight, BarChart, Flame } from 'lucide-react';
 import { courses } from '../data/courses';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 export default function Courses() {
   return (
@@ -15,7 +16,7 @@ export default function Courses() {
           >
             Explore Our Programs
           </motion.div>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -24,7 +25,7 @@ export default function Courses() {
           >
             Industry-Relevant <span className="text-brand-600">Courses</span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -47,13 +48,13 @@ export default function Courses() {
             >
               {/* Thumbnail Container */}
               <div className="relative h-56 overflow-hidden bg-gray-100">
-                <img 
-                  src={course.thumbnail} 
-                  alt={course.title} 
+                <img
+                  src={course.thumbnail}
+                  alt={course.title}
                   className="w-full h-full object-cover img-hover-zoom"
                   referrerPolicy="no-referrer"
                 />
-                
+
                 {/* Popular Badge */}
                 {course.popular && (
                   <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 z-10">
@@ -61,25 +62,24 @@ export default function Courses() {
                     Bestseller
                   </div>
                 )}
-                
+
                 {/* Overlay Gradient for readability if needed, though clean design usually skips it */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
               {/* Card Body */}
               <div className="p-6 flex flex-col flex-1">
-                
+
                 {/* Top Meta Data (Difficulty & Students) */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className={`text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1.5 ${
-                    course.difficulty === 'Beginner' ? 'bg-green-50 text-green-700 border border-green-100' :
-                    course.difficulty === 'Intermediate' ? 'bg-orange-50 text-orange-700 border border-orange-100' :
-                    'bg-red-50 text-red-700 border border-red-100'
-                  }`}>
+                  <div className={`text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1.5 ${course.difficulty === 'Beginner' ? 'bg-green-50 text-green-700 border border-green-100' :
+                      course.difficulty === 'Intermediate' ? 'bg-orange-50 text-orange-700 border border-orange-100' :
+                        'bg-red-50 text-red-700 border border-red-100'
+                    }`}>
                     <BarChart size={14} />
                     {course.difficulty}
                   </div>
-                  
+
                   <div className="flex items-center gap-1.5 text-gray-500 text-sm font-medium">
                     <Users size={16} />
                     <span>{course.studentCount}</span>
@@ -105,7 +105,7 @@ export default function Courses() {
                     </div>
                     <span className="font-semibold text-sm">{course.duration}</span>
                   </div>
-                  
+
                   <div className="flex items-center gap-1 text-gray-900">
                     <div className="w-8 h-8 rounded-full bg-brand-50 flex items-center justify-center text-brand-600">
                       <IndianRupee size={16} />
@@ -115,7 +115,7 @@ export default function Courses() {
                 </div>
 
                 {/* CTA Button */}
-                <a 
+                <a
                   href={`https://wa.me/919719205268?text=Hi,%20I%20am%20interested%20in%20the%20${course.title}%20course.`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -128,16 +128,15 @@ export default function Courses() {
             </motion.div>
           ))}
         </div>
-        
+
         <div className="mt-16 text-center">
-          <a 
-            href="https://wa.me/919719205268?text=Hi,%20I%20want%20to%20know%20more%20about%20all%20courses."
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/courses"
+            onClick={() => window.scrollTo(0, 0)}
             className="inline-flex items-center justify-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 duration-300"
           >
-            Download Full Syllabus Brochure
-          </a>
+            View All Courses <ArrowRight size={20} />
+          </Link>
         </div>
       </div>
     </section>

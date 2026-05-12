@@ -7,37 +7,43 @@ const galleryItems = [
     id: 1,
     url: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800",
     title: "Classroom",
-    category: "Modern infrastructure with AC classrooms"
+    category: "Modern infrastructure with AC classrooms",
+    aspect: "aspect-square"
   },
   {
     id: 2,
     url: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800",
     title: "Student Learning",
-    category: "Hands-on practical training"
+    category: "Hands-on practical training",
+    aspect: "aspect-[3/4]"
   },
   {
     id: 3,
     url: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800",
     title: "Reception Area",
-    category: "Welcoming front desk & counseling"
+    category: "Welcoming front desk & counseling",
+    aspect: "aspect-[4/5]"
   },
   {
     id: 4,
     url: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800",
     title: "Events",
-    category: "Annual hackathons and seminars"
+    category: "Annual hackathons and seminars",
+    aspect: "aspect-[4/3]"
   },
   {
     id: 5,
     url: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800",
     title: "Systems and Setup",
-    category: "High-performance i5/i7 computers"
+    category: "High-performance i5/i7 computers",
+    aspect: "aspect-[2/3]"
   },
   {
     id: 6,
     url: "https://images.unsplash.com/photo-1511649475669-e288648b2339?auto=format&fit=crop&q=80&w=800",
     title: "Certificates",
-    category: "Govt. approved ISO certification distribution"
+    category: "Govt. approved ISO certification distribution",
+    aspect: "aspect-video"
   }
 ];
 
@@ -88,7 +94,7 @@ export default function Gallery() {
             <img 
               src={item.url} 
               alt={item.title} 
-              className="w-full object-cover img-hover-zoom"
+              className={`w-full object-cover img-hover-zoom ${item.aspect}`}
               referrerPolicy="no-referrer"
             />
             {/* Hover Overlay */}
