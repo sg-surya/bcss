@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Star, Users, Search, Filter, ArrowRight, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { coursesData } from '../data/courses';
+import { courses } from '../data/courses';
 import CourseCardSkeleton from '../components/ui/CourseCardSkeleton';
 import ImageWithSkeleton from '../components/ui/ImageWithSkeleton';
 
@@ -19,7 +19,7 @@ export default function CoursesPage() {
 
   const categories = ['All Category', 'Beginner', 'Job-Oriented', 'Professional'];
 
-  const filteredCourses = coursesData.filter(course => {
+  const filteredCourses = courses.filter(course => {
     const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'All Category' || course.category === selectedCategory;
     return matchesSearch && matchesCategory;
