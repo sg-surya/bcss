@@ -78,7 +78,7 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: idx * 0.1, duration: 0.6 }}
-            className={`p-8 rounded-[2rem] flex flex-col items-start border border-black/5 ${feature.className}`}
+            className={`p-8 rounded-2xl flex flex-col items-start border border-black/5 ${feature.className}`}
           >
             <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-6 border ${feature.iconClass}`}>
               {feature.icon}

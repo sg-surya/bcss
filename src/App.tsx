@@ -2,7 +2,6 @@ import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 // Lazy load pages
 const Home = lazy(() => import('./pages/Home'));
@@ -34,7 +33,6 @@ export default function App() {
         </Routes>
       </Suspense>
       <Footer />
-      <FloatingWhatsApp />
     </div>
   );
 }

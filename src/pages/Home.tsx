@@ -7,6 +7,7 @@ import AlumniSection from '../components/AlumniSection';
 import Testimonials from '../components/Testimonials';
 import About from '../components/About';
 import FAQ from '../components/FAQ';
+import CampusGallery from '../components/CampusGallery';
 import CTA from '../components/CTA';
 import ContactForm from '../components/ContactForm';
 import Location from '../components/Location';
@@ -23,6 +24,7 @@ export default function Home() {
       <Testimonials />
       <About />
       <FAQ />
+      <CampusGallery />
       <CTA />
       <ContactForm />
       <Location />

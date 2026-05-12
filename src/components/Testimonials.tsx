@@ -4,7 +4,7 @@ import { Star, Quote, PlayCircle, CheckCircle2 } from 'lucide-react';
 export default function Testimonials() {
   const testimonials = [
     {
-      quote: "The AI Tools & Freelancing course completely changed my career trajectory. I am now taking international freelance projects and earning in dollars. The 1-on-1 mentorship is simply unmatched in Meerut.",
+      quote: "The AI Tools & Freelancing course completely changed my career trajectory. I learned how to use ChatGPT, Midjourney, and how to get clients on Fiverr. I am now taking international freelance projects and earning in dollars.",
       name: "Priya Singh",
       course: "AI Tools + Freelancing",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
@@ -12,7 +12,7 @@ export default function Testimonials() {
       size: "large"
     },
     {
-      quote: "Bhavna Institute provided me with the exact practical skills I needed. The Tally + GST course was so detailed, I started working immediately after completion.",
+      quote: "Bhavna Institute provided me with the exact practical skills I needed. The Tally + GST course was so detailed, I started working immediately as an accountant.",
       name: "Aman Sharma",
       course: "Tally + GST",
       avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
@@ -41,7 +41,7 @@ export default function Testimonials() {
       size: "large"
     },
     {
-      quote: "The Data Analytics course gave me the confidence to handle large datasets. The Python and SQL modules were taught exceptionally well.",
+      quote: "The Data Analytics course gave me the confidence to handle large datasets. The Python and SQL modules were taught exceptionally well through real-world projects.",
       name: "Vikram Singh",
       course: "Data Analytics",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
@@ -80,33 +80,32 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: idx * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className={`break-inside-avoid relative group ${
-              t.size === 'large' ? 'bg-gradient-to-br from-blue-600 to-blue-800 text-white' : 
+            className={`break-inside-avoid relative group ${t.size === 'large' ? 'bg-gradient-to-br from-blue-600 to-blue-800 text-white' :
               'bg-white/70 backdrop-blur-xl border border-white/40 text-gray-800'
-            } p-8 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
+              } p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
           >
             {/* Glassmorphism shine effect */}
-            <div className="absolute inset-0 rounded-[2rem] overflow-hidden pointer-events-none">
+            <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
               <div className="absolute -top-[100%] -left-[100%] w-[50%] h-[300%] bg-gradient-to-r from-transparent via-white/10 to-transparent rotate-45 group-hover:translate-x-[400%] transition-transform duration-1000 ease-in-out"></div>
             </div>
 
             <Quote className={`absolute top-8 right-8 w-12 h-12 ${t.size === 'large' ? 'text-white/10' : 'text-blue-500/10'} transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12`} />
-            
+
             <div className="flex gap-1 mb-6 relative z-10">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} size={16} className={`fill-yellow-400 text-yellow-400 ${t.size === 'large' ? 'drop-shadow-md' : ''}`} />
               ))}
             </div>
-            
+
             <p className={`${t.size === 'large' ? 'text-white/90 text-lg md:text-xl font-medium' : 'text-gray-600'} leading-relaxed mb-8 relative z-10`}>
               "{t.quote}"
             </p>
-            
+
             {t.hasVideo && (
               <div className="mb-8 relative rounded-xl overflow-hidden aspect-video cursor-pointer group/video border border-white/20">
-                <img 
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400" 
-                  alt="Video thumbnail" 
+                <img
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400"
+                  alt="Video thumbnail"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover/video:scale-105"
                   referrerPolicy="no-referrer"
                 />
@@ -118,11 +117,11 @@ export default function Testimonials() {
 
             <div className={`flex items-center gap-4 pt-6 border-t ${t.size === 'large' ? 'border-white/20' : 'border-black/5'} relative z-10`}>
               <div className="relative">
-                <img 
-                  src={t.avatar} 
-                  alt={t.name} 
-                  className="w-14 h-14 rounded-full object-cover border-2 border-white/50 shadow-md" 
-                  referrerPolicy="no-referrer" 
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className="w-14 h-14 rounded-full object-cover border-2 border-white/50 shadow-md"
+                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 border-2 border-white rounded-full flex items-center justify-center">
                   <CheckCircle2 className="w-3 h-3 text-white" />
