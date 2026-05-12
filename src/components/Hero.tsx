@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 
 export default function Hero() {
   return (
-    <section id="home" className="pt-32 pb-20 px-6 max-w-[1536px] mx-auto min-h-[90vh] flex flex-col lg:flex-row items-center justify-between gap-12 relative overflow-hidden">
+    <section id="home" className="pt-32 pb-20 px-6 max-w-[1536px] mx-auto min-h-[90vh] flex flex-col xl:flex-row items-center justify-between gap-12 relative overflow-hidden">
       
       {/* Background Soft Glows */}
       <div className="absolute top-20 left-[-10%] w-[500px] h-[500px] bg-brand-400/10 rounded-full blur-[100px] pointer-events-none" />
@@ -33,7 +33,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-4xl md:text-5xl lg:text-[4.5rem] font-bold leading-[1.05] text-gray-900 mb-6 font-heading tracking-tight"
         >
-          Learn Skills That <br className="hidden lg:block" />
+          Learn Skills That <br className="hidden xl:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-blue-400">Build Real Careers.</span>
         </motion.h1>
 
@@ -105,12 +105,84 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Right Visual Area - Cascading Isometric UI Stack */}
+      {/* Right Visual Area - MOBILE ONLY */}
+      <div className="flex sm:hidden flex-1 w-full relative h-[380px] items-center justify-center mt-12 perspective-[1000px]">
+        {/* Background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-500/20 rounded-full blur-[60px]"></div>
+
+        {/* Floating Code Card (Center) */}
+        <motion.div 
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute z-20 w-[90%] max-w-[320px] bg-[#0f172a] rounded-2xl shadow-2xl border border-gray-700/50 p-5"
+        >
+          <div className="flex items-center gap-2 mb-4 border-b border-gray-800 pb-3">
+            <div className="flex gap-1.5">
+              <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+            </div>
+            <span className="text-[10px] font-mono text-gray-500 ml-2">master.js</span>
+          </div>
+          <div className="font-mono text-[11px] sm:text-xs leading-loose">
+            <div><span className="text-purple-400">const</span> <span className="text-blue-300">student</span> <span className="text-pink-400">=</span> <span className="text-yellow-200">new</span> <span className="text-green-300">Developer</span><span className="text-gray-300">();</span></div>
+            <div><span className="text-blue-300">student</span><span className="text-gray-300">.</span><span className="text-yellow-200">learn</span><span className="text-gray-300">(</span><span className="text-orange-300">"React & Next"</span><span className="text-gray-300">);</span></div>
+            <div className="mt-2"><span className="text-pink-400">if</span> <span className="text-gray-300">(</span><span className="text-blue-300">skills</span> <span className="text-pink-400">&gt;=</span> <span className="text-orange-300">100</span><span className="text-gray-300">) {`{`}</span></div>
+            <div className="pl-4"><span className="text-blue-300">console</span><span className="text-gray-300">.</span><span className="text-yellow-200">log</span><span className="text-gray-300">(</span><span className="text-green-300">"Hired!"</span><span className="text-gray-300">);</span></div>
+            <div><span className="text-gray-300">{`}`}</span></div>
+          </div>
+        </motion.div>
+
+        {/* Floating Govt Badge (Top Left) */}
+        <motion.div 
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute z-30 top-4 left-2 bg-white/95 backdrop-blur rounded-xl p-2.5 shadow-xl border border-gray-100 flex items-center gap-2"
+        >
+          <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white shadow-sm">
+            <Award size={16} />
+          </div>
+          <div className="pr-1">
+            <h3 className="text-[10px] font-bold text-gray-900 uppercase tracking-wide">Govt. Certified</h3>
+            <p className="text-[9px] text-gray-500 font-medium">ISO 9001:2015</p>
+          </div>
+        </motion.div>
+
+        {/* Floating Student Badge (Bottom Right) */}
+        <motion.div 
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          className="absolute z-30 bottom-6 right-2 bg-white/95 backdrop-blur rounded-xl p-2.5 shadow-xl border border-gray-100 flex items-center gap-2"
+        >
+          <div className="relative">
+            <img src="https://i.pravatar.cc/100?img=33" alt="Student" className="w-8 h-8 rounded-full border border-white object-cover shadow-sm" />
+            <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full flex items-center justify-center">
+              <CheckCircle2 size={8} className="text-white" />
+            </div>
+          </div>
+          <div>
+            <p className="text-[9px] font-bold text-brand-600 uppercase tracking-wider">Placed in TCS</p>
+            <p className="text-xs font-bold text-gray-900 leading-tight">Rahul Kumar</p>
+          </div>
+        </motion.div>
+        
+        {/* Floating Excel Badge (Top Right) */}
+        <motion.div 
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute z-10 top-20 right-2 bg-white/90 backdrop-blur rounded-xl p-2 shadow-lg border border-gray-100 flex items-center gap-2"
+        >
+           <div className="w-5 h-5 bg-green-600 rounded flex items-center justify-center text-white text-[10px] font-bold">X</div>
+           <h3 className="text-[10px] font-bold text-green-900 pr-1">Adv. Excel</h3>
+        </motion.div>
+      </div>
+
+      {/* Right Visual Area - Cascading Isometric UI Stack (DESKTOP/TABLET ONLY) */}
       <motion.div 
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="flex-1 w-full max-w-lg lg:max-w-2xl relative h-[500px] lg:h-[600px] flex items-center justify-center mt-10 lg:mt-0 perspective-[2000px]"
+        className="hidden sm:flex flex-1 w-full max-w-lg xl:max-w-2xl relative h-[450px] sm:h-[500px] xl:h-[600px] items-center justify-center mt-8 xl:mt-0 perspective-[2000px] sm:scale-90 lg:scale-100 origin-top xl:origin-center"
       >
         
         {/* Background glow for the stack */}
@@ -120,7 +192,7 @@ export default function Hero() {
         <motion.div 
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0 }}
-          className="absolute right-0 lg:right-10 top-10 lg:top-20 w-72 glass-card rounded-2xl shadow-2xl border border-white/60 p-5 transform rotate-6 scale-90 z-10"
+          className="absolute right-0 xl:right-10 top-10 xl:top-20 w-72 glass-card rounded-2xl shadow-2xl border border-white/60 p-5 transform rotate-6 scale-90 z-10"
         >
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-sm font-bold text-gray-800">Placement Analytics</h3>
@@ -166,7 +238,7 @@ export default function Hero() {
         <motion.div 
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute left-0 lg:-left-6 bottom-10 lg:bottom-20 w-64 glass-card rounded-2xl shadow-2xl border border-white/80 p-4 transform -rotate-6 z-30"
+          className="absolute left-0 xl:-left-6 bottom-10 xl:bottom-20 w-64 glass-card rounded-2xl shadow-2xl border border-white/80 p-4 transform -rotate-6 z-30"
         >
           <div className="flex items-center gap-2 mb-3 bg-green-50 p-2 rounded border border-green-100">
             <div className="w-6 h-6 bg-green-600 rounded flex items-center justify-center text-white text-xs font-bold shadow">X</div>
@@ -191,7 +263,7 @@ export default function Hero() {
         <motion.div 
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-          className="absolute top-24 left-10 lg:left-0 bg-white/90 backdrop-blur rounded-2xl p-3 shadow-xl border border-gray-100 flex items-center gap-3 z-40"
+          className="absolute top-24 left-10 xl:left-0 bg-white/90 backdrop-blur rounded-2xl p-3 shadow-xl border border-gray-100 flex items-center gap-3 z-40"
         >
           <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white shadow-sm ring-4 ring-orange-500/10">
             <Award size={20} />
@@ -206,7 +278,7 @@ export default function Hero() {
         <motion.div 
           animate={{ y: [0, -12, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          className="absolute bottom-24 right-4 lg:right-0 glass-card rounded-2xl p-3 shadow-xl z-40 flex items-center gap-3 border border-white/60"
+          className="absolute bottom-24 right-4 xl:right-0 glass-card rounded-2xl p-3 shadow-xl z-40 flex items-center gap-3 border border-white/60"
         >
           <div className="relative">
             <img src="https://i.pravatar.cc/100?img=33" alt="Student" className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" />
