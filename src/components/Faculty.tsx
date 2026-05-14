@@ -4,7 +4,7 @@ import { Linkedin, Award, Sparkles } from 'lucide-react';
 const mentor = {
   name: "Surya Pratap Singh",
   role: "Founder of Vasudev AI & Lead Instructor",
-  image: "https://media.licdn.com/dms/image/v2/D5603AQGx-6ApteXvQA/profile-displayphoto-scale_200_200/B56Zzgiis5HMAc-/0/1773293679145?e=1775692800&v=beta&t=R6UwVYWEfKXTRWKEYZTbrAnp7E9kqCQ55weoZwn0hl4",
+  image: "/mentor.png",
   bio: "Pursuing Bachelor's from IIT Jodhpur. Expert in Data Analysis and Web Development. He has successfully delivered over 50+ freelance projects globally, specializing in AI-driven web applications and complex data pipelines. At Bhavna Institute, Surya aims to bridge the gap between academic learning and industry demands, empowering students to secure top-tier tech roles.",
   skills: ["Data Analysis", "Web Development", "Python", "React", "IIT Jodhpur", "AI Integration"],
   linkedin: "https://www.linkedin.com/in/sgsurya/"
@@ -37,7 +37,7 @@ export default function Faculty() {
               <img 
                 src={mentor.image} 
                 alt={mentor.name} 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover object-[30%_top] group-hover:scale-105 transition-transform duration-500"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -56,7 +56,8 @@ export default function Faculty() {
             </p>
             
             <p className="text-gray-600 text-lg leading-relaxed font-light mb-8">
-              {mentor.bio}
+              <span className="md:hidden">IIT Jodhpur student & Expert in Data Analysis and Web Development.</span>
+              <span className="hidden md:inline">Pursuing Bachelor's from IIT Jodhpur. Expert in Data Analysis and Web Development. He has successfully delivered over 50+ freelance projects globally, specializing in AI-driven web applications and complex data pipelines. At Bhavna Institute, Surya aims to bridge the gap between academic learning and industry demands, empowering students to secure top-tier tech roles.</span>
             </p>
             
             <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-10">
