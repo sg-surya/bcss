@@ -1,4 +1,4 @@
-import { Phone, MapPin, Mail, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Phone, MapPin, Mail, Instagram, Facebook, Linkedin, ArrowRight } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -28,21 +28,66 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-[#0a0a0a] mb-6 uppercase tracking-wider">Courses</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">AI Tools + Freelancing</a></li>
-              <li><a href="#" className="text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">Web Development</a></li>
-              <li><a href="#" className="text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">Data Analytics</a></li>
-              <li><a href="#" className="text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">Digital Marketing</a></li>
-              <li><a href="#" className="text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">Tally + GST</a></li>
+              <li>
+                <a href="#" className="group flex items-center text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">
+                  <ArrowRight size={14} className="opacity-0 w-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:w-4 group-hover:translate-x-0 group-hover:mr-2" />
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">AI Tools + Freelancing</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="group flex items-center text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">
+                  <ArrowRight size={14} className="opacity-0 w-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:w-4 group-hover:translate-x-0 group-hover:mr-2" />
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">Web Development</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="group flex items-center text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">
+                  <ArrowRight size={14} className="opacity-0 w-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:w-4 group-hover:translate-x-0 group-hover:mr-2" />
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">Data Analytics</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="group flex items-center text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">
+                  <ArrowRight size={14} className="opacity-0 w-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:w-4 group-hover:translate-x-0 group-hover:mr-2" />
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">Digital Marketing</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="group flex items-center text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">
+                  <ArrowRight size={14} className="opacity-0 w-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:w-4 group-hover:translate-x-0 group-hover:mr-2" />
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">Tally + GST</span>
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-sm font-semibold text-[#0a0a0a] mb-6 uppercase tracking-wider">Quick Links</h4>
             <ul className="space-y-4">
-              <li><a href="#about" className="text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">About Us</a></li>
-              <li><a href="#why-us" className="text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">Why Choose Us</a></li>
-              <li><a href="#contact" className="text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">Contact Us</a></li>
-              <li><a href="#" className="text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">Privacy Policy</a></li>
+              <li>
+                <a href="#about" className="group flex items-center text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">
+                  <ArrowRight size={14} className="opacity-0 w-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:w-4 group-hover:translate-x-0 group-hover:mr-2" />
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">About Us</span>
+                </a>
+              </li>
+              <li>
+                <a href="#why-us" className="group flex items-center text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">
+                  <ArrowRight size={14} className="opacity-0 w-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:w-4 group-hover:translate-x-0 group-hover:mr-2" />
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">Why Choose Us</span>
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="group flex items-center text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">
+                  <ArrowRight size={14} className="opacity-0 w-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:w-4 group-hover:translate-x-0 group-hover:mr-2" />
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">Contact Us</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="group flex items-center text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">
+                  <ArrowRight size={14} className="opacity-0 w-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:w-4 group-hover:translate-x-0 group-hover:mr-2" />
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">Privacy Policy</span>
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -55,7 +100,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="text-gray-400 shrink-0 mt-0.5" size={16} />
-                <span className="text-sm text-gray-500">info@bhavnainstitute.com</span>
+                <span className="text-sm text-gray-500">bhavnainstitue@gmail.com</span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="text-gray-400 shrink-0 mt-0.5" size={16} />

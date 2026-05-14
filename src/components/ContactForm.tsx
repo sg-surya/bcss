@@ -58,7 +58,7 @@ export default function ContactForm() {
           viewport={{ once: true }}
           className="flex flex-col justify-center"
         >
-          <div className="premium-card p-10 rounded-[2.5rem] space-y-8">
+          <div className="bg-white border border-black/[0.06] shadow-[0_4px_20px_rgba(0,0,0,0.02)] p-10 rounded-2xl space-y-8">
             <h3 className="text-2xl font-semibold text-[#0a0a0a]">Direct Contact</h3>
             
             <div className="flex items-start gap-4">

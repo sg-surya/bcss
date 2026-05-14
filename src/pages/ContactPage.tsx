@@ -48,7 +48,7 @@ export default function ContactPage() {
             transition={{ delay: 0.3 }}
             className="lg:col-span-2 space-y-6"
           >
-            <div className="premium-card p-8 rounded-3xl">
+            <div className="bg-white border border-black/[0.06] shadow-[0_4px_20px_rgba(0,0,0,0.02)] p-8 rounded-2xl">
               <h3 className="text-2xl font-semibold text-[#0a0a0a] mb-8">Contact Information</h3>
               
               <div className="space-y-8">
@@ -88,7 +88,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="premium-card p-8 rounded-3xl bg-[#0a0a0a] text-white">
+            <div className="bg-[#0a0a0a] text-white p-8 rounded-2xl">
               <h3 className="text-xl font-semibold mb-4">Need Career Guidance?</h3>
               <p className="text-gray-400 mb-6 text-sm leading-relaxed">
                 Not sure which course is right for you? Schedule a free counseling session with our experts to discuss your career goals.
@@ -111,7 +111,7 @@ export default function ContactPage() {
             transition={{ delay: 0.4 }}
             className="lg:col-span-3"
           >
-            <div className="premium-card p-8 md:p-12 rounded-[2.5rem] h-full">
+            <div className="bg-white border border-black/[0.06] shadow-[0_4px_20px_rgba(0,0,0,0.02)] p-8 md:p-12 rounded-2xl h-full">
               <h3 className="text-2xl font-semibold text-[#0a0a0a] mb-2">Send us a Message</h3>
               <p className="text-gray-500 mb-8">Fill out the form below and we'll get back to you shortly.</p>
 
@@ -182,13 +182,13 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="premium-card p-4 rounded-[2.5rem] overflow-hidden h-[400px]"
+          className="bg-white border border-black/[0.06] shadow-[0_4px_20px_rgba(0,0,0,0.02)] p-4 rounded-2xl overflow-hidden h-[400px]"
         >
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3490.123456789!2d77.654321!3d28.987654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDU5JzE1LjYiTiA3N8KwMzknMTUuNiJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
             width="100%" 
             height="100%" 
-            style={{ border: 0, borderRadius: '2rem' }} 
+            style={{ border: 0, borderRadius: '1rem' }} 
             allowFullScreen 
             loading="lazy"
           ></iframe>
