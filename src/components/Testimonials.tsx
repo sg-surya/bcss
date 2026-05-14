@@ -7,7 +7,7 @@ export default function Testimonials() {
       quote: "Best institute for tech skills! Highly recommended. Excellent learning environment and supportive staff. Five stars! The best place to learn computer courses. Loved it. Very polite teachers and neat classrooms. Great experience! Highly professional trainers and affordable fees. Value for money.",
       name: "Varsha Sharma",
       course: "Computer Courses",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
+      avatar: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23005aab'/><text x='50' y='67' font-family='system-ui, -apple-system, sans-serif' font-size='50' font-weight='bold' fill='white' text-anchor='middle'>V</text></svg>",
       hasVideo: true,
       size: "large"
     },
@@ -15,28 +15,28 @@ export default function Testimonials() {
       quote: "Bhavna Institute is one of the best computer institutes in Meerut. The teachers explain every topic very clearly and focus on practical learning. I improved my computer skills a lot after joining here.",
       name: "Amit Kumar",
       course: "Computer Courses",
-      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
+      avatar: "/avatar_2.png",
       size: "small"
     },
     {
       quote: "Bhavna Institute is an excellent place for anyone looking to upgrade their skills. The faculty is highly knowledgeable and supportive, ensuring that every student understands the core concepts thoroughly. The curriculum is well-structured and focuses on practical learning, which is a huge plus. Highly recommended for serious learners.",
       name: "Gunjan Kushwaha",
       course: "Skills Upgrade",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
+      avatar: "/avatar.png",
       size: "medium"
     },
     {
       quote: "Amazing experience at Bhavna Institute! The faculty explains every concept with real examples, and the environment is very supportive. I learned more here in weeks than I did in months elsewhere.",
       name: "Manvendra",
       course: "Practical Learning",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
+      avatar: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23ff6b00'/><text x='50' y='67' font-family='system-ui, -apple-system, sans-serif' font-size='50' font-weight='bold' fill='white' text-anchor='middle'>M</text></svg>",
       size: "small"
     },
     {
       quote: "Great institute for computer courses! I learned Basic and found the training very practical and useful for my career",
       name: "Varsha Rani",
       course: "Computer Courses",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
+      avatar: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23005aab'/><text x='50' y='67' font-family='system-ui, -apple-system, sans-serif' font-size='50' font-weight='bold' fill='white' text-anchor='middle'>V</text></svg>",
       hasVideo: true,
       size: "large"
     },
@@ -44,7 +44,14 @@ export default function Testimonials() {
       quote: "The learning experience at Bhavna Institute was amazing! The practical approach to teaching really helped me.",
       name: "Shivam",
       course: "Practical Learning",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
+      avatar: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23e91e63'/><text x='50' y='67' font-family='system-ui, -apple-system, sans-serif' font-size='50' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>",
+      size: "medium"
+    },
+    {
+      quote: "Great institute with supportive teachers and a positive learning environment. The staff is very helpful and always guides students properly. I had a really good experience here and learned many useful skills. Highly recommended for students who want quality education and good support.",
+      name: "Arnay Tiwari",
+      course: "Computer Courses",
+      avatar: "/avatar_3.png",
       size: "medium"
     }
   ];
@@ -80,8 +87,9 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: idx * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className={`break-inside-avoid relative group ${t.size === 'large' ? 'bg-gradient-to-br from-blue-600 to-blue-800 text-white' :
-              'bg-white/70 backdrop-blur-xl border border-white/40 text-gray-800'
+            className={`break-inside-avoid relative group ${t.size === 'large'
+              ? 'bg-white/70 backdrop-blur-xl border border-white/40 text-gray-800 md:bg-gradient-to-br md:from-blue-600 md:to-blue-800 md:text-white md:border-transparent'
+              : 'bg-white/70 backdrop-blur-xl border border-white/40 text-gray-800'
               } p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
           >
             {/* Glassmorphism shine effect */}
@@ -89,20 +97,20 @@ export default function Testimonials() {
               <div className="absolute -top-[100%] -left-[100%] w-[50%] h-[300%] bg-gradient-to-r from-transparent via-white/10 to-transparent rotate-45 group-hover:translate-x-[400%] transition-transform duration-1000 ease-in-out"></div>
             </div>
 
-            <Quote className={`absolute top-8 right-8 w-12 h-12 ${t.size === 'large' ? 'text-white/10' : 'text-blue-500/10'} transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12`} />
+            <Quote className={`absolute top-8 right-8 w-12 h-12 ${t.size === 'large' ? 'text-blue-500/10 md:text-white/10' : 'text-blue-500/10'} transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12`} />
 
             <div className="flex gap-1 mb-6 relative z-10">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={16} className={`fill-yellow-400 text-yellow-400 ${t.size === 'large' ? 'drop-shadow-md' : ''}`} />
+                <Star key={i} size={16} className={`fill-yellow-400 text-yellow-400 ${t.size === 'large' ? 'md:drop-shadow-md' : ''}`} />
               ))}
             </div>
 
-            <p className={`${t.size === 'large' ? 'text-white/90 text-lg md:text-xl font-medium' : 'text-gray-600'} leading-relaxed mb-8 relative z-10`}>
+            <p className={`${t.size === 'large' ? 'text-gray-600 md:text-white/90 text-lg md:text-xl font-medium' : 'text-gray-600'} leading-relaxed mb-8 relative z-10`}>
               "{t.quote}"
             </p>
 
             {t.hasVideo && (
-              <div className="mb-8 relative rounded-xl overflow-hidden aspect-video cursor-pointer group/video border border-white/20">
+              <div className="hidden md:block mb-8 relative rounded-xl overflow-hidden aspect-video cursor-pointer group/video border border-white/20">
                 <img
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400"
                   alt="Video thumbnail"
@@ -115,12 +123,12 @@ export default function Testimonials() {
               </div>
             )}
 
-            <div className={`flex items-center gap-4 pt-6 border-t ${t.size === 'large' ? 'border-white/20' : 'border-black/5'} relative z-10`}>
+            <div className={`flex items-center gap-4 pt-6 border-t ${t.size === 'large' ? 'border-black/5 md:border-white/20' : 'border-black/5'} relative z-10`}>
               <div className="relative">
                 <img
                   src={t.avatar}
                   alt={t.name}
-                  className="w-14 h-14 rounded-full object-cover border-2 border-white/50 shadow-md"
+                  className="w-14 h-14 rounded-full object-cover object-top border-2 border-white/50 shadow-md"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 border-2 border-white rounded-full flex items-center justify-center">
@@ -128,7 +136,7 @@ export default function Testimonials() {
                 </div>
               </div>
               <div>
-                <div className={`font-bold text-lg ${t.size === 'large' ? 'text-white' : 'text-[#0a0a0a]'}`}>{t.name}</div>
+                <div className={`font-bold text-lg ${t.size === 'large' ? 'text-[#0a0a0a] md:text-white' : 'text-[#0a0a0a]'}`}>{t.name}</div>
               </div>
             </div>
           </motion.div>

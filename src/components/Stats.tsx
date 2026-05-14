@@ -11,16 +11,16 @@ export default function Stats() {
 
   return (
     <section className="py-20 px-6">
-      <div className="max-w-[1536px] mx-auto bg-[#0a0a0a] rounded-[2.5rem] p-12 md:p-20 text-white overflow-hidden relative">
+      <div className="max-w-[1536px] mx-auto bg-[#0a0a0a] rounded-[2.5rem] p-6 md:p-20 text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full opacity-20 blur-[100px] pointer-events-none" />
 
-        <div className="mb-16 md:text-center relative z-10">
+        <div className="mb-10 md:mb-16 md:text-center relative z-10">
           <h2 className="text-3xl md:text-5xl font-medium tracking-tighter text-white mb-4">
             Our Results <span className="font-serif italic text-gray-400">Speak</span>
           </h2>
         </div>
 
-        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

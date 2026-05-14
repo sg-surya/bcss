@@ -58,7 +58,8 @@ export default function PlacedStudents() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Desktop View: Grid (Original) */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {placedStudents.map((student, index) => (
             <motion.div
               key={index}
@@ -118,6 +119,81 @@ export default function PlacedStudents() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Mobile View: Auto-scrolling Marquee */}
+        <div className="md:hidden relative overflow-hidden">
+          <style>{`
+            @keyframes marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .animate-marquee {
+              display: flex;
+              animation: marquee 15s linear infinite;
+              width: max-content;
+            }
+            .animate-marquee:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
+          <div className="animate-marquee gap-6">
+            {[...placedStudents, ...placedStudents].map((student, index) => (
+              <div
+                key={index}
+                className="group relative shrink-0 w-[280px]"
+              >
+                {/* Card Background */}
+                <div className="relative bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 h-full flex flex-col items-center">
+                  
+                  {/* Arrow icon on top right */}
+                  <div className="absolute top-6 right-6 text-gray-300 group-hover:text-blue-500 transition-colors duration-300">
+                    <ArrowUpRight size={20} />
+                  </div>
+
+                  {/* Avatar Section */}
+                  <div className="relative mb-6">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-indigo-100 blur-xl opacity-70 rounded-full group-hover:scale-110 transition-transform duration-500"></div>
+                    <img
+                      src={student.image}
+                      alt={student.name}
+                      className="w-28 h-28 rounded-full object-cover border-4 border-white shadow-md relative z-10 transition-transform duration-500 group-hover:scale-105"
+                      referrerPolicy="no-referrer"
+                    />
+                    {/* Mini badge */}
+                    <div className="absolute -bottom-1 -right-1 w-7 h-7 bg-green-500 rounded-full border-2 border-white flex items-center justify-center z-20 shadow-md">
+                      <Trophy size={12} className="text-white fill-white" />
+                    </div>
+                  </div>
+
+                  {/* Info Section */}
+                  <h3 className="text-2xl font-bold text-[#0a0a0a] mb-1 group-hover:text-blue-600 transition-colors duration-300">
+                    {student.name}
+                  </h3>
+                  <p className="text-gray-500 text-sm font-medium mb-6">
+                    {student.role}
+                  </p>
+
+                  {/* Stats/Details Grid */}
+                  <div className="grid grid-cols-2 gap-4 w-full mt-auto">
+                    <div className="bg-slate-50 rounded-2xl p-4 text-center border border-gray-100/80 transition-colors duration-300 group-hover:bg-blue-50/30 group-hover:border-blue-100/50">
+                      <Building2 size={16} className="text-gray-400 mx-auto mb-2 group-hover:text-blue-500 transition-colors" />
+                      <p className="text-xs text-gray-400 mb-1">Company</p>
+                      <p className="font-bold text-[#0a0a0a] text-sm">{student.company}</p>
+                    </div>
+                    <div className="bg-slate-50 rounded-2xl p-4 text-center border border-gray-100/80 transition-colors duration-300 group-hover:bg-blue-50/30 group-hover:border-blue-100/50">
+                      <Briefcase size={16} className="text-gray-400 mx-auto mb-2 group-hover:text-blue-500 transition-colors" />
+                      <p className="text-xs text-gray-400 mb-1">Package</p>
+                      <p className="font-bold text-blue-600 text-sm">{student.package}</p>
+                    </div>
+                  </div>
+
+                  {/* Hover border line at bottom */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full group-hover:w-1/2 transition-all duration-500"></div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
