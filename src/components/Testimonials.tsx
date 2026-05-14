@@ -4,46 +4,46 @@ import { Star, Quote, PlayCircle, CheckCircle2 } from 'lucide-react';
 export default function Testimonials() {
   const testimonials = [
     {
-      quote: "The AI Tools & Freelancing course completely changed my career trajectory. I learned how to use ChatGPT, Midjourney, and how to get clients on Fiverr. I am now taking international freelance projects and earning in dollars.",
-      name: "Priya Singh",
-      course: "AI Tools + Freelancing",
+      quote: "Best institute for tech skills! Highly recommended. Excellent learning environment and supportive staff. Five stars! The best place to learn computer courses. Loved it. Very polite teachers and neat classrooms. Great experience! Highly professional trainers and affordable fees. Value for money.",
+      name: "Varsha Sharma",
+      course: "Computer Courses",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
       hasVideo: true,
       size: "large"
     },
     {
-      quote: "Bhavna Institute provided me with the exact practical skills I needed. The Tally + GST course was so detailed, I started working immediately as an accountant.",
-      name: "Aman Sharma",
-      course: "Tally + GST",
+      quote: "Bhavna Institute is one of the best computer institutes in Meerut. The teachers explain every topic very clearly and focus on practical learning. I improved my computer skills a lot after joining here.",
+      name: "Amit Kumar",
+      course: "Computer Courses",
       avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
       size: "small"
     },
     {
-      quote: "The Web Development course is amazing. The mentors give personal attention and the small batch size really helps in clearing doubts quickly.",
-      name: "Neha Gupta",
-      course: "Web Development",
+      quote: "Bhavna Institute is an excellent place for anyone looking to upgrade their skills. The faculty is highly knowledgeable and supportive, ensuring that every student understands the core concepts thoroughly. The curriculum is well-structured and focuses on practical learning, which is a huge plus. Highly recommended for serious learners.",
+      name: "Gunjan Kushwaha",
+      course: "Skills Upgrade",
       avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
       size: "medium"
     },
     {
-      quote: "Digital Marketing practicals were spot on. We ran real ad campaigns with actual budgets. It's not just theory, it's 100% practical learning.",
-      name: "Rahul Verma",
-      course: "Digital Marketing",
+      quote: "Amazing experience at Bhavna Institute! The faculty explains every concept with real examples, and the environment is very supportive. I learned more here in weeks than I did in months elsewhere.",
+      name: "Manvendra",
+      course: "Practical Learning",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
       size: "small"
     },
     {
-      quote: "Graphic Design classes are very interactive. I learned Photoshop, Illustrator, and Premiere Pro. Now I'm working as a full-time designer.",
-      name: "Sneha Desai",
-      course: "Graphic Design",
+      quote: "Great institute for computer courses! I learned Basic and found the training very practical and useful for my career",
+      name: "Varsha Rani",
+      course: "Computer Courses",
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
       hasVideo: true,
       size: "large"
     },
     {
-      quote: "The Data Analytics course gave me the confidence to handle large datasets. The Python and SQL modules were taught exceptionally well through real-world projects.",
-      name: "Vikram Singh",
-      course: "Data Analytics",
+      quote: "The learning experience at Bhavna Institute was amazing! The practical approach to teaching really helped me.",
+      name: "Shivam",
+      course: "Practical Learning",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
       size: "medium"
     }
@@ -129,7 +129,6 @@ export default function Testimonials() {
               </div>
               <div>
                 <div className={`font-bold text-lg ${t.size === 'large' ? 'text-white' : 'text-[#0a0a0a]'}`}>{t.name}</div>
-                <div className={`text-sm font-medium ${t.size === 'large' ? 'text-blue-200' : 'text-blue-600'}`}>{t.course}</div>
               </div>
             </div>
           </motion.div>
