@@ -1,9 +1,11 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, MessageCircle, Star, Play, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Hero() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const navigate = useNavigate();
 
   // Prevent scrolling when modal is open
   useEffect(() => {
@@ -66,6 +68,7 @@ export default function Hero() {
           <motion.button 
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={() => navigate('/courses')}
             className="bg-[#0a0a0a] text-white px-8 py-3.5 rounded-xl font-medium transition-all hover:bg-black flex items-center justify-center gap-2 group text-base"
           >
             Explore Courses

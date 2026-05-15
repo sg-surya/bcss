@@ -54,7 +54,7 @@ export default function CampusGallery() {
           transition={{ delay: 0.1 }}
           className="text-4xl md:text-5xl font-bold tracking-tighter text-[#0a0a0a] mb-6"
         >
-          Our <span className="text-blue-600">Campus Gallery</span>
+          Our <span className="text-blue-600 font-serif italic">Campus Gallery</span>
         </motion.h2>
         
         <motion.p 

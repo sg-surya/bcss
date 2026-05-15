@@ -3,18 +3,9 @@ import { motion } from 'motion/react';
 import { Linkedin } from 'lucide-react';
 
 const allAlumni = [
-  { name: "Johnson", role: "Senior Developer at Google", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400" },
-  { name: "Alex Brown", role: "CEO & Founder at TechCorp", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400" },
-  { name: "Marina Doe", role: "Product Manager at Amazon", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400" },
-  { name: "Michael Smith", role: "COO & Founder at StartupX", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" },
-  { name: "Sarah Connor", role: "Data Scientist at Meta", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400" },
-  { name: "David Lee", role: "Frontend Engineer at Netflix", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400" },
-  { name: "Emily Chen", role: "UX Designer at Apple", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" },
-  { name: "James Wilson", role: "Backend Developer at Spotify", image: "https://images.unsplash.com/photo-1504257432389-52343af06ae3?auto=format&fit=crop&q=80&w=400" },
-  { name: "Priya Patel", role: "AI Researcher at OpenAI", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" },
-  { name: "Robert Taylor", role: "DevOps Engineer at Microsoft", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400" },
-  { name: "Lisa Wong", role: "Full Stack Developer at Airbnb", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400" },
-  { name: "Tom Harris", role: "Security Analyst at Cisco", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400" },
+  { name: "Atul Chaudhary", role: "Supervisor", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400" },
+  { name: "Aruna", role: "Sales Executive", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400" },
+  { name: "Bulbul", role: "Accountant", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400" },
 ];
 
 export default function AlumniPage() {

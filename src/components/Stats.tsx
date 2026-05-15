@@ -53,7 +53,7 @@ export default function Stats() {
             transition={{ delay: 0.2 }}
           >
             <div className="text-5xl md:text-6xl font-light mb-4 font-serif italic text-blue-400">
-              {inView ? <CountUp end={4.8} decimals={1} duration={2.5} /> : '0.0'}
+              {inView ? <CountUp end={5.0} decimals={1} duration={2.5} /> : '0.0'}
             </div>
             <div className="text-lg font-medium mb-2">Star Rating</div>
             <p className="text-gray-400 text-sm leading-relaxed">Highly rated by our students for quality education.</p>

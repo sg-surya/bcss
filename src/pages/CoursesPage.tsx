@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Star, Users, Search, Filter, ArrowRight, Clock } from 'lucide-react';
+import { Star, Users, Search, Filter, ArrowRight, Clock, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { coursesData } from '../data/courses';
 import CourseCardSkeleton from '../components/ui/CourseCardSkeleton';
@@ -10,6 +10,9 @@ export default function CoursesPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All Category');
   const [isLoading, setIsLoading] = useState(true);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const [isSortOpen, setIsSortOpen] = useState(false);
+  const [selectedSort, setSelectedSort] = useState('Sort by Latest');
 
   useEffect(() => {
     // Simulate loading
@@ -19,11 +22,25 @@ export default function CoursesPage() {
 
   const categories = ['All Category', 'Beginner', 'Job-Oriented', 'Professional'];
 
-  const filteredCourses = coursesData.filter(course => {
-    const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'All Category' || course.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  const getBasePrice = (feesStr: string) => {
+    const match = feesStr.match(/\d+/);
+    return match ? parseInt(match[0], 10) : 0;
+  };
+
+  const filteredCourses = coursesData
+    .filter(course => {
+      const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesCategory = selectedCategory === 'All Category' || course.category === selectedCategory;
+      return matchesSearch && matchesCategory;
+    })
+    .sort((a, b) => {
+      if (selectedSort === 'Price: Low to High') {
+        return getBasePrice(a.fees) - getBasePrice(b.fees);
+      } else if (selectedSort === 'Price: High to Low') {
+        return getBasePrice(b.fees) - getBasePrice(a.fees);
+      }
+      return 0;
+    });
 
   return (
     <div className="pt-32 pb-24 px-6 max-w-[1536px] mx-auto min-h-screen">
@@ -53,28 +70,68 @@ export default function CoursesPage() {
           </div>
           
           <div className="flex items-center gap-4 w-full sm:w-auto">
-            <div className="relative w-full sm:w-40">
-              <select 
-                className="w-full pl-4 pr-10 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-700 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all cursor-pointer"
+            {/* Sort Dropdown */}
+            <div className="relative w-full sm:w-44">
+              <button
+                onClick={() => setIsSortOpen(!isSortOpen)}
+                className="w-full flex items-center justify-between pl-4 pr-4 py-3 bg-white/80 backdrop-blur-md border border-black/5 rounded-xl text-sm font-medium text-[#0a0a0a] cursor-pointer shadow-sm hover:bg-white transition-all"
               >
-                <option>Sort by Latest</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
-              </select>
-              <Filter className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={16} />
+                <span>{selectedSort}</span>
+                <ChevronDown size={16} className={`text-gray-400 transition-transform duration-300 ${isSortOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isSortOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="absolute top-full mt-2 w-full bg-white/90 backdrop-blur-xl border border-black/5 rounded-xl shadow-lg z-50 overflow-hidden py-1"
+                >
+                  {['Sort by Latest', 'Price: Low to High', 'Price: High to Low'].map((option) => (
+                    <div
+                      key={option}
+                      onClick={() => {
+                        setSelectedSort(option);
+                        setIsSortOpen(false);
+                      }}
+                      className="px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer transition-colors"
+                    >
+                      {option}
+                    </div>
+                  ))}
+                </motion.div>
+              )}
             </div>
             
-            <div className="relative w-full sm:w-40">
-              <select 
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full pl-4 pr-10 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-700 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all cursor-pointer"
+            {/* Category Dropdown */}
+            <div className="relative w-full sm:w-44">
+              <button
+                onClick={() => setIsCategoryOpen(!isCategoryOpen)}
+                className="w-full flex items-center justify-between pl-4 pr-4 py-3 bg-white/80 backdrop-blur-md border border-black/5 rounded-xl text-sm font-medium text-[#0a0a0a] cursor-pointer shadow-sm hover:bg-white transition-all"
               >
-                {categories.map(cat => (
-                  <option key={cat} value={cat}>{cat}</option>
-                ))}
-              </select>
-              <Filter className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={16} />
+                <span>{selectedCategory}</span>
+                <ChevronDown size={16} className={`text-gray-400 transition-transform duration-300 ${isCategoryOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isCategoryOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="absolute top-full mt-2 w-full bg-white/90 backdrop-blur-xl border border-black/5 rounded-xl shadow-lg z-50 overflow-hidden py-1"
+                >
+                  {categories.map((cat) => (
+                    <div
+                      key={cat}
+                      onClick={() => {
+                        setSelectedCategory(cat);
+                        setIsCategoryOpen(false);
+                      }}
+                      className="px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer transition-colors"
+                    >
+                      {cat}
+                    </div>
+                  ))}
+                </motion.div>
+              )}
             </div>
           </div>
         </motion.div>
@@ -96,7 +153,7 @@ export default function CoursesPage() {
               whileHover="hover"
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05, duration: 0.5 }}
-              className="group cursor-pointer bg-white rounded-[2.5rem] border border-black/5 shadow-sm hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 flex flex-col h-[440px] overflow-hidden relative"
+              className="group cursor-pointer bg-white rounded-[2.5rem] border border-black/5 shadow-sm hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 flex flex-col h-full overflow-hidden relative"
             >
               {/* Image Section with Padding and Radius */}
               <div className="p-4 pb-0">

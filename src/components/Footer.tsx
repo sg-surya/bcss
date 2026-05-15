@@ -19,7 +19,7 @@ export default function Footer() {
               <a href="#" className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-gray-500 hover:text-pink-600 hover:border-pink-600 transition-colors">
                 <Instagram size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-gray-500 hover:text-blue-700 hover:border-blue-700 transition-colors">
+              <a href="https://www.linkedin.com/company/bhavna-institute/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-gray-500 hover:text-blue-700 hover:border-blue-700 transition-colors">
                 <Linkedin size={18} />
               </a>
             </div>

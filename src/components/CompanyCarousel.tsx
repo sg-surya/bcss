@@ -8,7 +8,9 @@ const companies = [
   { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
   { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
   { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_2012.svg" },
-  { name: "Tech Mahindra", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Tech_Mahindra_logo.svg" }
+  { name: "Tech Mahindra", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Tech_Mahindra_logo.svg" },
+  { name: "Tata Motors", logo: "https://cdn.worldvectorlogo.com/logos/tata-1.svg" },
+  { name: "Hero", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Hero_MotoCorp.svg/1280px-Hero_MotoCorp.svg.png" }
 ];
 
 export default function CompanyCarousel() {
@@ -27,14 +29,14 @@ export default function CompanyCarousel() {
       </div>
       
       <div className="relative flex overflow-x-hidden">
-        <div className="animate-marquee flex gap-8 items-center whitespace-nowrap py-4">
+        <div className="animate-marquee flex gap-8 items-center whitespace-nowrap py-4 hover:[animation-play-state:paused]">
           {[...companies, ...companies].map((company, index) => (
-            <div key={index} className="flex items-center gap-4 bg-white/80 backdrop-blur-md px-6 py-3 rounded-xl border border-white/60 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer hover:-translate-y-0.5">
-              <div className="w-16 h-10 flex items-center justify-center p-1">
+            <div key={index} className="flex items-center justify-center bg-white/80 backdrop-blur-md px-6 py-3 rounded-xl border border-white/60 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer hover:-translate-y-0.5">
+              <div className="w-24 h-14 flex items-center justify-center p-1">
                 <img 
                   src={company.logo} 
                   alt={`${company.name} logo`} 
-                  className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                  className={`w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300 ${company.name === 'Tata Motors' ? 'scale-125' : ''}`}
                   referrerPolicy="no-referrer"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = 'none';
@@ -42,7 +44,6 @@ export default function CompanyCarousel() {
                   }}
                 />
               </div>
-              <span className="text-base font-bold text-[#0a0a0a]">{company.name}</span>
             </div>
           ))}
         </div>

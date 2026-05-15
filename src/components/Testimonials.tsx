@@ -79,68 +79,131 @@ export default function Testimonials() {
         </p>
       </div>
 
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-        {testimonials.map((t, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: idx * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className={`break-inside-avoid relative group ${t.size === 'large'
-              ? 'bg-white/70 backdrop-blur-xl border border-white/40 text-gray-800 md:bg-gradient-to-br md:from-blue-600 md:to-blue-800 md:text-white md:border-transparent'
-              : 'bg-white/70 backdrop-blur-xl border border-white/40 text-gray-800'
-              } p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
-          >
-            {/* Glassmorphism shine effect */}
-            <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
-              <div className="absolute -top-[100%] -left-[100%] w-[50%] h-[300%] bg-gradient-to-r from-transparent via-white/10 to-transparent rotate-45 group-hover:translate-x-[400%] transition-transform duration-1000 ease-in-out"></div>
-            </div>
+      {/* Desktop View: Columns */}
+      <div className="hidden md:block">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+          {testimonials.map((t, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: idx * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className={`break-inside-avoid relative group ${t.size === 'large'
+                ? 'bg-white/70 backdrop-blur-xl border border-white/40 text-gray-800 md:bg-gradient-to-br md:from-blue-600 md:to-blue-800 md:text-white md:border-transparent'
+                : 'bg-white/70 backdrop-blur-xl border border-white/40 text-gray-800'
+                } p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
+            >
+              {/* Glassmorphism shine effect */}
+              <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+                <div className="absolute -top-[100%] -left-[100%] w-[50%] h-[300%] bg-gradient-to-r from-transparent via-white/10 to-transparent rotate-45 group-hover:translate-x-[400%] transition-transform duration-1000 ease-in-out"></div>
+              </div>
 
-            <Quote className={`absolute top-8 right-8 w-12 h-12 ${t.size === 'large' ? 'text-blue-500/10 md:text-white/10' : 'text-blue-500/10'} transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12`} />
+              <Quote className={`absolute top-8 right-8 w-12 h-12 ${t.size === 'large' ? 'text-blue-500/10 md:text-white/10' : 'text-blue-500/10'} transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12`} />
 
-            <div className="flex gap-1 mb-6 relative z-10">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={16} className={`fill-yellow-400 text-yellow-400 ${t.size === 'large' ? 'md:drop-shadow-md' : ''}`} />
-              ))}
-            </div>
+              <div className="flex gap-1 mb-6 relative z-10">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={16} className={`fill-yellow-400 text-yellow-400 ${t.size === 'large' ? 'md:drop-shadow-md' : ''}`} />
+                ))}
+              </div>
 
-            <p className={`${t.size === 'large' ? 'text-gray-600 md:text-white/90 text-lg md:text-xl font-medium' : 'text-gray-600'} leading-relaxed mb-8 relative z-10`}>
-              "{t.quote}"
-            </p>
+              <p className={`${t.size === 'large' ? 'text-gray-600 md:text-white/90 text-lg md:text-xl font-medium' : 'text-gray-600'} leading-relaxed mb-8 relative z-10`}>
+                "{t.quote}"
+              </p>
 
-            {t.hasVideo && (
-              <div className="hidden md:block mb-8 relative rounded-xl overflow-hidden aspect-video cursor-pointer group/video border border-white/20">
-                <img
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400"
-                  alt="Video thumbnail"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover/video:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center transition-background duration-300 group-hover/video:bg-black/20">
-                  <PlayCircle className="w-12 h-12 text-white opacity-80 group-hover/video:opacity-100 group-hover/video:scale-110 transition-all" />
+              {t.hasVideo && (
+                <div className="hidden md:block mb-8 relative rounded-xl overflow-hidden aspect-video cursor-pointer group/video border border-white/20">
+                  <img
+                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400"
+                    alt="Video thumbnail"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover/video:scale-105"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center transition-background duration-300 group-hover/video:bg-black/20">
+                    <PlayCircle className="w-12 h-12 text-white opacity-80 group-hover/video:opacity-100 group-hover/video:scale-110 transition-all" />
+                  </div>
+                </div>
+              )}
+
+              <div className={`flex items-center gap-4 pt-6 border-t ${t.size === 'large' ? 'border-black/5 md:border-white/20' : 'border-black/5'} relative z-10`}>
+                <div className="relative">
+                  <img
+                    src={t.avatar}
+                    alt={t.name}
+                    className="w-14 h-14 rounded-full object-cover object-top border-2 border-white/50 shadow-md"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 border-2 border-white rounded-full flex items-center justify-center">
+                    <CheckCircle2 className="w-3 h-3 text-white" />
+                  </div>
+                </div>
+                <div>
+                  <div className={`font-bold text-lg ${t.size === 'large' ? 'text-[#0a0a0a] md:text-white' : 'text-[#0a0a0a]'}`}>{t.name}</div>
                 </div>
               </div>
-            )}
+            </motion.div>
+          ))}
+        </div>
+      </div>
 
-            <div className={`flex items-center gap-4 pt-6 border-t ${t.size === 'large' ? 'border-black/5 md:border-white/20' : 'border-black/5'} relative z-10`}>
-              <div className="relative">
-                <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className="w-14 h-14 rounded-full object-cover object-top border-2 border-white/50 shadow-md"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 border-2 border-white rounded-full flex items-center justify-center">
-                  <CheckCircle2 className="w-3 h-3 text-white" />
-                </div>
-              </div>
+      {/* Mobile View: Auto-scrolling Marquee */}
+      <div className="relative overflow-hidden py-4 md:hidden">
+        <style>{`
+          @keyframes marquee-testimonials {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee-testimonials {
+            display: flex;
+            animation: marquee-testimonials 40s linear infinite;
+            width: max-content;
+          }
+          .animate-marquee-testimonials:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+        <div className="animate-marquee-testimonials gap-6">
+          {[...testimonials, ...testimonials].map((t, idx) => (
+            <div
+              key={idx}
+              className={`shrink-0 w-[300px] relative group ${t.size === 'large'
+                ? 'bg-white/70 backdrop-blur-xl border border-white/40 text-gray-800'
+                : 'bg-white/70 backdrop-blur-xl border border-white/40 text-gray-800'
+                } p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 flex flex-col justify-between`}
+            >
               <div>
-                <div className={`font-bold text-lg ${t.size === 'large' ? 'text-[#0a0a0a] md:text-white' : 'text-[#0a0a0a]'}`}>{t.name}</div>
+                <Quote className="absolute top-6 right-6 w-10 h-10 text-blue-500/10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12" />
+
+                <div className="flex gap-1 mb-4 relative z-10">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={14} className="fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+
+                <p className="text-gray-600 leading-relaxed mb-6 relative z-10 text-sm">
+                  "{t.quote}"
+                </p>
+              </div>
+
+              <div className="flex items-center gap-4 pt-4 border-t border-black/5 relative z-10 mt-auto">
+                <div className="relative">
+                  <img
+                    src={t.avatar}
+                    alt={t.name}
+                    className="w-10 h-10 rounded-full object-cover object-top border-2 border-white/50 shadow-md"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full flex items-center justify-center">
+                    <CheckCircle2 className="w-2.5 h-2.5 text-white" />
+                  </div>
+                </div>
+                <div>
+                  <div className="font-bold text-base text-[#0a0a0a]">{t.name}</div>
+                </div>
               </div>
             </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
