@@ -60,9 +60,9 @@ export default function Courses() {
               whileHover="hover"
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.6 }}
-              className="group cursor-pointer bg-white rounded-[2.5rem] border border-black/5 shadow-sm hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 flex flex-col h-[440px] overflow-hidden relative"
+              className="group cursor-pointer bg-white rounded-[2.5rem] border border-black/5 shadow-sm hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 flex flex-col h-full overflow-hidden relative"
               onClick={() => {
-                navigate('/courses');
+                navigate(`/courses/${course.id}`);
                 window.scrollTo(0, 0);
               }}
             >

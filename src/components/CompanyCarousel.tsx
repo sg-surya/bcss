@@ -29,7 +29,7 @@ export default function CompanyCarousel() {
       <div className="relative flex overflow-x-hidden">
         <div className="animate-marquee flex gap-8 items-center whitespace-nowrap py-4">
           {[...companies, ...companies].map((company, index) => (
-            <div key={index} className="flex items-center gap-4 bg-white/80 backdrop-blur-md px-6 py-3 rounded-xl border border-white/60 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer hover:-translate-y-0.5">
+            <div key={index} className="flex items-center justify-center bg-white/80 backdrop-blur-md px-6 py-3 rounded-xl border border-white/60 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer hover:-translate-y-0.5">
               <div className="w-16 h-10 flex items-center justify-center p-1">
                 <img 
                   src={company.logo} 
@@ -42,7 +42,6 @@ export default function CompanyCarousel() {
                   }}
                 />
               </div>
-              <span className="text-base font-bold text-[#0a0a0a]">{company.name}</span>
             </div>
           ))}
         </div>
