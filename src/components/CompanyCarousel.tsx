@@ -1,15 +1,7 @@
 import { motion } from 'motion/react';
 
 const companies = [
-  { name: "TCS", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Tata_Consultancy_Services_Logo.svg" },
-  { name: "Infosys", logo: "https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg" },
-  { name: "Wipro", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg" },
-  { name: "HCL", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e0/HCL_Technologies_logo.svg" },
-  { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
-  { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
-  { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_2012.svg" },
-  { name: "Tech Mahindra", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Tech_Mahindra_logo.svg" },
-  { name: "Tata Motors", logo: "https://cdn.worldvectorlogo.com/logos/tata-1.svg" },
+  { name: "TATA", logo: "https://cdn.worldvectorlogo.com/logos/tata-1.svg" },
   { name: "Hero", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Hero_MotoCorp.svg/1280px-Hero_MotoCorp.svg.png" }
 ];
 
@@ -28,9 +20,9 @@ export default function CompanyCarousel() {
         </p>
       </div>
       
-      <div className="relative flex overflow-x-hidden">
-        <div className="animate-marquee flex gap-8 items-center whitespace-nowrap py-4 hover:[animation-play-state:paused]">
-          {[...companies, ...companies].map((company, index) => (
+      <div className="relative flex justify-center">
+        <div className="flex gap-12 items-center py-4">
+          {companies.map((company, index) => (
             <div key={index} className="flex items-center justify-center bg-white/80 backdrop-blur-md px-6 py-3 rounded-xl border border-white/60 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer hover:-translate-y-0.5">
               <div className="w-24 h-14 flex items-center justify-center p-1">
                 <img 
