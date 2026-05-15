@@ -535,6 +535,7 @@ export default function CourseDetailsPage() {
                   href={`https://wa.me/919719205268?text=${encodeURIComponent(`Hi, I am interested in enrolling in the ${course.title} course.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => (window as any).gtag?.('event', 'whatsapp_click', { event_category: 'engagement', event_label: `WhatsApp Course ${course.title}` })}
                   className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5 mb-6"
                 >
                   Enroll Now
@@ -560,7 +561,7 @@ export default function CourseDetailsPage() {
 
                 <div className="mt-6 text-center">
                   <p className="text-xs text-gray-500 font-medium mb-1">Need help deciding?</p>
-                  <a href="tel:+919719205268" className="inline-flex items-center gap-1.5 font-bold text-[#0a0a0a] hover:text-blue-600 transition-colors text-sm">
+                  <a href="tel:+919719205268" onClick={() => (window as any).gtag?.('event', 'call_click', { event_category: 'engagement', event_label: 'Call CourseDetails' })} className="inline-flex items-center gap-1.5 font-bold text-[#0a0a0a] hover:text-blue-600 transition-colors text-sm">
                     Call +91 97192 05268
                   </a>
                 </div>

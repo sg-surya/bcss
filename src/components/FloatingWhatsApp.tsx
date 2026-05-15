@@ -9,6 +9,7 @@ export default function FloatingWhatsApp() {
         href="https://wa.me/919719205268" 
         target="_blank" 
         rel="noopener noreferrer"
+        onClick={() => (window as any).gtag?.('event', 'whatsapp_click', { event_category: 'engagement', event_label: 'WhatsApp Floating Desktop' })}
         className="hidden md:flex fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg shadow-green-500/30 hover:scale-110 hover:bg-[#1ebe57] transition-all duration-300 items-center justify-center group"
         aria-label="Chat on WhatsApp"
       >
@@ -29,6 +30,7 @@ export default function FloatingWhatsApp() {
       >
         <a 
           href="tel:+919719205268" 
+          onClick={() => (window as any).gtag?.('event', 'call_click', { event_category: 'engagement', event_label: 'Call Mobile' })}
           className="flex-1 flex flex-col items-center justify-center gap-1 py-2 text-gray-600 hover:text-blue-600 transition-colors"
         >
           <PhoneCall size={20} />
@@ -41,6 +43,7 @@ export default function FloatingWhatsApp() {
           href="https://wa.me/919719205268" 
           target="_blank" 
           rel="noopener noreferrer"
+          onClick={() => (window as any).gtag?.('event', 'whatsapp_click', { event_category: 'engagement', event_label: 'WhatsApp Floating Mobile' })}
           className="flex-1 flex flex-col items-center justify-center gap-1 py-2 text-[#25D366] hover:text-[#1ebe57] transition-colors"
         >
           <MessageCircle size={20} />

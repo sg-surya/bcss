@@ -38,6 +38,7 @@ export default function CTA() {
                 href="https://wa.me/919719205268?text=Hi,%20I%20am%20interested%20in%20enrolling%20in%20a%20course."
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => (window as any).gtag?.('event', 'whatsapp_click', { event_category: 'engagement', event_label: 'WhatsApp CTA Enroll' })}
                 className="relative overflow-hidden bg-white text-[#0a0a0a] px-8 py-4 rounded-full text-base font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center gap-2 group"
               >
                 <span className="absolute inset-0 w-[150%] h-full -translate-x-full bg-gradient-to-r from-transparent via-black/5 to-transparent group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />
@@ -51,6 +52,7 @@ export default function CTA() {
                 href="https://wa.me/919719205268?text=Hi,%20I%20have%20a%20query."
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => (window as any).gtag?.('event', 'whatsapp_click', { event_category: 'engagement', event_label: 'WhatsApp CTA Query' })}
                 className="relative overflow-hidden bg-[#25D366] text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-[#1ebe57] transition-colors flex items-center justify-center gap-2 group"
               >
                 <span className="absolute inset-0 w-[150%] h-full -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />

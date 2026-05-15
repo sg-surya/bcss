@@ -80,6 +80,7 @@ export default function Hero() {
             href="https://wa.me/919719205268?text=Hi,%20I%20want%20to%20know%20more%20about%20the%20courses."
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => (window as any).gtag?.('event', 'whatsapp_click', { event_category: 'engagement', event_label: 'WhatsApp Hero' })}
             className="bg-white border border-gray-200 text-[#0a0a0a] px-8 py-3.5 rounded-xl font-medium hover:border-gray-300 transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow text-base group"
           >
             <MessageCircle size={18} className="text-gray-400 group-hover:text-green-500 transition-colors" />

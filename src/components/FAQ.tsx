@@ -72,6 +72,7 @@ export default function FAQ() {
                 href="https://wa.me/919719205268"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => (window as any).gtag?.('event', 'whatsapp_click', { event_category: 'engagement', event_label: 'WhatsApp FAQ' })}
                 className="inline-flex items-center gap-2 text-blue-600 font-bold hover:text-blue-700 transition-colors group"
               >
                 Still have questions? Chat with us

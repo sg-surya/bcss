@@ -91,6 +91,7 @@ export default function Navbar() {
             href="https://wa.me/919719205268?text=Hi,%20I%20am%20interested%20in%20enrolling%20in%20a%20course."
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => (window as any).gtag?.('event', 'whatsapp_click', { event_category: 'engagement', event_label: 'WhatsApp Navbar Desktop' })}
             className={`relative overflow-hidden px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 inline-block group ${
               !isNavbarWhite && isDarkHero 
                 ? 'bg-white text-[#0a0a0a] hover:bg-blue-600 hover:text-white' 
@@ -139,7 +140,10 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative overflow-hidden w-full bg-[#0a0a0a] text-white px-6 py-3 rounded-xl text-sm font-medium mt-2 text-center block hover:bg-blue-600 transition-colors duration-300 group"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  (window as any).gtag?.('event', 'whatsapp_click', { event_category: 'engagement', event_label: 'WhatsApp Navbar Mobile' });
+                  setMobileMenuOpen(false);
+                }}
               >
                 <span className="absolute inset-0 w-[150%] h-full -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />
                 <span className="relative z-10">Enroll Now</span>

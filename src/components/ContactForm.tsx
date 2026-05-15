@@ -46,7 +46,7 @@ export default function ContactForm() {
                 <option value="design">Graphic Design</option>
               </select>
             </div>
-            <button type="button" className="w-full bg-[#0a0a0a] text-white px-8 py-4 rounded-2xl font-medium hover:bg-blue-600 transition-colors">
+            <button type="button" onClick={() => (window as any).gtag?.('event', 'lead_submit', { event_category: 'conversion', event_label: 'ContactForm Home' })} className="w-full bg-[#0a0a0a] text-white px-8 py-4 rounded-2xl font-medium hover:bg-blue-600 transition-colors">
               Submit Details
             </button>
           </form>

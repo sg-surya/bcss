@@ -97,6 +97,7 @@ export default function ContactPage() {
                 href="https://wa.me/919719205268?text=Hi,%20I%20would%20like%20to%20schedule%20a%20free%20career%20counseling%20session."
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => (window as any).gtag?.('event', 'whatsapp_click', { event_category: 'engagement', event_label: 'WhatsApp Contact Counseling' })}
                 className="inline-flex items-center justify-center w-full bg-white text-[#0a0a0a] px-6 py-3 rounded-xl text-sm font-medium hover:bg-gray-100 transition-colors"
               >
                 Book Free Counseling
@@ -167,7 +168,7 @@ export default function ContactPage() {
                   ></textarea>
                 </div>
 
-                <button type="button" className="w-full bg-blue-600 text-white px-8 py-4 rounded-2xl font-medium hover:bg-blue-700 transition-colors">
+                <button type="button" onClick={() => (window as any).gtag?.('event', 'lead_submit', { event_category: 'conversion', event_label: 'ContactForm Page' })} className="w-full bg-blue-600 text-white px-8 py-4 rounded-2xl font-medium hover:bg-blue-700 transition-colors">
                   Send Message
                 </button>
               </form>
