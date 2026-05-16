@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Search, ArrowRight, Clock, ChevronDown } from 'lucide-react';
+import { Search, ArrowRight, Clock, ChevronDown, Users, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { coursesData } from '../data/courses';
 import CourseCardSkeleton from '../components/ui/CourseCardSkeleton';
@@ -136,7 +136,7 @@ export default function CoursesPage() {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {isLoading ? (
           Array.from({ length: 6 }).map((_, i) => <CourseCardSkeleton key={i} />)
         ) : (
@@ -147,45 +147,64 @@ export default function CoursesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05, duration: 0.4 }}
-              className="group bg-white rounded-2xl border border-black/5 shadow-sm hover:shadow-xl hover:shadow-black/5 transition-all duration-400 flex flex-col h-full overflow-hidden"
+              className="group bg-white rounded-[2rem] border border-black/5 shadow-sm hover:shadow-xl hover:shadow-black/5 transition-all duration-500 flex flex-col h-full overflow-hidden"
             >
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={course.image}
-                  alt={course.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[10px] font-bold text-[#0a0a0a] px-2.5 py-1 rounded-lg uppercase tracking-wider shadow-sm">
-                  {course.category}
-                </span>
+              {/* Image Section with Padding */}
+              <div className="p-3 pb-0">
+                <div className="relative h-44 w-full overflow-hidden rounded-[1.5rem]">
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                </div>
               </div>
 
               {/* Content */}
-              <div className="p-5 flex-1 flex flex-col">
-                <div className="flex items-center gap-3 text-xs text-gray-400 mb-2">
-                  <span className="flex items-center gap-1"><Clock size={13} />{course.duration}</span>
-                  <span className="w-1 h-1 rounded-full bg-gray-300" />
-                  <span>{course.students}</span>
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="bg-orange-50 text-orange-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                    {course.category}
+                  </span>
+                  <div className="flex items-center text-gray-400 text-xs font-medium">
+                    <Clock size={13} className="mr-1" /> {course.duration}
+                  </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-[#0a0a0a] leading-snug mb-1 line-clamp-1">
+                <h3 className="text-xl font-bold text-[#0a0a0a] leading-snug mb-1.5 line-clamp-1">
                   {course.title}
                 </h3>
 
-                <p className="text-sm text-gray-500 mb-auto">
-                  {course.instructor}
+                <p className="text-sm text-gray-400 mb-5">
+                  by <span className="text-gray-600 font-medium">{course.instructor}</span>
                 </p>
 
-                <div className="flex items-center justify-between mt-5 pt-4 border-t border-black/5">
-                  <span className="text-xl font-bold text-[#0a0a0a]">{course.fees}</span>
-                  <Link to={`/courses/${course.id}`}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors group/link"
-                  >
-                    Details <ArrowRight size={15} className="group-hover/link:translate-x-0.5 transition-transform" />
+                <div className="mt-auto">
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <Users size={16} className="text-blue-500" />
+                      <span className="font-semibold text-gray-600">{course.students}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg font-bold text-[#0a0a0a]">{course.fees}</span>
+                      <div className="flex items-center gap-1">
+                        <Star size={13} className="text-orange-400 fill-current" />
+                        <span className="text-sm font-bold text-gray-600">{course.rating}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <Link to={`/courses/${course.id}`}>
+                    <motion.button
+                      whileHover={{ scale: 1.01 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full py-3.5 bg-gray-50 group-hover:bg-[#0a0a0a] text-[#0a0a0a] group-hover:text-white font-bold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm"
+                    >
+                      Explore Course <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    </motion.button>
                   </Link>
                 </div>
               </div>
