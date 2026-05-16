@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Linkedin } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const allAlumni = [
   { name: "Atul Chaudhary", role: "Supervisor", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400" },
@@ -15,6 +16,7 @@ export default function AlumniPage() {
 
   return (
     <div className="min-h-screen pt-32 pb-24 px-6 bg-[#f5f5f4]">
+      <SEO title="Alumni" description="Meet our successful alumni who are leading in various industries." canonical="/alumni" />
       <div className="max-w-[1536px] mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-medium tracking-tight text-[#0a0a0a] mb-6">

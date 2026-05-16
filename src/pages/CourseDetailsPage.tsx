@@ -5,6 +5,7 @@ import {
   CheckCircle2, ChevronDown, ChevronUp, GraduationCap, Star, Check,
   Users, Clock, Award, Zap, BarChart, Layers, Mail, Cpu
 } from 'lucide-react';
+import SEO from '../components/SEO';
 import { coursesData } from '../data/courses';
 import { useEffect, useState } from 'react';
 
@@ -35,14 +36,6 @@ export default function CourseDetailsPage() {
     window.scrollTo(0, 0);
   }, [id]);
 
-  useEffect(() => {
-    if (!course) return;
-    document.title = `${course.title} | BHAVNA Institute - Meerut`;
-    const desc = (course as any).seoDescription || course.description;
-    const m = document.querySelector('meta[name="description"]');
-    if (m) m.setAttribute('content', desc);
-  }, [course]);
-
   const curriculumData = (course as any).curriculum || [];
   const projectsData = (course as any).projects || [];
   const faqData = (course as any).faq || [];
@@ -51,6 +44,7 @@ export default function CourseDetailsPage() {
   if (!course) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center pt-20 bg-[#f5f5f4]">
+        <SEO title="Course Not Found" canonical="/courses" />
         <h1 className="text-2xl font-bold mb-4 text-[#0a0a0a]">Course not found</h1>
         <Link to="/courses" className="text-blue-600 hover:underline flex items-center gap-2 font-medium">
           <ArrowLeft size={16} /> Back to Courses
@@ -72,6 +66,7 @@ export default function CourseDetailsPage() {
 
   return (
     <div className="min-h-screen bg-[#f5f5f4] pb-24">
+      <SEO title={course.title} description={(course as any).seoDescription || course.description} canonical={`/courses/${id}`} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Hero */}

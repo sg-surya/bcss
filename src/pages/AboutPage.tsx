@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { BookOpen, Target, Users, Award, CheckCircle2 } from 'lucide-react';
+import SEO from '../components/SEO';
 import Faculty from '../components/Faculty';
 
 export default function AboutPage() {
@@ -40,6 +41,7 @@ export default function AboutPage() {
 
   return (
     <div className="pt-24 min-h-screen bg-[#f5f5f4]">
+      <SEO title="About Us" description="Learn about Bhavna Institute - Meerut's leading computer training institute with 10+ years of excellence." canonical="/about" />
       {/* Hero Section */}
       <section className="py-20 px-6 max-w-[1536px] mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">

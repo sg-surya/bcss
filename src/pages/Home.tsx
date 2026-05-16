@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import Hero from '../components/Hero';
 import CompanyCarousel from '../components/CompanyCarousel';
 import Courses from '../components/Courses';
@@ -16,6 +17,7 @@ import Location from '../components/Location';
 export default function Home() {
   return (
     <main>
+      <SEO />
       <Hero />
       <CompanyCarousel />
       <Courses />

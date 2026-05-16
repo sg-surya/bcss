@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Search, ArrowRight, Clock, ChevronDown, Users, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { coursesData } from '../data/courses';
 import CourseCardSkeleton from '../components/ui/CourseCardSkeleton';
 
@@ -43,6 +44,7 @@ export default function CoursesPage() {
 
   return (
     <div className="pt-32 pb-24 px-6 max-w-[1536px] mx-auto min-h-screen">
+      <SEO title="Courses" description="Explore our job-oriented computer courses in Meerut." canonical="/courses" />
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
         <motion.h1 
           initial={{ opacity: 0, x: -20 }}
