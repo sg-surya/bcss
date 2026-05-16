@@ -3,19 +3,89 @@ export const coursesData = [
     id: "basic-computer",
     title: "Basic Computer Course",
     category: "Beginner",
-    duration: "3 Months",
+    duration: "2–3 Months",
     fees: "₹3000",
-    description: "Ye course beginners ke liye hai jisme students computer ki basic knowledge se start karte hain.",
-    learn: ["Computer fundamentals", "MS Word, Excel, PowerPoint", "Internet & Email usage", "Typing practice"],
-    outcome: "Basic computer operator jobs ke liye ready",
+    description: "Start your digital journey with practical computer training covering MS Office, Internet, Email, Typing, and modern AI tools. Perfect for beginners who want to build strong computer skills from scratch.",
+    learn: [
+      "Computer Fundamentals: Introduction to Computers, Hardware & Software, Input & Output Devices, Keyboard & Mouse Functions",
+      "Windows Operating System: File Management, Software Installation, Shortcuts & Productivity, System Navigation",
+      "MS Office Skills: MS Word, MS Excel, MS PowerPoint, Resume & Document Creation",
+      "Internet & Email: Safe Browsing, Gmail Usage, Online Forms, Google Search Skills",
+      "AI Tools Basics: Introduction to AI, ChatGPT Basics, AI Productivity Tools, Prompt Basics",
+      "Typing & Productivity: English Typing Practice, Hindi Typing Basics, Shortcut Keys, Digital Communication Skills"
+    ],
+    outcome: "Operate computers confidently, create professional documents and presentations, use Internet and Email professionally, work with MS Office tools, understand basics of AI tools like ChatGPT, build job-ready digital skills",
     instructor: "Surya Pratap Singh",
     image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=800",
     rating: "4.8",
-    students: "1,245",
-    tags: ["MS Office", "Internet", "Typing"],
+    students: "1,245+",
+    tags: ["MS Office", "Internet", "Typing", "AI Tools"],
     color: "bg-[#eef2ff]",
     textColor: "text-[#312e81]",
-    tagBg: "bg-[#e0e7ff]"
+    tagBg: "bg-[#e0e7ff]",
+    about: "The Basic Computer Course is specially designed for beginners who want to learn essential computer skills with practical training. Students will start from computer fundamentals and gradually learn MS Office, Internet usage, Email communication, Typing, and AI productivity tools. This course focuses on hands-on learning through real-world tasks and projects to help students become confident in using computers for office work, studies, and daily digital activities. By the end of the course, students will be able to: Operate computers confidently, Create professional documents and presentations, Use the Internet and Email professionally, Work with MS Office tools, Understand the basics of AI tools like ChatGPT, Build job-ready digital skills.",
+    mentorDesignation: "Founder of Vasudev AI & Tech Educator",
+    mentorEducation: "Pursuing Bachelor's in AI & Data Engineering from IIT Jodhpur",
+    mentorSpecializations: ["Artificial Intelligence", "Automation Systems", "Web Development", "Digital Productivity", "Modern Tech Education"],
+    curriculum: [
+      { title: "Module 1 — Computer Fundamentals", items: ["Introduction to computers", "Hardware & software explained", "CPU, RAM, storage, and input-output devices", "Keyboard & mouse handling", "Understanding computer types"] },
+      { title: "Module 2 — Windows Operating System", items: ["Desktop navigation", "File explorer & folder management", "Shortcuts & productivity tips", "Software installation", "ZIP extraction & file compression"] },
+      { title: "Module 3 — MS Word", items: ["Document formatting", "Resume design", "Tables and layouts", "Official letters", "Page setup & printing"] },
+      { title: "Module 4 — MS Excel", items: ["Basic formulas", "Charts and graphs", "Attendance sheets", "Salary sheets", "Marksheet creation"] },
+      { title: "Module 5 — MS PowerPoint", items: ["Presentation design", "Animations and transitions", "Professional templates", "Business presentations", "Slide master usage"] },
+      { title: "Module 6 — Internet & Email", items: ["Google search techniques", "Gmail: compose, send, attachments", "File uploads & downloads", "Google Drive management", "Online forms"] },
+      { title: "Module 7 — AI Tools Basics", items: ["ChatGPT introduction", "AI productivity tools", "AI content basics", "Prompt engineering basics", "Using AI for study and work"] },
+      { title: "Module 8 — Typing & Productivity", items: ["English typing practice", "Hindi typing basics", "Office shortcuts", "Communication skills", "Productivity workflow"] }
+    ],
+    projects: [
+      "Professional Resume — Create an ATS-friendly resume in MS Word",
+      "Excel Report Sheet — Attendance sheet, salary sheet, and marksheet with formulas",
+      "PowerPoint Presentation — Business or school presentation with animations",
+      "Email Submission Project — Professional emails with attachments",
+      "AI-Assisted Document Tasks — Use ChatGPT for cover letters, emails, and summaries"
+    ],
+    prerequisites: [
+      "No prior computer knowledge is required",
+      "This course is completely beginner-friendly"
+    ],
+    careerOutcomes: [
+      "Computer Operator Jobs",
+      "Office Assistant Roles",
+      "Data Entry Jobs",
+      "Reception & Front Desk Roles",
+      "Basic Freelancing Tasks"
+    ],
+    courseIncludes: [
+      "Practical Hands-on Training",
+      "Assignments & Projects",
+      "AI Tools Introduction",
+      "Certificate of Completion",
+      "Mobile & Desktop Access",
+      "Live Doubt Support",
+      "Career Guidance"
+    ],
+    whyChoose: [
+      "Modern AI + Computer Education",
+      "Practical Project-Based Learning",
+      "Beginner-Friendly Environment",
+      "Affordable Fee Structure",
+      "Industry-Oriented Skills",
+      "Career Support in Meerut"
+    ],
+    faq: [
+      { q: "Who can join this Basic Computer Course?", a: "School students, college students, beginners, homemakers, and job seekers can join this course." },
+      { q: "Is this course beginner-friendly?", a: "Yes, the course starts from complete basics. No prior computer knowledge is required." },
+      { q: "Will I receive a certificate?", a: "Yes, students will receive a certificate after successful course completion." },
+      { q: "What is the course duration?", a: "The course duration is 2–3 months with daily practical classes." },
+      { q: "Will I learn MS Office?", a: "Yes, MS Word, Excel, and PowerPoint are fully covered with practical exercises." },
+      { q: "Are AI tools included?", a: "Yes, students will also learn the basics of AI tools like ChatGPT." },
+      { q: "Is practical training included?", a: "Yes, the course is completely practical-based with projects and assignments." }
+    ],
+    seoDescription: "Learn Basic Computer Course in Meerut at BHAVNA Institute with practical training in MS Office, Internet, Email, Typing, and AI tools. Beginner-friendly course with certificate and projects.",
+    seoKeywords: "Basic Computer Course in Meerut, Computer Institute in Meerut, MS Office Training Meerut, Computer Classes Near Me, Basic Computer Training, Computer Course with Certificate, AI Computer Course Meerut, Excel Word PowerPoint Training",
+    durationDetail: "1 Hour Daily",
+    schedule: "5–6 Days per Week",
+    trainingMode: "Practical + Theory Training"
   },
   {
     id: "video-editing",

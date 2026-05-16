@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Star, Users, Search, Filter, ArrowRight, Clock, ChevronDown } from 'lucide-react';
+import { Search, ArrowRight, Clock, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { coursesData } from '../data/courses';
 import CourseCardSkeleton from '../components/ui/CourseCardSkeleton';
-import ImageWithSkeleton from '../components/ui/ImageWithSkeleton';
 
 export default function CoursesPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -144,80 +143,49 @@ export default function CoursesPage() {
           filteredCourses.map((course, idx) => (
             <motion.div
               key={course.id}
-              variants={{
-                initial: { opacity: 0, y: 20 },
-                animate: { opacity: 1, y: 0 },
-              }}
-              initial="initial"
-              whileInView="animate"
-              whileHover="hover"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.05, duration: 0.5 }}
-              className="group cursor-pointer bg-white rounded-[2.5rem] border border-black/5 shadow-sm hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 flex flex-col h-full overflow-hidden relative"
+              transition={{ delay: idx * 0.05, duration: 0.4 }}
+              className="group bg-white rounded-2xl border border-black/5 shadow-sm hover:shadow-xl hover:shadow-black/5 transition-all duration-400 flex flex-col h-full overflow-hidden"
             >
-              {/* Image Section with Padding and Radius */}
-              <div className="p-4 pb-0">
-                <div className="relative h-44 w-full overflow-hidden rounded-[2rem]">
-                  <ImageWithSkeleton 
-                    src={course.image} 
-                    alt={course.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute top-4 right-4">
-                    <div className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded-lg flex flex-col items-center justify-center gap-0.5 shadow-sm">
-                      <div className="w-1 h-1 bg-black rounded-full" />
-                      <div className="w-1 h-1 bg-black rounded-full" />
-                      <div className="w-1 h-1 bg-black rounded-full" />
-                    </div>
-                  </div>
-                </div>
+              {/* Image */}
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  referrerPolicy="no-referrer"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[10px] font-bold text-[#0a0a0a] px-2.5 py-1 rounded-lg uppercase tracking-wider shadow-sm">
+                  {course.category}
+                </span>
               </div>
 
-              {/* Content Section */}
-              <div className="p-6 flex-1 flex flex-col">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="bg-orange-50 text-orange-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
-                    {course.category}
-                  </span>
-                  <div className="flex items-center text-gray-400 text-xs font-medium">
-                    <Clock size={14} className="mr-1" /> {course.duration}
-                  </div>
+              {/* Content */}
+              <div className="p-5 flex-1 flex flex-col">
+                <div className="flex items-center gap-3 text-xs text-gray-400 mb-2">
+                  <span className="flex items-center gap-1"><Clock size={13} />{course.duration}</span>
+                  <span className="w-1 h-1 rounded-full bg-gray-300" />
+                  <span>{course.students}</span>
                 </div>
-                
-                <h3 className="text-2xl font-bold text-[#0a0a0a] mb-0.5 tracking-tight line-clamp-1">
+
+                <h3 className="text-lg font-bold text-[#0a0a0a] leading-snug mb-1 line-clamp-1">
                   {course.title}
                 </h3>
-                
-                <p className="text-gray-400 text-sm mb-4">
-                  by <span className="text-gray-600 font-medium">{course.instructor || 'Michael Anderson'}</span>
-                </p>
-                
-                <div className="mt-auto">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center">
-                      <div className="flex -space-x-2">
-                        {[1, 2, 3, 4].map((i) => (
-                          <div key={i} className="w-7 h-7 rounded-full border-2 border-white overflow-hidden bg-gray-100">
-                            <img src={`https://i.pravatar.cc/100?u=${course.id}${i}`} alt="user" referrerPolicy="no-referrer" />
-                          </div>
-                        ))}
-                      </div>
-                      <span className="ml-3 text-sm font-bold text-gray-400">+{course.students}</span>
-                    </div>
-                    <div className="text-2xl font-bold text-[#0a0a0a]">
-                      {course.fees}
-                    </div>
-                  </div>
 
-                  <Link to={`/courses/${course.id}`}>
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full py-3 bg-gray-50 group-hover:bg-[#0a0a0a] group-hover:text-white text-[#0a0a0a] font-bold rounded-2xl transition-all duration-300 flex items-center justify-center gap-2"
-                    >
-                      Explore Course <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                    </motion.button>
+                <p className="text-sm text-gray-500 mb-auto">
+                  {course.instructor}
+                </p>
+
+                <div className="flex items-center justify-between mt-5 pt-4 border-t border-black/5">
+                  <span className="text-xl font-bold text-[#0a0a0a]">{course.fees}</span>
+                  <Link to={`/courses/${course.id}`}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors group/link"
+                  >
+                    Details <ArrowRight size={15} className="group-hover/link:translate-x-0.5 transition-transform" />
                   </Link>
                 </div>
               </div>
