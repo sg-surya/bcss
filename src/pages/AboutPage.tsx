@@ -76,7 +76,7 @@ export default function AboutPage() {
           transition={{ delay: 0.3 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24"
         >
-          <div className="md:col-span-2 h-[400px] rounded-3xl overflow-hidden">
+          <div className="md:col-span-2 h-64 sm:h-80 md:h-[400px] rounded-3xl overflow-hidden">
             <img 
               src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop" 
               alt="Students learning" 
@@ -84,7 +84,7 @@ export default function AboutPage() {
               referrerPolicy="no-referrer"
             />
           </div>
-          <div className="h-[400px] rounded-3xl overflow-hidden">
+          <div className="h-64 sm:h-80 md:h-[400px] rounded-3xl overflow-hidden">
             <img 
               src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop" 
               alt="Campus" 
@@ -160,7 +160,7 @@ export default function AboutPage() {
                 ))}
               </div>
             </div>
-            <div className="relative h-[400px] rounded-3xl overflow-hidden">
+            <div className="relative h-64 sm:h-80 md:h-[400px] rounded-3xl overflow-hidden">
               <img 
                 src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop" 
                 alt="Teaching" 

@@ -161,7 +161,8 @@ export default function CoursesPage() {
                   <ImageWithSkeleton 
                     src={course.image} 
                     alt={course.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full"
+                    imageClassName="group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute top-4 right-4">
