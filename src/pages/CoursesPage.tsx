@@ -45,13 +45,20 @@ export default function CoursesPage() {
   return (
     <div className="pt-32 pb-24 px-6 max-w-[1536px] mx-auto min-h-screen">
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
-        <motion.h1 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="text-3xl md:text-4xl font-bold text-[#0a0a0a]"
-        >
-          Courses
-        </motion.h1>
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-widest">
+            <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
+            <span className="text-gray-300">/</span>
+            <span className="text-[#0a0a0a]">Courses</span>
+          </div>
+          <motion.h1 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-3xl md:text-5xl font-bold text-[#0a0a0a] tracking-tight"
+          >
+            Our Courses
+          </motion.h1>
+        </div>
         
         <motion.div 
           initial={{ opacity: 0, x: 20 }}

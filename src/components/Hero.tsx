@@ -88,6 +88,21 @@ export default function Hero() {
           </motion.a>
         </motion.div>
 
+        {/* Popular Quick Links */}
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-gray-500 mb-16"
+        >
+          <span className="font-semibold text-gray-700">Popular Tracks:</span>
+          <button onClick={() => { navigate('/courses/ai-tools'); window.scrollTo(0,0); }} className="hover:text-blue-600 transition-colors font-medium border-b border-dashed border-gray-300 hover:border-blue-600 cursor-pointer">AI Tools Course</button>
+          <span>•</span>
+          <button onClick={() => { navigate('/courses/html-css'); window.scrollTo(0,0); }} className="hover:text-blue-600 transition-colors font-medium border-b border-dashed border-gray-300 hover:border-blue-600 cursor-pointer">Web Development</button>
+          <span>•</span>
+          <button onClick={() => { navigate('/about'); window.scrollTo(0,0); }} className="hover:text-blue-600 transition-colors font-medium border-b border-dashed border-gray-300 hover:border-blue-600 cursor-pointer">About Us</button>
+        </motion.div>
+
         {/* Hero Image */}
         <motion.div 
           initial={{ opacity: 0, y: 40 }}

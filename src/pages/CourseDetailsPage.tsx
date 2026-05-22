@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  ArrowLeft, Clock, IndianRupee, BookOpen, Target, 
+  ArrowLeft, ArrowRight, Clock, IndianRupee, BookOpen, Target, 
   Star, Users, MonitorPlay, Code, PenTool, BarChart, 
   Database, Globe, Cpu, Video, CheckCircle2, Zap, 
   PlayCircle, FileText, Award, Smartphone,
@@ -63,6 +63,19 @@ export default function CourseDetailsPage() {
   const [activeTab, setActiveTab] = useState('overview');
   const [openAccordion, setOpenAccordion] = useState<number | null>(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  // Filter related courses (same category first, fallback to others)
+  const relatedCourses = coursesData
+    .filter(c => c.id !== course?.id)
+    .filter(c => c.category === course?.category)
+    .slice(0, 3);
+
+  if (relatedCourses.length < 3 && course) {
+    const remaining = coursesData.filter(
+      c => c.id !== course.id && !relatedCourses.some(rc => rc.id === c.id)
+    );
+    relatedCourses.push(...remaining.slice(0, 3 - relatedCourses.length));
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -126,9 +139,14 @@ export default function CourseDetailsPage() {
         </div>
 
         <div className="max-w-[1536px] mx-auto relative z-10">
-          <Link to="/courses" className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8 font-medium text-sm">
-            <ArrowLeft size={16} /> Back to all courses
-          </Link>
+          {/* Breadcrumbs */}
+          <div className="flex items-center gap-2.5 text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">
+            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <span className="text-gray-600 font-normal">/</span>
+            <Link to="/courses" className="hover:text-white transition-colors">Courses</Link>
+            <span className="text-gray-600 font-normal">/</span>
+            <span className="text-white/60 truncate max-w-[200px] sm:max-w-none">{course.title}</span>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-6">
@@ -570,6 +588,60 @@ export default function CourseDetailsPage() {
           </div>
 
         </div>
+
+        {/* Related Courses Section */}
+        <div className="mt-24 border-t border-black/5 pt-16">
+          <h3 className="text-3xl font-bold text-[#0a0a0a] tracking-tight mb-8">
+            Related <span className="font-serif italic text-blue-600">Courses</span>
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {relatedCourses.map((relatedCourse, index) => (
+              <motion.div
+                key={relatedCourse.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="group bg-white rounded-[2rem] border border-black/5 hover:border-blue-500/20 hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 overflow-hidden flex flex-col h-full"
+              >
+                <div className="p-4 pb-0">
+                  <div className="relative h-48 w-full overflow-hidden rounded-[1.5rem]">
+                    <img
+                      src={relatedCourse.image}
+                      alt={relatedCourse.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[10px] font-bold px-3 py-1.5 rounded-full text-[#0a0a0a] border border-black/5 uppercase tracking-wider">
+                      {relatedCourse.category}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h4 className="font-bold text-[#0a0a0a] text-lg mb-2 group-hover:text-blue-600 transition-colors line-clamp-1">
+                      {relatedCourse.title}
+                    </h4>
+                    <p className="text-sm text-gray-500 line-clamp-2 mb-6">
+                      {relatedCourse.description}
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between border-t border-gray-50 pt-4 mt-auto">
+                    <div className="text-sm text-gray-400 font-medium">
+                      {relatedCourse.duration}
+                    </div>
+                    <Link 
+                      to={`/courses/${relatedCourse.id}`}
+                      className="text-blue-600 font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all"
+                    >
+                      View Details <ArrowRight size={14} className="transition-transform" />
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { BookOpen, Target, Users, Award, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Faculty from '../components/Faculty';
 
 export default function AboutPage() {
@@ -174,6 +175,37 @@ export default function AboutPage() {
 
       {/* Faculty Section */}
       <Faculty />
+
+      {/* CTA Section */}
+      <section className="py-20 px-6 max-w-[1536px] mx-auto text-center border-t border-black/5 mt-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto premium-card p-12 md:p-16 rounded-[2.5rem]"
+        >
+          <h2 className="text-3xl md:text-5xl font-medium tracking-tighter text-[#0a0a0a] mb-6">
+            Ready to <span className="font-serif italic text-blue-600">Start Learning?</span>
+          </h2>
+          <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
+            Explore our job-oriented practical courses or get in touch with our admission desk to find the best program for you.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link 
+              to="/courses" 
+              className="inline-flex items-center justify-center gap-2 bg-[#0a0a0a] text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-600 transition-colors shadow-lg shadow-black/5 text-base"
+            >
+              Explore Our Courses
+            </Link>
+            <Link 
+              to="/contact" 
+              className="inline-flex items-center justify-center gap-2 border border-black/10 bg-white text-[#0a0a0a] px-8 py-4 rounded-2xl font-bold hover:bg-gray-50 transition-colors shadow-lg shadow-black/5 text-base"
+            >
+              Contact Admission Desk
+            </Link>
+          </div>
+        </motion.div>
+      </section>
     </div>
   );
 }
