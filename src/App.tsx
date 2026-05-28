@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 // Lazy load pages
 const Home = lazy(() => import('./pages/Home'));
@@ -10,6 +11,7 @@ const CourseDetailsPage = lazy(() => import('./pages/CourseDetailsPage'));
 const AlumniPage = lazy(() => import('./pages/AlumniPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 
 // Simple Page Loader
 const PageLoader = () => (
@@ -21,6 +23,7 @@ const PageLoader = () => (
 export default function App() {
   return (
     <div className="min-h-screen bg-[#f5f5f4] font-sans text-[#0a0a0a] selection:bg-[#0a0a0a] selection:text-white overflow-x-hidden">
+      <ScrollToTop />
       <Navbar />
       <Suspense fallback={<PageLoader />}>
         <Routes>
@@ -30,6 +33,7 @@ export default function App() {
           <Route path="/alumni" element={<AlumniPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
       </Suspense>
       <Footer />
