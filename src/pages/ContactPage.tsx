@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Phone, MapPin, MessageCircle, CheckCircle2 } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -70,6 +71,7 @@ export default function ContactPage() {
 
   return (
     <div className="pt-24 min-h-screen bg-[#f5f5f4]">
+      <SEO title="Contact Us" description="Get in touch with Bhavna Institute. Visit us or call for free demo classes." canonical="/contact" />
       {/* Hero Section */}
       <section className="pt-16 pb-12 px-6 max-w-[1536px] mx-auto text-center">
         <motion.div

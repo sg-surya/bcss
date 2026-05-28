@@ -3,31 +3,31 @@
   <!-- Core Static Pages -->
   <url>
     <loc>https://bcss-vai.vercel.app/</loc>
-    <lastmod>2025-05-21</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses</loc>
-    <lastmod>2025-05-21</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/about</loc>
-    <lastmod>2025-05-21</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/contact</loc>
-    <lastmod>2025-05-21</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/alumni</loc>
-    <lastmod>2025-05-21</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -41,132 +41,158 @@
   <!-- Dynamic Course Pages -->
   <url>
     <loc>https://bcss-vai.vercel.app/courses/basic-computer</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/video-editing</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/advanced-excel</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/tally-prime</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/graphic-design</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/html-css</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/wordpress</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/python</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/digital-marketing</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/ai-tools</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/generative-ai-mastery</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/ai-automation-nocode</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/ai-content-productivity</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/full-stack-web</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/react-js</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/data-analytics</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/ui-ux-design</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/data-science-basics</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/sql-db</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/git-github</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/ai-chatbot</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/ai-agent</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/ai-video-gen</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/nocode-automation-ai</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/ai-business-productivity</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bcss-vai.vercel.app/courses/ai-content-creation-powered-new</loc>
-    <lastmod>2025-05-21</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

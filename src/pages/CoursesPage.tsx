@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Star, Users, Search, Filter, ArrowRight, Clock, ChevronDown } from 'lucide-react';
+import { Search, ArrowRight, Clock, ChevronDown, Users, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { coursesData } from '../data/courses';
 import CourseCardSkeleton from '../components/ui/CourseCardSkeleton';
-import ImageWithSkeleton from '../components/ui/ImageWithSkeleton';
 
 export default function CoursesPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -44,6 +44,7 @@ export default function CoursesPage() {
 
   return (
     <div className="pt-32 pb-24 px-6 max-w-[1536px] mx-auto min-h-screen">
+      <SEO title="Courses" description="Explore our job-oriented computer courses in Meerut." canonical="/courses" />
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-widest">
@@ -144,87 +145,75 @@ export default function CoursesPage() {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {isLoading ? (
           Array.from({ length: 6 }).map((_, i) => <CourseCardSkeleton key={i} />)
         ) : (
           filteredCourses.map((course, idx) => (
             <motion.div
               key={course.id}
-              variants={{
-                initial: { opacity: 0, y: 20 },
-                animate: { opacity: 1, y: 0 },
-              }}
-              initial="initial"
-              whileInView="animate"
-              whileHover="hover"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.05, duration: 0.5 }}
-              className="group cursor-pointer bg-white rounded-[2.5rem] border border-black/5 shadow-sm hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 flex flex-col h-full overflow-hidden relative"
+              transition={{ delay: idx * 0.05, duration: 0.4 }}
+              className="group bg-white rounded-[2rem] border border-black/5 shadow-sm hover:shadow-xl hover:shadow-black/5 transition-all duration-500 flex flex-col h-full overflow-hidden"
             >
-              {/* Image Section with Padding and Radius */}
-              <div className="p-4 pb-0">
-                <div className="relative h-44 w-full overflow-hidden rounded-[2rem]">
-                  <ImageWithSkeleton 
-                    src={course.image} 
+              {/* Image Section with Padding */}
+              <div className="p-3 pb-0">
+                <div className="relative h-44 w-full overflow-hidden rounded-[1.5rem]">
+                  <img
+                    src={course.image}
                     alt={course.title}
                     className="w-full h-full"
                     imageClassName="group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
-                  <div className="absolute top-4 right-4">
-                    <div className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded-lg flex flex-col items-center justify-center gap-0.5 shadow-sm">
-                      <div className="w-1 h-1 bg-black rounded-full" />
-                      <div className="w-1 h-1 bg-black rounded-full" />
-                      <div className="w-1 h-1 bg-black rounded-full" />
-                    </div>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                 </div>
               </div>
 
-              {/* Content Section */}
+              {/* Content */}
               <div className="p-6 flex-1 flex flex-col">
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center justify-between mb-3">
                   <span className="bg-orange-50 text-orange-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
                     {course.category}
                   </span>
                   <div className="flex items-center text-gray-400 text-xs font-medium">
-                    <Clock size={14} className="mr-1" /> {course.duration}
+                    <Clock size={13} className="mr-1" /> {course.duration}
                   </div>
                 </div>
-                
-                <h3 className="text-2xl font-bold text-[#0a0a0a] mb-0.5 tracking-tight line-clamp-1">
+
+                <h3 className="text-xl font-bold text-[#0a0a0a] leading-snug mb-1.5 line-clamp-1">
                   {course.title}
                 </h3>
-                
-                <p className="text-gray-400 text-sm mb-4">
-                  by <span className="text-gray-600 font-medium">{course.instructor || 'Michael Anderson'}</span>
+
+                <p className="text-sm text-gray-400 mb-5">
+                  by <span className="text-gray-600 font-medium">{course.instructor}</span>
                 </p>
-                
+
                 <div className="mt-auto">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center">
-                      <div className="flex -space-x-2">
-                        {[1, 2, 3, 4].map((i) => (
-                          <div key={i} className="w-7 h-7 rounded-full border-2 border-white overflow-hidden bg-gray-100">
-                            <img src={`https://i.pravatar.cc/100?u=${course.id}${i}`} alt="user" referrerPolicy="no-referrer" />
-                          </div>
-                        ))}
-                      </div>
-                      <span className="ml-3 text-sm font-bold text-gray-400">+{course.students}</span>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <Users size={16} className="text-blue-500" />
+                      <span className="font-semibold text-gray-600">{course.students}</span>
                     </div>
-                    <div className="text-2xl font-bold text-[#0a0a0a]">
-                      {course.fees}
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg font-bold text-[#0a0a0a]">{course.fees}</span>
+                      <div className="flex items-center gap-1">
+                        <Star size={13} className="text-orange-400 fill-current" />
+                        <span className="text-sm font-bold text-gray-600">{course.rating}</span>
+                      </div>
                     </div>
                   </div>
 
                   <Link to={`/courses/${course.id}`}>
                     <motion.button
-                      whileHover={{ scale: 1.02 }}
+                      whileHover={{ scale: 1.01 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full py-3 bg-gray-50 group-hover:bg-[#0a0a0a] group-hover:text-white text-[#0a0a0a] font-bold rounded-2xl transition-all duration-300 flex items-center justify-center gap-2"
+                      className="w-full py-3.5 bg-gray-50 group-hover:bg-[#0a0a0a] text-[#0a0a0a] group-hover:text-white font-bold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm"
                     >
-                      Explore Course <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                      Explore Course <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </motion.button>
                   </Link>
                 </div>
