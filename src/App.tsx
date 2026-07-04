@@ -12,6 +12,10 @@ const AlumniPage = lazy(() => import('./pages/AlumniPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
+const FacultyPage = lazy(() => import('./pages/FacultyPage'));
+const StudentReviewsPage = lazy(() => import('./pages/StudentReviewsPage'));
+const GalleryPage = lazy(() => import('./pages/GalleryPage'));
+const PlacementPage = lazy(() => import('./pages/PlacementPage'));
 
 // Simple Page Loader
 const PageLoader = () => (
@@ -34,6 +38,10 @@ export default function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/faculty" element={<FacultyPage />} />
+          <Route path="/reviews" element={<StudentReviewsPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/placement" element={<PlacementPage />} />
         </Routes>
       </Suspense>
       <Footer />

@@ -22,9 +22,12 @@ export default function Navbar() {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'Courses', path: '/courses' },
-    { name: 'Alumni', path: '/alumni' },
     { name: 'About', path: '/about' },
+    { name: 'Courses', path: '/courses' },
+    { name: 'Faculty', path: '/faculty' },
+    { name: 'Reviews', path: '/reviews' },
+    { name: 'Gallery', path: '/gallery' },
+    { name: 'Placement', path: '/placement' },
     { name: 'Contact', path: '/contact' }
   ];
 

@@ -72,9 +72,27 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/#why-us" className="group flex items-center text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">
+                <Link to="/faculty" className="group flex items-center text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">
                   <ArrowRight size={14} className="opacity-0 w-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:w-4 group-hover:translate-x-0 group-hover:mr-2" />
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">Why Choose Us</span>
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">Our Faculty</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/reviews" className="group flex items-center text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">
+                  <ArrowRight size={14} className="opacity-0 w-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:w-4 group-hover:translate-x-0 group-hover:mr-2" />
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">Student Reviews</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/gallery" className="group flex items-center text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">
+                  <ArrowRight size={14} className="opacity-0 w-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:w-4 group-hover:translate-x-0 group-hover:mr-2" />
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">Gallery</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/placement" className="group flex items-center text-sm text-gray-500 hover:text-[#0a0a0a] transition-colors">
+                  <ArrowRight size={14} className="opacity-0 w-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:w-4 group-hover:translate-x-0 group-hover:mr-2" />
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">Placements</span>
                 </Link>
               </li>
               <li>
