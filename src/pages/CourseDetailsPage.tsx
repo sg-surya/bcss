@@ -6,7 +6,7 @@ import {
   Database, Globe, Cpu, Video, CheckCircle2, Zap,
   PlayCircle, FileText, Award, Smartphone,
   ChevronDown, ChevronUp, Check, Briefcase, MessageSquare, HelpCircle,
-  GraduationCap, Layers, Mail
+  GraduationCap, Layers, Mail, Download, Eye
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import { coursesData } from '../data/courses';
@@ -376,9 +376,30 @@ export default function CourseDetailsPage() {
 
                 <a href={`https://wa.me/919719205268?text=${encodeURIComponent(`Hi, I am interested in enrolling in the ${course.title} course.`)}`}
                   target="_blank" rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-3.5 rounded-xl font-bold text-sm hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/25 mb-5">
+                  className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-3.5 rounded-xl font-bold text-sm hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/25 mb-3">
                   Enroll Now
                 </a>
+
+                {(course as any).brochure && (
+                  <a href={encodeURI((course as any).brochure)} download target="_blank" rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 bg-white border border-black/10 text-[#0a0a0a] py-3.5 rounded-xl font-bold text-sm hover:bg-gray-50 transition-all mb-3">
+                    <Download size={16} /> Download Brochure
+                  </a>
+                )}
+
+                {(course as any).brochure && (
+                  <a href={encodeURI((course as any).brochure)} target="_blank" rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 bg-gray-50 border border-black/5 text-gray-600 py-2.5 rounded-xl font-semibold text-xs hover:bg-gray-100 transition-all mb-5">
+                    <Eye size={14} /> View Brochure
+                  </a>
+                )}
+
+                {(course as any).brochure && (
+                  <a href={encodeURI((course as any).brochure)} target="_blank" rel="noopener noreferrer" className="block mb-5 rounded-xl overflow-hidden border border-black/5 hover:border-blue-200 transition-colors group/bro">
+                    <img src={encodeURI((course as any).brochure)} alt={`${course.title} brochure`} className="w-full h-auto object-contain max-h-64 group-hover/bro:scale-[1.01] transition-transform" loading="lazy" />
+                    <div className="bg-gray-50 text-center py-2 text-xs font-semibold text-gray-500 group-hover/bro:text-blue-600">Click to view brochure</div>
+                  </a>
+                )}
 
                 <div className="space-y-3">
                   <h4 className="font-bold text-[#0a0a0a] text-xs uppercase tracking-wider">Includes</h4>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Clock } from 'lucide-react';
+import { ArrowRight, Clock, Download } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { coursesData } from '../data/courses';
 import CourseCardSkeleton from './ui/CourseCardSkeleton';
@@ -122,13 +122,21 @@ export default function Courses() {
                     </div>
                   </div>
 
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full py-3 bg-gray-50 group-hover:bg-[#0a0a0a] group-hover:text-white text-[#0a0a0a] font-bold rounded-2xl transition-all duration-300 flex items-center justify-center gap-2"
-                  >
-                    Explore Course <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </motion.button>
+                  <div className="flex gap-2">
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="flex-1 py-3 bg-gray-50 group-hover:bg-[#0a0a0a] group-hover:text-white text-[#0a0a0a] font-bold rounded-2xl transition-all duration-300 flex items-center justify-center gap-2"
+                    >
+                      Explore Course <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    </motion.button>
+                    {(course as any).brochure && (
+                      <a href={encodeURI((course as any).brochure)} download target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
+                        className="w-[48px] shrink-0 flex items-center justify-center bg-white border border-black/10 rounded-2xl text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                        <Download size={18} />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </motion.div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Search, ArrowRight, Clock, ChevronDown, Users, Star } from 'lucide-react';
+import { Search, ArrowRight, Clock, ChevronDown, Users, Star, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { coursesData } from '../data/courses';
@@ -207,15 +207,24 @@ export default function CoursesPage() {
                     </div>
                   </div>
 
-                  <Link to={`/courses/${course.id}`}>
-                    <motion.button
-                      whileHover={{ scale: 1.01 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full py-3.5 bg-gray-50 group-hover:bg-[#0a0a0a] text-[#0a0a0a] group-hover:text-white font-bold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm"
-                    >
-                      Explore Course <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                    </motion.button>
-                  </Link>
+                  <div className="flex gap-2">
+                    <Link to={`/courses/${course.id}`} className="flex-1">
+                      <motion.button
+                        whileHover={{ scale: 1.01 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full py-3.5 bg-gray-50 group-hover:bg-[#0a0a0a] text-[#0a0a0a] group-hover:text-white font-bold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm"
+                      >
+                        Explore Course <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                      </motion.button>
+                    </Link>
+                    {(course as any).brochure && (
+                      <a href={encodeURI((course as any).brochure)} download target="_blank" rel="noopener noreferrer"
+                        title="Download Brochure"
+                        className="w-[52px] shrink-0 flex items-center justify-center bg-white border border-black/10 rounded-xl text-gray-600 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all">
+                        <Download size={18} />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </motion.div>
